@@ -1,0 +1,13 @@
+:root {
+  --dark-yellow: #fcb43a;
+  --dark-black: #23212c;
+  --medium-yellow: #f3c622;
+  --medium-black: #3a3637;
+  --medium-red: #992409;
+  --light-yellow: #fcd615;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

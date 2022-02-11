@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  background-color: var(--dark-yellow);
+  align-items: center;
+  color: var(--dark-black);
+  height: 10vmin;
+}
+
+.leftSection {
+  justify-self: flex-start;
+  margin-left: 2vmin;
+  margin-right: auto;
+}
+
+.leftSection > h1 {
+  font-size: calc(10px + 2vmin);
+}
+
+.rightSection {
+  justify-self: flex-end;
+  margin-right: 2vmin;
+}
+
+.rightSection > ul {
+  list-style: none;
+}
+
+.rightSection > ul > li {
+  display: flex;
+  align-items: center;
+}
+
+.rightSection > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  font-size: calc(5px + 2vmin);
+}
