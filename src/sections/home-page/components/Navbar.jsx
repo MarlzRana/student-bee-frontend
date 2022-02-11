@@ -1,5 +1,7 @@
 import styles from '../styling/Navbar.module.css';
 
+import { Link } from 'react-router-dom';
+
 function Navbar() {
   return (
     <nav class={styles.navbar}>
@@ -9,7 +11,7 @@ function Navbar() {
       <div className={styles.rightSection}>
         <ul>
           <li>
-            <a href=''>Sign in</a>
+            <Link to='/login'>Sign in</Link>
           </li>
         </ul>
       </div>
