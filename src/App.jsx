@@ -2,6 +2,7 @@ import './global.css';
 
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePageContent from './sections/home-page/components/Content';
 
 const HomePageNavbar = lazy(() =>
   import('./sections/home-page/components/Navbar')
@@ -18,6 +19,7 @@ function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <HomePageNavbar />
+                <HomePageContent />
               </Suspense>
             }
           ></Route>
