@@ -1,6 +1,10 @@
 import styles from '../styling/RegistrationWidget.module.css';
 
+import { useState } from 'react';
+
 function RegistrationWidget() {
+  const [enteredUsername, setEnteredUsername] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('');
   return (
     <div class={styles.widget}>
       <header class={styles.header}>
@@ -9,11 +13,23 @@ function RegistrationWidget() {
       <form class={styles.form}>
         <div className={styles.formTextInput}>
           <label for='username'>Username:</label>
-          <input id='username' type='text' name='enteredUsername' required />
+          <input
+            id='username'
+            type='text'
+            name='enteredUsername'
+            required
+            onChange={(e) => setEnteredUsername(e.target.value)}
+          />
         </div>
         <div className={styles.formTextInput}>
           <label for='password'>Password:</label>
-          <input id='password' type='text' name='enteredPassword' required />
+          <input
+            id='password'
+            type='text'
+            name='enteredPassword'
+            required
+            onChange={(e) => setEnteredPassword(e.target.value)}
+          />
         </div>
         <div className={styles.formTextInput}>
           <label for='firstName'>First name:</label>
