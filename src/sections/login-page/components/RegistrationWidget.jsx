@@ -1,10 +1,20 @@
 import styles from '../styling/RegistrationWidget.module.css';
 
 import { useState } from 'react';
+import Axios from 'axios';
 
 function RegistrationWidget() {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
+
+  async function register() {
+    const payload = { username: enteredUsername, password: enteredPassword };
+    const res = await Axios.post('http://localhost:3001/register', payload)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  }
   return (
     <div class={styles.widget}>
       <header class={styles.header}>
@@ -12,7 +22,7 @@ function RegistrationWidget() {
       </header>
       <form class={styles.form}>
         <div className={styles.formTextInput}>
-          <label for='username'>Username:</label>
+          <label htmlFor='username'>Username:</label>
           <input
             id='username'
             type='text'
@@ -22,7 +32,7 @@ function RegistrationWidget() {
           />
         </div>
         <div className={styles.formTextInput}>
-          <label for='password'>Password:</label>
+          <label htmlFor='password'>Password:</label>
           <input
             id='password'
             type='text'
@@ -32,22 +42,27 @@ function RegistrationWidget() {
           />
         </div>
         <div className={styles.formTextInput}>
-          <label for='firstName'>First name:</label>
+          <label htmlFor='firstName'>First name:</label>
           <input id='firstName' type='text' name='enteredFirstName' required />
         </div>
         <div className={styles.formTextInput}>
-          <label for='lastName'>Last name:</label>
+          <label htmlFor='lastName'>Last name:</label>
           <input id='lastName' type='text' name='enteredLastName' required />
         </div>
+        <div className={styles.formTextInput}>
+          <label htmlFor='email'>Email:</label>
+          <input id='email' type='email' name='enteredPassword' required />
+        </div>
         <div className={styles.formDateInput}>
-          <label for='dob'>Date of birth: </label>
+          <label htmlFor='dob'>Date of birth: </label>
           <input id='dob' type='date' name='enteredDOB' />
         </div>
         <input
           class={styles.submit}
           type='submit'
           name='submit'
-          value='Login'
+          value='Sign up'
+          onClick={register}
         />
       </form>
     </div>

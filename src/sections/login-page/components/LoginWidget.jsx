@@ -8,11 +8,11 @@ function LoginWidget() {
       </header>
       <form class={styles.form}>
         <div className={styles.formTextInput}>
-          <label for='username'>Username:</label>
+          <label htmlFor='username'>Username:</label>
           <input id='username' type='text' name='enteredUsername' required />
         </div>
         <div className={styles.formTextInput}>
-          <label for='password'>Password:</label>
+          <label htmlFor='password'>Password:</label>
           <input id='password' type='text' name='enteredPassword' required />
         </div>
         <input
