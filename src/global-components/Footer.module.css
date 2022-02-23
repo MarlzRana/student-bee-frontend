@@ -1,0 +1,8 @@
+footer{
+background-color: var(--dark-black) ;
+color: whitesmoke;
+}
+footer .footer-main{
+    display: flex;
+    flex-direction: column;
+}

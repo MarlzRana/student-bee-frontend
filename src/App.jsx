@@ -9,6 +9,7 @@ const HomePageNavbar = lazy(() =>
 );
 const Login = lazy(() => import('./sections/login-page/Login'));
 
+const FooterInTest = lazy(() => import('./global-components/Footer'));
 function App() {
   return (
     <div className='App'>
@@ -33,7 +34,7 @@ function App() {
           ></Route>
           <Route
             path='/development'
-            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
+            element={<Suspense fallback={<div>Loading...</div>}><FooterInTest/></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
