@@ -1,0 +1,63 @@
+
+.LeftPanel .PanelContents{
+    background: #fa0202;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(300px + 2vmin);
+    height: calc(927px + 2vmin);;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    margin-bottom: 30px;
+    text-align: center;
+    left: 0px;
+    top: calc(50px + 2vmin);
+}
+
+.LeftPanel .PanelContents img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.LeftPanel .PanelContents h3{
+    color: #000000;
+    margin: 10px 0 5px;
+    font-size: 22px;
+}
+
+.LeftPanel .PanelContents p{
+    color: #000000;
+    font-size: 18px;
+}
+
+
+
+.Btn:link,
+.Btn:visited{
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 200px;
+    color: black; 
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    background-color: #FCD615;
+    border: 1px solid #FCD615;
+    color: black;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 30px;
+    position: centre;
+}
+
+.Btn:hover,
+.Btn:active{
+    background-color: #b89c11;
+    border: 1px solid #b89c11;
+}
+
+
+
