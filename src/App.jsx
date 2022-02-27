@@ -8,6 +8,9 @@ const HomePageNavbar = lazy(() =>
   import('./sections/home-page/components/Navbar')
 );
 const Login = lazy(() => import('./sections/login-page/Login'));
+const MainApp = lazy(() =>
+  import('./sections/main-app/components/styling/MainApp')
+);
 
 function App() {
   return (
@@ -28,6 +31,14 @@ function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <Login />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path='/mainApp'
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <MainApp />
               </Suspense>
             }
           ></Route>
