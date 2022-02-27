@@ -8,9 +8,7 @@ const HomePageNavbar = lazy(() =>
   import('./sections/home-page/components/Navbar')
 );
 const Login = lazy(() => import('./sections/login-page/Login'));
-const MainApp = lazy(() =>
-  import('./sections/main-app/components/styling/MainApp')
-);
+const MainApp = lazy(() => import('./sections/main-app/MainApp'));
 
 function App() {
   return (
