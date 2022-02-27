@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  background-color: #3a3637;
+  height: calc(20px + 5vmin);
+}
+
+.leftSection {
+  justify-self: flex-start;
+  margin-right: auto;
+  margin-left: 1vw;
+}
+
+.leftSection > ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0%;
+  list-style-type: none;
+}
+
+.leftSection > ul > li {
+  padding-right: 1vmin;
+}
+
+.leftSection > ul > li > a {
+  color: white;
+  text-decoration: none;
+  font-size: calc(5px + 1.7vmin);
+}
+
+.rightSection {
+  justify-self: flex-end;
+  margin-right: 1vw;
+}
+
+.rightSection > input {
+  width: calc(80px + 8vw);
+  height: calc(12px + 1vmin);
+}
