@@ -1,15 +1,15 @@
 import styles from "../styling/LeftPanel.module.css"
-import ProfilePic from './DefaultProfilePic.jpg';
+import profilePic from './DefaultProfilePic.jpg';
 function LeftPanel() {
   return (
-    <div  className= {styles.LeftPanel}>
-        <div className= {styles.PanelContents}>
-            <img src={ProfilePic} alt = "ProfilePic"/>
+    <div  className= {styles.leftPanel}>
+        <div className= {styles.panelContents}>
+            <img src={profilePic} alt = "profilePic"/>
             <h3>Profile Name</h3>
             <p>Course</p>
-            <a className={styles.Btn} href="#" >Edit Profile</a>
-            <br></br><a className={styles.Btn} href="#" >My Societies</a>
-            <br></br><a className={styles.Btn} href="#">My Jobs</a>
+            <a className={styles.btn} href="#" >Edit Profile</a>
+            <br></br><a className={styles.btn} href="#" >My Societies</a>
+            <br></br><a className={styles.btn} href="#">My Jobs</a>
         </div>
     </div>
   )

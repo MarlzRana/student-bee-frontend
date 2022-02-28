@@ -1,5 +1,5 @@
 
-.LeftPanel .PanelContents{
+.leftPanel .panelContents{
     background: #fa0202;
     position: fixed;
     top: 0;
@@ -14,7 +14,7 @@
     top: calc(50px + 2vmin);
 }
 
-.LeftPanel .PanelContents img{
+.leftPanel .panelContents img{
     display: block;
     width: 200px;
     height: 200px;
@@ -22,21 +22,21 @@
     margin: 0 auto;
 }
 
-.LeftPanel .PanelContents h3{
+.leftPanel .panelContents h3{
     color: #000000;
     margin: 10px 0 5px;
     font-size: 22px;
 }
 
-.LeftPanel .PanelContents p{
+.leftPanel .panelContents p{
     color: #000000;
     font-size: 18px;
 }
 
 
 
-.Btn:link,
-.Btn:visited{
+.btn:link,
+.btn:visited{
     display: inline-block;
     padding: 10px 30px;
     font-weight: 700;
@@ -53,8 +53,8 @@
     position: centre;
 }
 
-.Btn:hover,
-.Btn:active{
+.btn:hover,
+.btn:active{
     background-color: #b89c11;
     border: 1px solid #b89c11;
 }
