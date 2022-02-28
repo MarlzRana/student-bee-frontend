@@ -2,14 +2,14 @@ import styles from "../styling/FloatingWidget.module.css";
 import image from './placeholder.jpg';
 
 function FloatingWidget(props) {
+  const {eventName, description} = props;
   return (
     <div class={styles.floatingWidget}>
-        <div class={styles.contents}>
-          <img src={image} alt = "Event Image"/>
-          <div class={styles.description}>
-            <h1>Music Fesitval</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-          </div>
+      <img src={image} alt = "Event Image"/>
+        <div class={styles.description}>
+          <h1>{props.eventName}</h1>
+          <p>{props.description}</p>
+          <a className={styles.btn} href="#" >Find out more</a>
         </div>
     </div>
   )

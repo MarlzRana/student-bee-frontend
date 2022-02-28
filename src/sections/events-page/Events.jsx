@@ -7,7 +7,7 @@ function Events() {
   return (
     <div className={styles.events}>
         <Suspense fallback={<div>Loading...</div>}>
-            <FloatingWidget/>
+            <FloatingWidget eventName="Music Event" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do"/>
         </Suspense>
     </div>
   )
