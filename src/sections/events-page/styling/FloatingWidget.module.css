@@ -1,24 +1,16 @@
 .floatingWidget{
     display: flex;
-    /* height: 500px; */
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
     flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-    /* display: grid; */
 }
 
 .floatingWidget > div {
     background-color: black;
-    /* margin: 10px; */
     padding: 3px;
-    /* font-size: 30px; */
-    /* align-items: center; */
 }
 
 .floatingWidget .contents {
+    flex-flow: row wrap;
     align-items: center;
     height: 40vh;
     width: 40vw;
@@ -36,13 +28,35 @@
 }
 
 .floatingWidget .contents .description {
+    flex-flow: row wrap;
+    position: relative;
+    top: -9.2vh;
+    right: 0;
     align-items: center;
     border-radius: 8px;
     background-color: #fcd615;
     margin: 0px;
     padding: 20px;
-    font-size: 18px;
-    /* width: 100%; */
+    font-size: 16px;
+    height: 3.3vh;
+}
+
+.floatingWidget .contents .description h1 {
+    position: relative;
+    top: -2.5vh;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+}
+
+.floatingWidget .contents .description p {
+    position: relative;
+    top: -2.5vh;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
 }
 
 /* @media screen and (max-width: 800px) { */
