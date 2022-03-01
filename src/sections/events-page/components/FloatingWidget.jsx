@@ -1,5 +1,5 @@
 import styles from "../styling/FloatingWidget.module.css";
-import image from './placeholder.jpg';
+import image from '../styling/placeholder.jpg';
 
 function FloatingWidget(props) {
   const {eventName, description} = props;
