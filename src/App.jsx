@@ -9,7 +9,9 @@ const HomePageNavbar = lazy(() =>
 );
 const Login = lazy(() => import('./sections/login-page/Login'));
 
-const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"))
+const leftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"));
+
+const Jobs = lazy( () => import('./sections/jobs-page/Jobs'));
 
 function App() {
   return (
@@ -35,7 +37,7 @@ function App() {
           ></Route>
           <Route
             path='/development'
-            element={<Suspense fallback={<div>Loading...</div>}><LeftPanel/></Suspense>}
+            element={<Suspense fallback={<div>Loading...</div>}><Jobs/></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
