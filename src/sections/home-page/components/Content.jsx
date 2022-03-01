@@ -1,5 +1,5 @@
 import styles from '../styling/Content.module.css';
-import bgfeatures from './bg-features.png';
+import bgFeatures from './bg-features.png';
 import eventIcon from './event-icon.png';
 import jobIcon from './job-icon.png'; 
 import societyIcon from './society-icon.png';
@@ -7,20 +7,31 @@ import accomIcon from './accom-icon.png';
 import feedbackIcon from './feedback-icon.png';
 import supportIcon from './support-icon.png';
 
+import { Link } from 'react-router-dom';
+
 function HomePageContent() {
   return (
     <>
       {/* Welcome section */}
       <section>
-        <div className={styles.placeholder}>
-          placeholder
+        <div className={styles.topContainer}>
+          <div className={styles.border}></div>
+          <div className={styles.mid}>
+            <h2>Reconnecting Students</h2>
+            <div className={styles.button}>
+              <Link style={{ textDecoration: 'none', color: 'white' }} to='/mainApp'>
+                Join Now
+              </Link>
+            </div>
+          </div>
+          <div className={styles.border}></div>
         </div>
       </section>
       
       {/* Features section */}
       <section>
         <div className={styles.featuresContainer}>
-          <img src={bgfeatures} className={styles.featureBG} alt="background"/>
+          <img src={bgFeatures} className={styles.featureBG} alt="feature background"/>
           <div className={styles.topLeft}><h2>Features</h2></div>
           <div className={styles.featureContents}>
             <div className={styles.feature}>
@@ -55,6 +66,11 @@ function HomePageContent() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Footer section */}
+      <section>
+        footer
       </section>
     </>  
   );
