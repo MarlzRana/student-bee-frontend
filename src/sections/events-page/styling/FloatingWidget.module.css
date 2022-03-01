@@ -38,9 +38,10 @@
     margin: 0px;
     padding: 20px;
     font-size: 16px;
-    max-width: 95%;
+    max-width: 98%;
     min-height: 0;
     min-width: 0;
+    overflow: hidden;
 }
 
 .floatingWidget .description h1 {
@@ -63,7 +64,6 @@
 
 .btn:link,
 .btn:visited{
-    /* display: inline-block; */
     padding: 2px 10px;
     font-weight: 600;
     font-size: 14px;
@@ -75,8 +75,8 @@
     border: 1px solid #23212c;
     color: white;
     position: absolute;
-    bottom: 0vh;
-    right: 1vw;
+    bottom: 0.5vh;
+    right: 0.5vw;
 }
 
 .btn:hover,
