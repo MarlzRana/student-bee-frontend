@@ -1,0 +1,30 @@
+.mainNavbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  background-color: var(--medium-yellow);
+  height: calc(35px + 5vmin);
+}
+
+.leftSection {
+  justify-self: flex-start;
+  margin-right: auto;
+  margin-left: 1vw;
+}
+
+.leftSection > h1 {
+  font-size: calc(10px + 2vmin);
+}
+
+.rightSection {
+  justify-self: flex-end;
+  margin-right: 1vw;
+}
+
+.rightSection > a {
+  text-decoration: none;
+  color: #282c34;
+  font-size: calc(3px + 2vmin);
+  font-weight: 700;
+}

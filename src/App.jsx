@@ -8,6 +8,9 @@ const HomePageNavbar = lazy(() =>
   import('./sections/home-page/components/Navbar')
 );
 const Login = lazy(() => import('./sections/login-page/Login'));
+const MainApp = lazy(() => import('./sections/main-app/MainApp'));
+
+const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"))
 
 const FooterInTest = lazy(() => import('./global-components/Footer'));
 function App() {
@@ -33,8 +36,16 @@ function App() {
             }
           ></Route>
           <Route
+            path='/mainApp'
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <MainApp />
+              </Suspense>
+            }
+          ></Route>
+          <Route
             path='/development'
-            element={<Suspense fallback={<div>Loading...</div>}><FooterInTest/></Suspense>}
+            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
