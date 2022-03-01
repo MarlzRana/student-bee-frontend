@@ -12,6 +12,7 @@ const MainApp = lazy(() => import('./sections/main-app/MainApp'));
 
 const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"))
 
+const FooterInTest = lazy(() => import('./global-components/Footer'));
 function App() {
   return (
     <div className='App'>
@@ -44,7 +45,7 @@ function App() {
           ></Route>
           <Route
             path='/development'
-            element={<Suspense fallback={<div>Loading...</div>}><LeftPanel/></Suspense>}
+            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
