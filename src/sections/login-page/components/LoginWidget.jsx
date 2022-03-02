@@ -9,6 +9,7 @@ function LoginWidget() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [hasTriedToLogin, setHasTriedToLogin] = useState(false);
+  const [isUsernameExistent, setIsUsernameExistent] = useState(false);
 
   const login = async (e) => {
     e.preventDefault();
@@ -17,7 +18,14 @@ function LoginWidget() {
       .then((res) => {
         setHasTriedToLogin(true);
         if (res.data.status == 'validCredentials') setIsLoggedIn(true);
-        if (res.data.status == 'invalidCredentials') setIsLoggedIn(false);
+        if (res.data.status == 'incorrectPassword') {
+          setIsLoggedIn(false);
+          setIsUsernameExistent(true);
+        }
+        if (res.data.status == 'nonExistentUsername') {
+          setIsLoggedIn(false);
+          setIsUsernameExistent(false);
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -57,7 +65,18 @@ function LoginWidget() {
         />
       </form>
       <p>{isLoggedIn && 'Welcome back!'}</p>
-      <p>{!isLoggedIn && hasTriedToLogin && 'Incorrect username/password'}</p>
+      <p>
+        {!isLoggedIn &&
+          hasTriedToLogin &&
+          isUsernameExistent &&
+          'Incorrect username/password'}
+      </p>
+      <p>
+        {!isLoggedIn &&
+          hasTriedToLogin &&
+          !isUsernameExistent &&
+          'That username does not exist'}
+      </p>
     </div>
   );
 }
