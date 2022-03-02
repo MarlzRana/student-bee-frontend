@@ -7,20 +7,19 @@ function RegistrationWidget() {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
 
-  async function register() {
+  const register = async (e) => {
+    e.preventDefault();
     const payload = { username: enteredUsername, password: enteredPassword };
-    const res = await Axios.post('http://localhost:3001/register', payload)
-      .then((response) => {
-        console.log(response);
-      })
+    await Axios.post('http://localhost:3001/register', payload)
+      .then((res) => console.log(res))
       .catch((err) => console.log(err));
-  }
+  };
   return (
-    <div class={styles.widget}>
-      <header class={styles.header}>
+    <div className={styles.widget}>
+      <header className={styles.header}>
         <h1>Join the hive!</h1>
       </header>
-      <form class={styles.form}>
+      <form className={styles.form}>
         <div className={styles.formTextInput}>
           <label htmlFor='username'>Username:</label>
           <input
