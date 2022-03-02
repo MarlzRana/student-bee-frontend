@@ -5,7 +5,8 @@
     justify-content: space-evenly;
     height: calc(50px + 35vh);
     width: calc(50px + 25vw);
-    max-width: 450px;
+    max-width: 40vw;
+    min-height: 25vh;
     border-radius: 8px;
     margin: 10px;
 }
@@ -94,7 +95,7 @@
         top: -3vh;
         align-items: center;
         border-radius: 8px;
-        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("placeholder.jpg");
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("main_logo.png");
         background-size: calc(50px + 25vw) calc(50px + 35vh);
         border-color: black;
         border-style: solid;
