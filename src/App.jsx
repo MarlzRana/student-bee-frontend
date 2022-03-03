@@ -9,8 +9,9 @@ const HomePageNavbar = lazy(() =>
 );
 const Login = lazy(() => import('./sections/login-page/Login'));
 const MainApp = lazy(() => import('./sections/main-app/MainApp'));
+const Events = lazy(() => import("./sections/events-page/Events"));
 
-const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"))
+const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"));
 
 const FooterInTest = lazy(() => import('./global-components/Footer'));
 function App() {
