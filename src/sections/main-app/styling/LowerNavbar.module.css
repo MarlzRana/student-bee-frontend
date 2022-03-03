@@ -40,3 +40,73 @@
   width: calc(80px + 8vw);
   height: calc(12px + 1vmin);
 }
+
+.hIcon {
+  float: left;
+  background-image: url('./icons/home-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+  filter: invert(100%);
+}
+
+.eIcon {
+  float: left;
+  background-image: url('./icons/event-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+}
+
+.jIcon {
+  float: left;
+  background-image: url('./icons/job-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+}
+
+.soIcon {
+  float: left;
+  background-image: url('./icons/societies-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+}
+
+.aIcon {
+  float: left;
+  background-image: url('./icons/accom-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+}
+
+.fIcon {
+  float: left;
+  background-image: url('./icons/feedback-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+}
+
+.suIcon {
+  float: left;
+  background-image: url('./icons/support-icon.png');
+  width: calc(20px + 2vmin);
+  height: calc(10px + 2vmin);
+  background-repeat:no-repeat;
+  background-size: calc(14px + 2vmin) calc(10px + 2vmin);
+}
+
+@media (max-width: 768px) {
+  .iconLabel {
+    display: none;
+  }
+}
