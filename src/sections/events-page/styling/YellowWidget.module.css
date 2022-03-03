@@ -1,0 +1,13 @@
+.yellowWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: calc(50px + 35vh);
+  width: calc(50px + 25vw);
+  max-width: 40vw;
+  min-height: 25vh;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: black;
+}

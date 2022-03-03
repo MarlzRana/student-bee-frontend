@@ -46,7 +46,9 @@ function App() {
           ></Route>
           <Route
             path='/development'
-            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
+            element={<Suspense fallback={<div>Loading...</div>}>
+              <Events />
+            </Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
