@@ -1,6 +1,7 @@
 import styles from './Login.module.css';
 
-import { lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
+import Axios from 'axios';
 
 const LoginWidget = lazy(() => import('./components/LoginWidget'));
 const RegistrationWidget = lazy(() =>
@@ -8,8 +9,15 @@ const RegistrationWidget = lazy(() =>
 );
 
 function Login() {
+  Axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    Axios.get('http://localhost:3001/login').then((res) => {
+      console.log(res);
+    });
+  }, []);
   return (
-    <div class={styles.page}>
+    <div className={styles.page}>
       <Suspense fallback={<div>Loading...</div>}>
         <RegistrationWidget />
         <LoginWidget />

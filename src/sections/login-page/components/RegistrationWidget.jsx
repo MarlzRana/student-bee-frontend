@@ -57,7 +57,7 @@ function RegistrationWidget() {
           <input id='dob' type='date' name='enteredDOB' />
         </div>
         <input
-          class={styles.submit}
+          className={styles.submit}
           type='submit'
           name='submit'
           value='Sign up'
