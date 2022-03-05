@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: space-evenly;
   height: calc(50px + 35vh);
   width: calc(50px + 25vw);
@@ -9,5 +11,93 @@
   min-height: 25vh;
   border-radius: 8px;
   margin: 10px;
-  background-color: black;
+  /* background-color: black; */
+}
+
+.yellowWidget img {
+  display: flex;
+  flex-basis: inherit;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  object-fit: cover;
+  border-color: black;
+  border-style: solid;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: inherit;
+  width: inherit;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* .yellowWidget .description {
+  z-index: 2;
+  display: flex;
+  flex-basis: inherit;
+  align-items: center;
+  flex-flow: row wrap;
+  position: relative;
+  top: -3vh;
+  align-items: center;
+  border-radius: 8px;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+  border-color: black;
+  border-style: solid;
+  margin: 10px;
+  padding-bottom: 3vh;
+  padding-left: 5px;
+  width: calc(45px + 25vw);
+  height: fit-content;
+  color: white;
+  height: inherit;
+  width: inherit;
+  text-align: center;
+} */
+
+/* .yellowWidget .description {
+  display: flex;
+  flex-basis: inherit;
+  align-items: center;
+  flex-flow: row wrap;
+  position: relative;
+  top: -3vh;
+  align-items: center;
+  border-radius: 8px;
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url("main_logo.png");
+  background-size: calc(50px + 25vw) calc(50px + 35vh);
+  border-color: black;
+  border-style: solid;
+  margin: 10px;
+  padding-bottom: 3vh;
+  padding-left: 5px;
+  width: calc(45px + 25vw);
+  height: fit-content;
+  color: white;
+} */
+
+/* .yellowWidget .description h1 {
+  align-items: center;
+  font-size: 16px;
+  text-align: center;
+}
+
+.yellowWidget .description p {
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 1vh;
+  text-align: center;
+} */
+
+.yellowWidget h1 {
+  align-items: center;
+  font-size: 16px;
+  text-align: center;
+}
+
+.yellowWidget p {
+  align-items: center;
+  font-size: 12px;
+  /* margin-bottom: 1vh; */
+  text-align: center;
 }
