@@ -9,8 +9,6 @@ function FloatingWidget(props) {
         <h1>{eventName}</h1>
         <p>{eventDate}</p>
       </div>
-      {/* <h1>{eventName}</h1>
-      <p>{eventDate}</p> */}
     </div>
   );
 }
