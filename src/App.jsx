@@ -11,6 +11,8 @@ const Login = lazy(() => import('./sections/login-page/Login'));
 const MainApp = lazy(() => import('./sections/main-app/MainApp'));
 
 const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"))
+const Register = lazy(() => import("./sections/register-widget/RegisterWidget"))
+ 
 
 function App() {
   return (
@@ -45,6 +47,10 @@ function App() {
           <Route
             path='/development'
             element={<Suspense fallback={<div>Loading...</div>}><LeftPanel/></Suspense>}
+          ></Route>
+          <Route
+            path='/register'
+            element={<Suspense fallback={<div>Loading...</div>}><Register/></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
