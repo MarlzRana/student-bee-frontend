@@ -1,7 +1,70 @@
-.events{
-    display: flex;
-    flex-flow: row wrap;
-    /* background-color: coral; */
-    background-size: cover;
-    justify-content: center;
+/* .events {
+  display: flex;
+  flex-flow: row wrap;
+  background-color: coral;
+  background-size: cover;
+  justify-content: center;
+} */
+
+.container {
+  min-height: 100vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow: hidden; */
+}
+
+.spinner {
+  position: relative;
+  width: 50vmin;
+  height: 50vmin;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(2500px) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(2500px) rotateY(360deg);
+  }
+}
+
+.spinner .first {
+  position: absolute;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(0 * 45deg)) translateZ(30vmin);
+}
+
+.spinner .second {
+  position: absolute;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(2.667 * 45deg)) translateZ(30vmin);
+}
+
+.spinner .third {
+  position: absolute;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(5.333 * 45deg)) translateZ(30vmin);
+}
+
+/* .eventWidget {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  object-fit: cover;
+  transition: 2s;
+} */
+
+.spinner:hover {
+  animation-play-state: paused;
 }
