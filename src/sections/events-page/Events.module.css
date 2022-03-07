@@ -1,7 +1,0 @@
-.events {
-  display: flex;
-  flex-flow: column wrap;
-  /* background-color: coral; */
-  background-size: cover;
-  justify-content: center;
-}
