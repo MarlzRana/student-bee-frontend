@@ -1,11 +1,8 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy } from "react";
 import styles from "./Events.module.css";
 
 function Events() {
-  return (
-    <div>  
-    </div>
-  )
+  return <div></div>;
 }
 
-export default Events
+export default Events;
