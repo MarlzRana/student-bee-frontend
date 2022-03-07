@@ -1,26 +1,28 @@
-import './global.css';
+import "./global.css";
 
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePageContent from './sections/home-page/components/Content';
+import { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePageContent from "./sections/home-page/components/Content";
 
 const HomePageNavbar = lazy(() =>
-  import('./sections/home-page/components/Navbar')
+  import("./sections/home-page/components/Navbar")
 );
-const Login = lazy(() => import('./sections/login-page/Login'));
-const MainApp = lazy(() => import('./sections/main-app/MainApp'));
+const Login = lazy(() => import("./sections/login-page/Login"));
+const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 const Events = lazy(() => import("./sections/events-page/Events"));
 
-const LeftPanel = lazy(() => import("./sections/profile-section/components/LeftPanel"));
+const LeftPanel = lazy(() =>
+  import("./sections/profile-section/components/LeftPanel")
+);
 
-const FooterInTest = lazy(() => import('./global-components/Footer'));
+const FooterInTest = lazy(() => import("./global-components/Footer"));
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <BrowserRouter>
         <Routes>
           <Route
-            path='/'
+            path="/"
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <HomePageNavbar />
@@ -29,7 +31,7 @@ function App() {
             }
           ></Route>
           <Route
-            path='/login'
+            path="/login"
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <Login />
@@ -37,7 +39,7 @@ function App() {
             }
           ></Route>
           <Route
-            path='/mainApp'
+            path="/mainApp"
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <MainApp />
@@ -45,10 +47,8 @@ function App() {
             }
           ></Route>
           <Route
-            path='/development'
-            element={<Suspense fallback={<div>Loading...</div>}>
-              <Events />
-            </Suspense>}
+            path="/development"
+            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
