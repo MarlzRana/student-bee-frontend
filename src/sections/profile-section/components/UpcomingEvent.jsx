@@ -1,8 +1,8 @@
 import styles from "../styling/UpcomingEvent.module.css";
 
-function Reminder(props) {
+function UpcomingEvent(props) {
   const { eventDate, eventName } = props;
   return <div></div>;
 }
 
-export default FloatingWidget;
+export default UpcomingEvent;
