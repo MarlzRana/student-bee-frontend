@@ -15,6 +15,10 @@ const LeftPanel = lazy(() =>
   import("./sections/profile-section/components/LeftPanel")
 );
 
+const Reminder = lazy(() =>
+  import("./sections/profile-section/components/Reminder")
+);
+
 const FooterInTest = lazy(() => import("./global-components/Footer"));
 function App() {
   return (
@@ -48,7 +52,11 @@ function App() {
           ></Route>
           <Route
             path="/development"
-            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Reminder />
+              </Suspense>
+            }
           ></Route>
         </Routes>
       </BrowserRouter>
