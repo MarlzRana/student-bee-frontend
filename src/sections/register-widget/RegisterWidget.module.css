@@ -1,0 +1,48 @@
+.registerWidget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: calc(200px + 45vh);
+    width: calc(100px + 15vw);
+    background-color: white;
+    border-radius: 10%;
+    border-style: solid;
+    border-width: calc(2px + 1px);
+}
+
+.box {
+    display: flex;
+    padding: calc(1px + 1px);
+    padding-top: calc(1px + 1vh);
+    padding-bottom: calc(1px + 1vh);
+    background-color: whitesmoke;
+    margin: 0 auto;
+    margin-top: calc(10px + 1vh);
+    margin-bottom: (100px + 1vh);
+    text-align: left;
+    border-radius: 10%;
+    border-style: none;
+    height: calc(10px + 3vh);
+    width: calc(80px + 10vw);
+    font-size: calc(6px + 1vw);
+}
+
+.submit {
+    display: flex;
+    padding: calc(5px + 1px);
+    padding-left: calc(5px + 1px);
+    margin-top: 5%;
+    background-color: white;
+    border-style: none;
+    align-items: center;
+    font-size: calc(6px + 1vw);
+    font-weight: bold;
+}
+
+.signIn {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: calc(6px + 1vw);
+}
