@@ -4,6 +4,8 @@ function Reminder(props) {
   const { eventDate, eventName } = props;
   return (
     <div class={styles.reminder}>
+      <h1>Reminders</h1>
+      <hr></hr>
       <ul>
         <li>
           {eventDate[0]} - {eventName[0]}
