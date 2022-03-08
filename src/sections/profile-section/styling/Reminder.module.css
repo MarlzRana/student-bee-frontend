@@ -1,67 +1,20 @@
-.reminder {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-
-  height: calc(38px + 20vh);
-  width: calc(38px + 20vw);
-  max-width: 25vw;
-  max-height: 20vh;
-  /* height: fit-content; */
-  /* width: fit-content; */
-  min-width: fit-content;
-  min-height: fit-content;
-  border-radius: 8px;
-  border-style: solid;
-  margin: 10px;
-  /* padding: 1.5vmin; */
-  padding-top: 1.5vmin;
-  padding-left: 1.5vmin;
-  padding-right: 1.5vmin;
-  /* justify-content: flex-start; */
-  align-items: flex-start;
-  /* word-wrap: break-word; */
-}
-
-.reminder h1 {
-  font-size: 16px;
-}
-
-.reminder ul {
-  display: flex;
-  flex-flow: column wrap;
-  position: relative;
-  top: 1.5vh;
-  /* vertical-align: middle; */
-  list-style: none;
-  font-size: 14px;
-}
-
-@media screen and (max-width: 800px) {
+@media (min-width: 200px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
   .reminder {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-
-    /* height: calc(38px + 20vh);
-    width: calc(38px + 20vw); */
-    /* max-width: 25vw;
-    max-height: 20vh; */
-    /* height: fit-content;
-    width: fit-content; */
-    /* min-height: fit-content; */
-    min-width: fit-content;
-    /* max-width: fit-content; */
-    max-height: 15vh;
+    height: fit-content;
+    width: fit-content;
+    min-height: 30vmin;
+    max-height: 36vmin;
     border-radius: 8px;
     border-style: solid;
     margin: 10px;
-    padding: 1vmin;
-    /* justify-content: flex-start; */
-    /* justify-content: space-evenly; */
+    padding: 2vmin;
     align-items: flex-start;
     word-wrap: break-word;
-    /* background-color: black; */
+    padding: 5px;
   }
 
   .reminder h1 {
@@ -71,10 +24,145 @@
   .reminder ul {
     display: flex;
     flex-flow: column wrap;
-    /* position: relative;
-    top: 1.5vh; */
-    /* vertical-align: middle; */
     list-style: none;
     font-size: 12px;
+  }
+
+  .reminder li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 2px;
+  }
+}
+
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .reminder {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    min-height: 30vmin;
+    max-height: 36vh;
+    border-radius: 8px;
+    border-style: solid;
+    margin: 10px;
+    padding: 2vmin;
+    align-items: flex-start;
+    word-wrap: break-word;
+    padding: 5px;
+    overflow: auto;
+  }
+
+  .reminder h1 {
+    font-size: 14px;
+  }
+
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  .reminder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(38px + 15vh);
+    width: calc(38px + 25vw);
+    max-width: 55vmin;
+    max-height: 30vmin;
+    min-height: fit-content;
+    border-radius: 8px;
+    border-style: solid;
+    margin: 10px;
+    padding-top: 1.2vmin;
+    padding-left: 1.2vmin;
+    padding-right: 1.2vmin;
+    align-items: flex-start;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+
+  .reminder h1 {
+    font-size: 16px;
+  }
+
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: 1.5vh;
+    list-style: none;
+    font-size: 14px;
+  }
+
+  .reminder li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 3px;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .reminder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(38px + 15vh);
+    width: calc(38px + 25vw);
+    max-width: 26vw;
+    max-height: 20vh;
+    min-height: fit-content;
+    border-radius: 8px;
+    border-style: solid;
+    margin: 10px;
+    padding-top: 1.2vmin;
+    padding-left: 1.2vmin;
+    padding-right: 1.2vmin;
+    align-items: flex-start;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+
+  .reminder h1 {
+    font-size: 16px;
+  }
+
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: 1.5vh;
+    vertical-align: middle;
+    list-style: none;
+    font-size: 14px;
+  }
+
+  .reminder li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 3px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .reminder h1 {
+    font-size: 18px;
+  }
+
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: 1.5vh;
+    list-style: none;
+    font-size: 16px;
   }
 }
