@@ -1,0 +1,120 @@
+.floatingWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: calc(50px + 35vh);
+  width: calc(50px + 25vw);
+  max-width: 40vw;
+  min-height: 25vh;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.floatingWidget img {
+  display: flex;
+  flex-basis: inherit;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  object-fit: cover;
+  border-color: black;
+  border-style: solid;
+  height: inherit;
+  width: inherit;
+  min-height: 0;
+  min-width: 0;
+}
+
+.floatingWidget .description {
+  display: flex;
+  flex-basis: inherit;
+  flex-direction: column;
+  align-items: center;
+  flex-flow: row wrap;
+  position: relative;
+  top: -4vh;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #fcd615;
+  border-color: black;
+  border-style: solid;
+  margin: 10px;
+  padding-bottom: 3vh;
+  padding-left: 5px;
+  width: calc(45px + 25vw);
+  height: fit-content;
+}
+
+.floatingWidget .description h1 {
+  align-items: center;
+  font-size: 16px;
+}
+
+.floatingWidget .description p {
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 1vh;
+}
+
+.btn:link,
+.btn:visited {
+  padding: 1px 5px;
+  font-weight: 600;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 200px;
+  color: white;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+  background-color: #23212c;
+  border: 1px solid #23212c;
+  color: white;
+  position: absolute;
+  bottom: 0.2vh;
+  right: 0.2vw;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #3a3637;
+  border: 1px solid #3a3637;
+}
+
+@media screen and (max-width: 430px) {
+  .floatingWidget img {
+    display: none;
+  }
+
+  .floatingWidget .description {
+    display: flex;
+    flex-basis: inherit;
+    align-items: center;
+    flex-flow: row wrap;
+    position: relative;
+    top: -3vh;
+    align-items: center;
+    border-radius: 8px;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+      url("main_logo.png");
+    background-size: calc(50px + 25vw) calc(50px + 35vh);
+    border-color: black;
+    border-style: solid;
+    margin: 10px;
+    padding-bottom: 3vh;
+    padding-left: 5px;
+    width: calc(45px + 25vw);
+    height: fit-content;
+    color: white;
+  }
+
+  .floatingWidget .description h1 {
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .floatingWidget .description p {
+    align-items: center;
+    font-size: 10px;
+    margin-bottom: 1vh;
+  }
+}
