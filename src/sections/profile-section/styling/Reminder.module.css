@@ -1,6 +1,6 @@
 .reminder {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   position: relative;
   background-color: rgba(0, 0, 0, 0.75);
@@ -14,4 +14,8 @@
   border-style: solid;
   margin: 10px;
   background-color: ivory;
+}
+
+.reminder ul {
+  list-style: none;
 }

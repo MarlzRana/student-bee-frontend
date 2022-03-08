@@ -54,7 +54,20 @@ function App() {
             path="/development"
             element={
               <Suspense fallback={<div>Loading...</div>}>
-                <Reminder />
+                <Reminder
+                  eventDate={[
+                    "09/10/2021",
+                    "12/10/2021",
+                    "15/12/2021",
+                    "15/12/2021",
+                  ]}
+                  eventName={[
+                    "Upcoming Event",
+                    "Upcoming Event",
+                    "Festival",
+                    "COMP10120 Assignment",
+                  ]}
+                />
               </Suspense>
             }
           ></Route>
