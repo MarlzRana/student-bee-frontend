@@ -8,16 +8,24 @@ function Reminder(props) {
       <hr></hr>
       <ul>
         <li>
-          {eventDate[0]} - {eventName[0]}
+          <a href="#">
+            {eventDate[0]} - {eventName[0]}
+          </a>
         </li>
         <li>
-          {eventDate[1]} - {eventName[1]}
+          <a href="#">
+            {eventDate[1]} - {eventName[1]}
+          </a>
         </li>
         <li>
-          {eventDate[2]} - {eventName[2]}
+          <a href="#">
+            {eventDate[2]} - {eventName[2]}
+          </a>
         </li>
         <li>
-          {eventDate[3]} - {eventName[3]}
+          <a href="#">
+            {eventDate[3]} - {eventName[3]}
+          </a>
         </li>
       </ul>
     </div>

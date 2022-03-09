@@ -19,6 +19,13 @@ const Reminder = lazy(() =>
   import("./sections/profile-section/components/Reminder")
 );
 
+const Yellow = lazy(() =>
+  import("./sections/events-page/components/YellowWidget")
+);
+const Floating = lazy(() =>
+  import("./sections/events-page/components/FloatingWidget")
+);
+
 const FooterInTest = lazy(() => import("./global-components/Footer"));
 function App() {
   return (
@@ -64,7 +71,7 @@ function App() {
                   eventName={[
                     "Upcoming Event",
                     "Upcoming Event",
-                    "Festival",
+                    "Fesitival",
                     "COMP10120 Assignment",
                   ]}
                 />
