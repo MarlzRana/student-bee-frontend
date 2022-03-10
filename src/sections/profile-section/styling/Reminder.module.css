@@ -3,6 +3,12 @@
   text-decoration: none;
 }
 
+@media (min-width: 0px) {
+  .reminder {
+    display: none;
+  }
+}
+
 @media (min-width: 200px) {
   /* smartphones, iPhone, portrait 480x320 phones */
   .reminder {
@@ -10,33 +16,22 @@
     flex-flow: column wrap;
     align-items: center;
     height: fit-content;
-    width: fit-content;
-    min-height: 30vmin;
+    width: calc(125px + 25vw);
+    min-height: 80px;
     max-height: 36vmin;
+    min-width: 150px;
     border-radius: 8px;
     border-style: solid;
     margin: 10px;
     padding: 2vmin;
     align-items: flex-start;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
+    overflow: auto;
     padding: 5px;
   }
 
   .reminder h1 {
     font-size: 14px;
-  }
-
-  .reminder ul {
-    display: flex;
-    flex-flow: column wrap;
-    list-style: none;
-    font-size: 12px;
-  }
-
-  .reminder li {
-    display: flex;
-    flex-flow: column wrap;
-    padding: 2px;
   }
 }
 
@@ -64,13 +59,6 @@
   .reminder h1 {
     font-size: 14px;
   }
-
-  .reminder ul {
-    display: flex;
-    flex-flow: column wrap;
-    list-style: none;
-    font-size: 12px;
-  }
 }
 
 @media (min-width: 961px) {
@@ -97,21 +85,6 @@
 
   .reminder h1 {
     font-size: 16px;
-  }
-
-  .reminder ul {
-    display: flex;
-    flex-flow: column wrap;
-    position: relative;
-    top: 1.5vh;
-    list-style: none;
-    font-size: 14px;
-  }
-
-  .reminder li {
-    display: flex;
-    flex-flow: column wrap;
-    padding: 3px;
   }
 }
 
@@ -141,35 +114,10 @@
   .reminder h1 {
     font-size: 16px;
   }
-
-  .reminder ul {
-    display: flex;
-    flex-flow: column wrap;
-    position: relative;
-    top: 1.5vh;
-    vertical-align: middle;
-    list-style: none;
-    font-size: 14px;
-  }
-
-  .reminder li {
-    display: flex;
-    flex-flow: column wrap;
-    padding: 3px;
-  }
 }
 
 @media screen and (min-width: 2000px) {
   .reminder h1 {
     font-size: 18px;
-  }
-
-  .reminder ul {
-    display: flex;
-    flex-flow: column wrap;
-    position: relative;
-    top: 1.5vh;
-    list-style: none;
-    font-size: 16px;
   }
 }
