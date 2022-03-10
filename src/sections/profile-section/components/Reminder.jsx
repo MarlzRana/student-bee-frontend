@@ -1,41 +1,34 @@
 import styles from "../styling/Reminder.module.css";
-import { lazy } from "react";
+import { lazy, useState, useEffect } from "react";
 
 const Reminders = lazy(() => import("./Reminders"));
 
-function Reminder(props) {
-  // const format1 = `
-  // <div class={styles.reminder}>
-  //   <h1>Reminders</h1>
-  //   <hr></hr>
-  //   <Reminders eventDate="09/10/2021" eventName="Upcoming Event" />
-  //   <Reminders eventDate="12/10/2021" eventName="Upcoming Event" />
-  // </div>
-  // `;
-  // const format2 = `
-  // <div class={styles.reminder}>
-  //   <h1>Reminders</h1>
-  //   <hr></hr>
-  //   <Reminders eventDate="09/10/2021" eventName="Upcoming Event" />
-  //   <Reminders eventDate="12/10/2021" eventName="Upcoming Event" />
-  //   <Reminders eventDate="15/12/2021" eventName="Festival" />
-  //   <Reminders eventDate="15/12/2021" eventName="COMP10120 Assignment" />
-  // </div>
-  // `;
+//Listening for a screen resize
+function Reminder() {
+  //useState hook adds the state of the screen width to this stateless
+  //function component. We use the window's width as the state
+  const [dimensions, setDimensions] = useState({
+    width: window.innerWidth,
+  });
 
-  // const mql = window.watchMedia("(max-width: 480px)");
-  // const mobileView = mql.matches;
-  // const mobileView = true;
-  // const { height, width } = useWindowDimensions();
-  // return (
-  //   <div class={styles.reminder}>
-  //     <h1>Reminders</h1>
-  //     <hr></hr>
-  //     <Reminders eventDate="09/10/2021" eventName="Upcoming Event" />
-  //     <Reminders eventDate="12/10/2021" eventName="Upcoming Event" />
-  //   </div>
-  // );
-  if (window.innerWidth < 481) {
+  //Applies the resizing to the component using the useEffect Hook.
+  //Runs whenever window width changes
+  useEffect(() => {
+    const resizeWidget = function handleResize() {
+      setDimensions({
+        width: window.innerWidth,
+      });
+    };
+
+    //Event listener. If window resizes, resize function called
+    window.addEventListener("resize", resizeWidget);
+
+    return (_) => {
+      window.removeEventListener("resize", resizeWidget);
+    };
+  }, [dimensions.width]);
+
+  if (dimensions.width < 481) {
     return (
       <div class={styles.reminder}>
         <h1>Reminders</h1>
