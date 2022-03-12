@@ -1,0 +1,41 @@
+.container {
+  margin: auto; /* Not needed later */
+  margin-top: 50px; /* Not needed later */
+  background-color: var(--medium-black);
+  border-radius: 2vmin;
+  width: 100vmin;
+  min-height: 50vmin;
+  overflow: auto;
+}
+
+.fieldContainer {
+  padding-top: 2vmin;
+  border-radius: 2vmin;
+  background-color: var(--medium-black);
+  text-align: center;
+}
+
+.field {
+  background-color: white;
+  padding-left: 1vmin;
+  width: 96vmin;
+  min-height: 4vmin;
+  border: none;
+  border-radius: 1vmin;
+  border-width: 0px;
+  resize: none;
+  font-size: calc(6px + 2vmin);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+::placeholder {
+  font-size: calc(8px + 2vmin);
+}
+
+.feed {
+  background-color: var(--medium-black);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
