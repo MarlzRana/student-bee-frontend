@@ -10,6 +10,17 @@ const HomePageNavbar = lazy(() =>
 const Login = lazy(() => import("./sections/login-page/Login"));
 const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 
+const Reminder = lazy(() =>
+  import("./sections/profile-section/components/Reminder")
+);
+
+const Yellow = lazy(() =>
+  import("./sections/events-page/components/YellowWidget")
+);
+const Floating = lazy(() =>
+  import("./sections/events-page/components/FloatingWidget")
+);
+
 const FooterInTest = lazy(() => import("./global-components/Footer"));
 function App() {
   return (
@@ -43,7 +54,11 @@ function App() {
           ></Route>
           <Route
             path="/development"
-            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Reminder />
+              </Suspense>
+            }
           ></Route>
         </Routes>
       </BrowserRouter>
