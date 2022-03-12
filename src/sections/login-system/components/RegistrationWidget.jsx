@@ -6,7 +6,6 @@ import Axios from 'axios';
 function RegistrationWidget() {
   const [enteredUsername, setEnteredUsername] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
-
   const register = async (e) => {
     e.preventDefault();
     const payload = { username: enteredUsername, password: enteredPassword };

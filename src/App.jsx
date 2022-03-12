@@ -7,7 +7,7 @@ import HomePageContent from './sections/home-page/components/Content';
 const HomePageNavbar = lazy(() =>
   import('./sections/home-page/components/Navbar')
 );
-const Login = lazy(() => import('./sections/login-page/Login'));
+const Login = lazy(() => import('./sections/login-system/Login'));
 
 function App() {
   return (
