@@ -68,7 +68,7 @@
     align-items: center;
     height: calc(38px + 15vh);
     width: calc(38px + 25vw);
-    max-width: 55vmin;
+    max-width: 40vmin;
     max-height: 30vmin;
     min-height: 150px;
     min-width: fit-content;
@@ -96,10 +96,10 @@
     align-items: center;
     height: calc(38px + 15vh);
     width: calc(38px + 25vw);
-    max-width: 26vw;
-    max-height: 20vh;
-    min-height: 130px;
-    min-width: 350px;
+    max-width: 40vmin;
+    max-height: 30vmin;
+    min-height: 150px;
+    min-width: fit-content;
     border-radius: 8px;
     border-style: solid;
     margin: 10px;
