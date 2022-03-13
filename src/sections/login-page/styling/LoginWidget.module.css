@@ -1,42 +1,158 @@
 .widget {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  height: calc(50px + 50vh);
-  width: calc(50px + 25vw);
-  background-color: var(--dark-black);
-  border-radius: 10%;
-  margin: 10px;
+  height: calc(50px + 42vh);
+  width: calc(50px + 40vw);
+  background-color: white;
+  border-radius: 40px;
+  border-style: solid;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-width: calc(5px + 1px);
+  padding-left: calc(1px + 3vmin);
+  padding-right: calc(1px + 3vmin);
+}
+
+.header {
+  width: 100%;
+  margin-top: calc(0px + 5vmin);
+  margin-bottom: calc(0px + 5vmin);
 }
 
 .header > h1 {
-  font-size: calc(10px + 3vmin);
+  font-size: calc(1px + 3vmin);
   text-align: center;
-  color: white;
+  color: black;
+  font-weight: bold;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .formTextInput {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: calc(1px + 2vh);
 }
 
-.formTextInput > label {
-  font-size: calc(5px + 2vmin);
+.formTextInput > input  {
+  vertical-align: middle;
+  border-radius: 5%;
+  border-style: none;
+  font-size: calc(2vmin);
+  height: calc(3px + 5vh);
+  width: 100%;
+  background-color: var(--medium-gray);
+  border-radius: 9px;
+  text-indent: calc(1px + 0.75vmin);
 }
 
-.formTextInput > input {
-  height: calc(5px + 2vh);
-  width: calc(15px + 20vw);
+.formTextInput > input::placeholder{
+  vertical-align: middle;
+  font-size: calc(2vmin);
+  color: var(--dark-black);
+}
+
+.extraInfo {
+  margin-top: calc(0.5vmin);
+  width: 100%;
+}
+
+.extraInfo > p {
+  font-size: calc(2px + 1.5vmin);
 }
 
 .submit {
-  margin-top: calc(2px + 2vmin);
+  margin-top: auto;
+  padding-bottom: calc(2px + 2vmin);
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
+
+.submitButton {
+  margin-top: auto;
+  padding-right: 0px;
+  background-color: transparent;
+  border-style: none;
+  font-size: calc(0.5px + 2.3vmin);
+  font-weight: 500;
+}
+
+.forgot {
+  padding-bottom: 3px;
+}
+
+.incorrect {
+  color: red;
+}
+
+@media only screen and (max-width: 850px) {
+  .widget {
+    width: 100%;
+    height: calc(75px + 50vh);
+    margin-left: calc(1px + 1vmin);
+    margin-right: calc(1px + 1vmin);
+  }
+
+  .header > h1 {
+    font-size: calc(10px + 5vmin);
+  }
+
+  .formTextInput > input::placeholder {
+    font-size: calc(5px + 2.5vmin);
+  }
+
+  .extraInfo > p {
+    font-size: calc(5px + 2.5vmin);
+  }
+
+  .submit {
+    margin-bottom: calc(1px + 1vmin);
+    margin-right: calc(2px + 4vmin);
+  }
+  .submit > input {
+    font-size: calc(10px + 3vmin);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .widget {
+    width: 100%;
+    margin-left: calc(1px + 1vmin);
+    margin-right: calc(1px + 1vmin);
+  }
+
+  .header > h1 {
+    font-size: calc(10px + 5vmin);
+  }
+
+  .formTextInput > input::placeholder {
+    font-size: calc(5px + 2.5vmin);
+  }
+
+  .extraInfo > p {
+    font-size: calc(5px + 2.5vmin);
+  }
+
+  .submit {
+    margin-bottom: calc(1px + 2vmin);
+    margin-right: calc(2px + 4vmin);
+  }
+  .submit > input {
+    font-size: calc(10px + 3vmin);
+  }
+}
+
+

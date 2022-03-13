@@ -2,25 +2,43 @@ import styles from '../styling/LoginWidget.module.css';
 
 function LoginWidget() {
   return (
-    <div class={styles.widget}>
-      <header class={styles.header}>
-        <h1>Welcome back!</h1>
+    <div className={styles.widget}>
+      <header className={styles.header}>
+        <h1>Welcome back to the hive</h1>
       </header>
-      <form class={styles.form}>
+      <form className={styles.form}>
         <div className={styles.formTextInput}>
-          <label for='username'>Username:</label>
-          <input id='username' type='text' name='enteredUsername' required />
+          <label htmlFor="username"></label>
+          <input
+            id="username"
+            placeholder="Username"
+            type="text"
+            name="enteredUsername"
+            required
+          />
         </div>
         <div className={styles.formTextInput}>
-          <label for='password'>Password:</label>
-          <input id='password' type='text' name='enteredPassword' required />
+          <label htmlFor="password"></label>
+          <input
+            id="password"
+            placeholder="Password"
+            type="text"
+            name="enteredPassword"
+            required
+          />
         </div>
-        <input
-          class={styles.submit}
-          type='submit'
-          name='submit'
-          value='Login'
+        <div className={styles.extraInfo}>
+          <p className= {styles.forgot}>Forgot Password?</p>
+          <p className= {styles.incorrect}>Placeholder for incorrect username/password</p>
+        </div>
+        <div className={styles.submit}>
+          <input
+          className={styles.submitButton}
+          type="submit"
+          name="submit"
+          value="Login"
         />
+        </div>
       </form>
     </div>
   );
