@@ -21,6 +21,9 @@ const Floating = lazy(() =>
   import("./sections/events-page/components/FloatingWidget")
 );
 
+const RegisterWidget = lazy(() => import("./sections/register-widget/RegisterWidget"))
+
+
 const FooterInTest = lazy(() => import("./global-components/Footer"));
 function App() {
   return (
@@ -56,7 +59,7 @@ function App() {
             path="/development"
             element={
               <Suspense fallback={<div>Loading...</div>}>
-                <Reminder />
+                <RegisterWidget/>
               </Suspense>
             }
           ></Route>
