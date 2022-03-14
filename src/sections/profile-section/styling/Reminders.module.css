@@ -1,0 +1,91 @@
+.reminders {
+  display: flex;
+  height: inherit;
+  width: inherit;
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.reminders a {
+  color: black;
+  text-decoration: none;
+}
+
+@media (min-width: 0px) {
+  .reminders ul {
+    display: none;
+  }
+}
+
+@media (min-width: 200px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    font-size: 12px;
+  }
+
+  .reminder li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 2px;
+  }
+}
+
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 961px) {
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: 1.5vh;
+    list-style: none;
+    font-size: 14px;
+  }
+
+  .reminder li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 3px;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: 1.5vh;
+    vertical-align: middle;
+    list-style: none;
+    font-size: 14px;
+  }
+
+  .reminder li {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 3px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .reminder ul {
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    top: 1.5vh;
+    list-style: none;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,46 @@
+.tweet,
+.tweetHeader,
+.tweetHeader h2 a,
+.tweetHeader h2,
+.publishTime,
+.tweetContent,
+.userTweet {
+  background-color: var(--medium-black);
+  color: white;
+}
+
+.tweetHeader h2 a {
+  font-size: calc(12px + 1vmin);
+  text-decoration: none;
+}
+
+.tweetHeader h2 a:hover {
+  text-decoration: underline;
+}
+
+.tweet {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.tweetHeader {
+  margin-top: 10px;
+  display: flex;
+}
+
+.publishTime {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.tweetContent {
+  margin-top: 5px;
+  font-size: calc(16px + 0.2vmin);
+}
+
+.tweet img {
+  width: calc(10px + 7vmin);
+  height: calc(10px + 7vmin);
+  border-radius: 50%;
+  margin: 20px;
+}
