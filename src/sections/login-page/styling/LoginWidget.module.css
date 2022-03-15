@@ -46,7 +46,7 @@
   margin-bottom: calc(1px + 2vh);
 }
 
-.formTextInput > input  {
+.formTextInput > input {
   vertical-align: middle;
   border-radius: 5%;
   border-style: none;
@@ -58,7 +58,7 @@
   text-indent: calc(1px + 0.75vmin);
 }
 
-.formTextInput > input::placeholder{
+.formTextInput > input::placeholder {
   vertical-align: middle;
   font-size: calc(2vmin);
   color: var(--dark-black);
@@ -78,7 +78,15 @@
   padding-bottom: calc(2px + 2vmin);
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.back {
+  font-size: calc(5px + 2vmin);
+  font-weight: 500;
+  width: auto;
+  padding-left: 5px;
+  background-color: transparent;
 }
 
 .submitButton {
@@ -161,6 +169,10 @@
   .submit > input {
     font-size: calc(10px + 3vmin);
   }
+
+  .back {
+    margin-top: auto;
+    font-size: calc(11px + 3vmin);
+    padding-left: 15px;
+  }
 }
-
-

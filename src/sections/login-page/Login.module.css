@@ -1,5 +1,26 @@
-.page {
+body {
+  background-color: var(--dark-yellow);
+  background-image: url("./components/bg.png");
+  background-size: auto 175vmin;
+  background-repeat: repeat;
+  overflow: hidden;
+}
+
+.border {
+  width: auto;
+  height: 2vmin;
+  background-color: var(--dark-black);
+}
+
+.botBorder {
+  width: auto;
+  height: 15vmin;
+  background-color: var(--dark-black);
+}
+
+.widget {
+  height: 88vh;
   display: flex;
   justify-content: center;
-  background-color: var(--dark-yellow);
+  align-items: center;
 }
