@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./RegisterWidget.module.css"
-import { Link } from 'react-router-dom'
+import Login from "../login-page/Login"
 
-function RegisterWidget() {
+function RegisterWidget({ reg, setReg }) {
     return (
-    <div className={styles.temp}>
     <div className = {styles.registerWidget}>
         <header className={styles.header}>
             <h1>Join the hive</h1>
@@ -44,11 +43,9 @@ function RegisterWidget() {
                 name = "submit"
                 value = "Register"
                 />
-                <Link to='/login'>Already have an account?</Link>
+                <button onClick={() => setReg(false)} ontype="button">Already have an account?</button>
             </div>
         </form>
-
-    </div>
     </div>
 ); 
 }
