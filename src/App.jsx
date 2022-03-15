@@ -4,10 +4,12 @@ import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePageContent from "./sections/home-page/components/Content";
 
+
 const HomePageNavbar = lazy(() =>
   import("./sections/home-page/components/Navbar")
 );
 const Login = lazy(() => import("./sections/login-page/Login"));
+
 const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 
 const Reminder = lazy(() =>
