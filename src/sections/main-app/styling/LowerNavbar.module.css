@@ -33,12 +33,18 @@
 
 .rightSection {
   justify-self: flex-end;
-  /* margin-right: 1vw; */
+  margin-right: 10px;
 }
 
 .rightSection > input {
-  width: calc(80px + 8vw);
+  width: calc(20px + 30vmin);
   height: calc(12px + 1vmin);
+}
+
+@media only screen and (max-width: 425px) {
+  .rightSection > input {
+    width: calc(20px + 20vmin);
+  }
 }
 
 .hIcon {
