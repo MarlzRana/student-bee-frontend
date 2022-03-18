@@ -72,7 +72,7 @@
   position: absolute;
   bottom: 0.2vh;
   right: 0.2vw;
-  transform: translateZ(30vmin);
+  transform: translateZ(50vmin);
 }
 
 .btn:hover,
