@@ -1,4 +1,5 @@
 import styles from "../styling/FloatingWidget.module.css";
+import { Link } from "react-router-dom";
 
 function FloatingWidget(props) {
   const { eventName, description, image } = props;
@@ -8,9 +9,9 @@ function FloatingWidget(props) {
       <div class={styles.description}>
         <h1>{eventName}</h1>
         <p>{description}</p>
-        <a className={styles.btn} href="#">
+        <Link className={styles.btn} to="./details">
           Find out more
-        </a>
+        </Link>
       </div>
     </div>
   );

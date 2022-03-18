@@ -19,7 +19,7 @@ function HomePageContent() {
           <div className={styles.mid}>
             <h2>Reconnecting Students</h2>
             <div className={styles.button}>
-              <Link style={{ textDecoration: 'none', color: 'white' }} to='/mainApp'>
+              <Link style={{ textDecoration: 'none', color: 'white' }} to='/mainApp/home'>
                 Join Now
               </Link>
             </div>

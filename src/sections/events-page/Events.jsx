@@ -5,17 +5,17 @@ import img from "./styling/placeholder.jpg";
 const AddEventWidget = lazy(() => import('./components/AddEventWidget'));
 const WidgetSpinner = lazy(() => import('./components/WidgetSpinner'));
 const YellowWidget = lazy(() => import('./components/YellowWidget'));
-const UpperNavbar = lazy(() => import('../main-app/components/UpperNavbar'));
-const LowerNavbar = lazy(() => import('../main-app/components/LowerNavbar'));
+// const UpperNavbar = lazy(() => import('../main-app/components/UpperNavbar'));
+// const LowerNavbar = lazy(() => import('../main-app/components/LowerNavbar'));
 
 function Events() {
 
-  const [addEventWidget, setWidget] = useState(false)
+  const [addEventWidget, setAddEventWidget] = useState(false)
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <UpperNavbar/>
-      <LowerNavbar/>
+      {/* <UpperNavbar/>
+      <LowerNavbar/> */}
       <div className={styles.topContent}>
         <h1 className={styles.title}>Events</h1>
         <div className={styles.widgetSpinner}>
@@ -38,8 +38,8 @@ function Events() {
           <YellowWidget eventName="placeholder" eventDate="DD/MM/YYYY" image={img}/>
         </div>
       </div> 
-      {addEventWidget ? (<AddEventWidget add={addEventWidget} setAdd={setWidget}/>) : (<></>)}
-      <button title="Add an event!" onClick={() => setWidget(true)} className={styles.addEvent}>
+      {addEventWidget ? (<AddEventWidget add={addEventWidget} setAdd={setAddEventWidget}/>) : (<></>)}
+      <button title="Add an event!" onClick={() => setAddEventWidget(true)} className={styles.addEvent}>
         +
       </button>
     </Suspense>
