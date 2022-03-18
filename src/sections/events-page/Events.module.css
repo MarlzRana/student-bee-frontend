@@ -1,0 +1,33 @@
+.title {
+  text-align: center;
+  font-size: calc(20px + 2vmin);
+}
+
+.topContent {
+  background-image: url("./styling/bg.png");
+  padding-top: 10vmin;
+  height: 60vmin;
+  background-color: var(--dark-black);
+}
+
+.lowerContent {
+  border-top: calc(5px + 0.1vmin) solid var(--dark-black);
+  padding-top: 5px;
+  background-color: var(--medium-yellow);
+}
+
+.eventsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 426px) {
+  .title {
+    margin-top: 10px;
+  }
+
+  .topContent {
+    height: 300px;
+  }
+}
