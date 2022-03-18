@@ -18,11 +18,11 @@
 
 @keyframes rotate {
   0% {
-    transform: perspective(2500px) rotateY(0deg);
+    transform: perspective(400vmin) rotateY(0deg);
   }
 
   100% {
-    transform: perspective(2500px) rotateY(360deg);
+    transform: perspective(400vmin) rotateY(360deg);
   }
 }
 
