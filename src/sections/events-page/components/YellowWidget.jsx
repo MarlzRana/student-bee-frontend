@@ -1,6 +1,6 @@
 import styles from "../styling/YellowWidget.module.css";
 
-function FloatingWidget(props) {
+function YellowWidget(props) {
   const { eventName, eventDate, image } = props;
   return (
     <div class={styles.yellowWidget}>
@@ -13,4 +13,4 @@ function FloatingWidget(props) {
   );
 }
 
-export default FloatingWidget;
+export default YellowWidget;
