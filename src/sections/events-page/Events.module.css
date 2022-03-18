@@ -22,6 +22,29 @@
   justify-content: center;
 }
 
+.addEvent {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 3vmin;
+  right: 3vmin;
+  border-radius: 100%;
+  height: calc(30px + 3vmin);
+  width: calc(30px + 3vmin);
+  background-color: var(--medium-black);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(16px + 1vmin);
+  border: 0.66vmin solid var(--dark-black);
+}
+
+.addEvent:hover {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 425px) {
   .title {
     margin-top: 10px;

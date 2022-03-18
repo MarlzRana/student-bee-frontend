@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useState } from "react";
 import styles from "./Events.module.css";
 import img from "./styling/placeholder.jpg";
 
@@ -9,6 +9,9 @@ const UpperNavbar = lazy(() => import('../main-app/components/UpperNavbar'));
 const LowerNavbar = lazy(() => import('../main-app/components/LowerNavbar'));
 
 function Events() {
+
+  const [addEventWidget, setWidget] = useState(false)
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <UpperNavbar/>
@@ -35,7 +38,10 @@ function Events() {
           <YellowWidget eventName="placeholder" eventDate="DD/MM/YYYY" image={img}/>
         </div>
       </div> 
-      
+      {addEventWidget ? (<AddEventWidget add={addEventWidget} setAdd={setWidget}/>) : (<></>)}
+      <button title="Add an event!" onClick={() => setWidget(true)} className={styles.addEvent}>
+        +
+      </button>
     </Suspense>
   );
 }
