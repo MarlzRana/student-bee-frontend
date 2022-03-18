@@ -9,7 +9,7 @@ function FloatingWidget(props) {
       <div class={styles.description}>
         <h1>{eventName}</h1>
         <p>{description}</p>
-        <Link className={styles.btn} to="./details">
+        <Link className={styles.btn} to="/mainApp/eventDetails">
           Find out more
         </Link>
       </div>

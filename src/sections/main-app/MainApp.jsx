@@ -5,6 +5,7 @@ import styles from './MainApp.module.css';
 const UpperNavbar = lazy(() => import('./components/UpperNavbar'));
 const LowerNavbar = lazy(() => import('./components/LowerNavbar'));
 const Events = lazy(() => import("../events-page/Events"));
+const EventDetails = lazy(() => import("../events-page/EventDetails"));
 
 function MainApp() {
   const subPageName = useParams().subPage;
@@ -15,6 +16,7 @@ function MainApp() {
         <LowerNavbar />
         {subPageName === "home" ? <></>: <></>}
         {subPageName === "events" ? <Events/> : <></>}
+        {subPageName === "eventDetails" ? <EventDetails/> : <></>}
       </Suspense>
     </main>
   );

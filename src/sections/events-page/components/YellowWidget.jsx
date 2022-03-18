@@ -5,7 +5,7 @@ function YellowWidget(props) {
   const { eventName, eventDate, image } = props;
   return (
     <div class={styles.yellowWidget}>
-      <Link to="./details">
+      <Link to="/mainApp/eventDetails">
         <img src={image} alt="Event Image" />
         <div class={styles.description}>
           <h1>{eventName}</h1>
