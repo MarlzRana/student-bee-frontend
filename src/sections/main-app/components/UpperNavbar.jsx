@@ -1,4 +1,6 @@
 import styles from '../styling/UpperNavbar.module.css';
+import { Link } from 'react-router-dom';
+
 function UpperNavbar() {
   return (
     <div>
@@ -7,7 +9,7 @@ function UpperNavbar() {
           <h1>StudentBee</h1>
         </div>
         <div className={styles.rightSection}>
-          <a href='#logOut'>Log Out</a>
+          <Link to="/">Log Out</Link>
         </div>
       </nav>
     </div>
