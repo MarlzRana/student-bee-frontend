@@ -12,7 +12,7 @@ function Login() {
   Axios.defaults.withCredentials = true;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
-    Axios.get('http://localhost:3001/isLoggedIn').then((res) => {
+    Axios.get('http://localhost:3001/loginSystem/isLoggedIn').then((res) => {
       if (res.data.isLoggedIn == true) setIsLoggedIn(true);
     });
   }, []);

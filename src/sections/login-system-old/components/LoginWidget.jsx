@@ -12,7 +12,7 @@ function LoginWidget({ isLoggedIn, setIsLoggedIn }) {
   const login = async (e) => {
     e.preventDefault();
     const payload = { username: enteredUsername, password: enteredPassword };
-    await Axios.post('http://localhost:3001/login', payload)
+    await Axios.post('http://localhost:3001/loginSystem/login', payload)
       .then((res) => {
         setHasTriedToLogin(true);
         if (res.data.status == 'validCredentials') setIsLoggedIn(true);

@@ -11,12 +11,15 @@ function RegistrationWidget() {
     useState(false);
   const [hasTriedToRegister, setHasTriedToRegister] = useState(false);
   const [registrationMessage, setRegistrationMessage] = useState('');
+
   const register = async (e) => {
     e.preventDefault();
     setHasTriedToRegister(true);
     const payload = { username: enteredUsername, password: enteredPassword };
-    const res = await Axios.post('http://localhost:3001/register', payload);
-    console.log(res.data.status);
+    const res = await Axios.post(
+      'http://localhost:3001/loginSystem/register',
+      payload
+    );
     if (res.data.status === 'success') {
       setWasRegistrationSuccessful(true);
       setRegistrationMessage('Your account was successfully made!');
