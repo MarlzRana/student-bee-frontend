@@ -1,7 +1,13 @@
 import styles from '../styling/UpperNavbar.module.css';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
 function UpperNavbar() {
+  const logoutUser = async () => {
+    await Axios.get(
+      process.env.REACT_APP_APIHOSTADDRESS + '/loginSystem/logout'
+    );
+  };
   return (
     <div>
       <nav className={styles.mainNavbar}>
@@ -9,7 +15,9 @@ function UpperNavbar() {
           <h1>StudentBee</h1>
         </div>
         <div className={styles.rightSection}>
-          <Link to="/">Log Out</Link>
+          <Link to='/' onClick={logoutUser}>
+            Log Out
+          </Link>
         </div>
       </nav>
     </div>
