@@ -1,24 +1,23 @@
-import "./global.css";
+import './global.css';
 
-import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePageContent from "./sections/home-page/components/Content";
-
+import { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePageContent from './sections/home-page/components/Content';
 
 const HomePageNavbar = lazy(() =>
-  import("./sections/home-page/components/Navbar")
+  import('./sections/home-page/components/Navbar')
 );
-const Login = lazy(() => import("./sections/login-page/Login"));
+const Login = lazy(() => import('./sections/login-page/Login'));
 
-const MainApp = lazy(() => import("./sections/main-app/MainApp"));
+const MainApp = lazy(() => import('./sections/main-app/MainApp'));
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <HomePageNavbar />
@@ -27,7 +26,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/login"
+            path='/loginSystem/:subPage'
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <Login />
@@ -35,7 +34,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/mainApp/:subPage"
+            path='/mainApp/:subPage'
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <MainApp />
@@ -43,11 +42,8 @@ function App() {
             }
           ></Route>
           <Route
-            path="/development"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-              </Suspense>
-            }
+            path='/development'
+            element={<Suspense fallback={<div>Loading...</div>}></Suspense>}
           ></Route>
         </Routes>
       </BrowserRouter>
