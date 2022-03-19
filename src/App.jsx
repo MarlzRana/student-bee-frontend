@@ -12,21 +12,6 @@ const Login = lazy(() => import("./sections/login-page/Login"));
 
 const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 
-const Reminder = lazy(() =>
-  import("./sections/profile-section/components/Reminder")
-);
-
-const Yellow = lazy(() =>
-  import("./sections/events-page/components/YellowWidget")
-);
-const Floating = lazy(() =>
-  import("./sections/events-page/components/FloatingWidget")
-);
-
-const RegisterWidget = lazy(() => import("./sections/register-widget/RegisterWidget"))
-
-
-const FooterInTest = lazy(() => import("./global-components/Footer"));
 function App() {
   return (
     <div className="App">
@@ -50,7 +35,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/mainApp"
+            path="/mainApp/:subPage"
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <MainApp />
@@ -61,7 +46,6 @@ function App() {
             path="/development"
             element={
               <Suspense fallback={<div>Loading...</div>}>
-                <RegisterWidget/>
               </Suspense>
             }
           ></Route>

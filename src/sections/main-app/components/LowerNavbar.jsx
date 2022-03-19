@@ -1,50 +1,52 @@
 import styles from '../styling/LowerNavbar.module.css';
+import { Link } from 'react-router-dom';
+
 function LowerNavbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles.leftSection}>
         <ul>
           <li>
-            <a href='#home'>
+            <Link to='/mainApp/home'>
               <i className={styles.hIcon}></i>
               <span className={styles.iconLabel}>Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='#events'>
+            <Link to='/mainApp/events'>
             <i className={styles.eIcon}></i>
             <span className={styles.iconLabel}>Events</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='#jobs'>
+            <Link to='/mainApp/jobs'>
             <i className={styles.jIcon}></i>
             <span className={styles.iconLabel}>Jobs</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='#societies'>
+            <Link to='/mainApp/societies'>
             <i className={styles.soIcon}></i>
             <span className={styles.iconLabel}>Societies</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='#accommodation'>
+            <Link to='/mainApp/accommodation'>
             <i className={styles.aIcon}></i>
             <span className={styles.iconLabel}>Accommodation</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='#feedback'>
+            <Link to='/mainApp/feedback'>
             <i className={styles.fIcon}></i>
             <span className={styles.iconLabel}>Feedback</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href='#support'>
+            <Link to='/mainApp/support'>
             <i className={styles.suIcon}></i>
             <span className={styles.iconLabel}>Support</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

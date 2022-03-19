@@ -1,16 +1,19 @@
 import styles from "../styling/YellowWidget.module.css";
+import { Link } from "react-router-dom";
 
-function FloatingWidget(props) {
+function YellowWidget(props) {
   const { eventName, eventDate, image } = props;
   return (
     <div class={styles.yellowWidget}>
-      <img src={image} alt="Event Image" />
-      <div class={styles.description}>
-        <h1>{eventName}</h1>
-        <p>{eventDate}</p>
-      </div>
+      <Link to="/mainApp/eventDetails">
+        <img src={image} alt="Event Image" />
+        <div class={styles.description}>
+          <h1>{eventName}</h1>
+          <p>{eventDate}</p>
+        </div>
+      </Link> 
     </div>
   );
 }
 
-export default FloatingWidget;
+export default YellowWidget;

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   background-color: #3a3637;
   height: calc(20px + 5vmin);
 }
@@ -33,75 +33,81 @@
 
 .rightSection {
   justify-self: flex-end;
-  margin-right: 1vw;
+  margin-right: 10px;
 }
 
 .rightSection > input {
-  width: calc(80px + 8vw);
+  width: calc(20px + 30vmin);
   height: calc(12px + 1vmin);
+}
+
+@media only screen and (max-width: 425px) {
+  .rightSection > input {
+    width: calc(20px + 20vmin);
+  }
 }
 
 .hIcon {
   float: left;
-  background-image: url('./icons/home-icon.png');
+  background-image: url("./icons/home-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
   filter: invert(100%);
 }
 
 .eIcon {
   float: left;
-  background-image: url('./icons/event-icon.png');
+  background-image: url("./icons/event-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 
 .jIcon {
   float: left;
-  background-image: url('./icons/job-icon.png');
+  background-image: url("./icons/job-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 
 .soIcon {
   float: left;
-  background-image: url('./icons/societies-icon.png');
+  background-image: url("./icons/societies-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 
 .aIcon {
   float: left;
-  background-image: url('./icons/accom-icon.png');
+  background-image: url("./icons/accom-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 
 .fIcon {
   float: left;
-  background-image: url('./icons/feedback-icon.png');
+  background-image: url("./icons/feedback-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 
 .suIcon {
   float: left;
-  background-image: url('./icons/support-icon.png');
+  background-image: url("./icons/support-icon.png");
   width: calc(20px + 2vmin);
   height: calc(10px + 2vmin);
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 

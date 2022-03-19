@@ -1,4 +1,4 @@
-.yellowWidget {
+.yellowWidget a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,12 +9,17 @@
   width: calc(38px + 20vw);
   max-width: 40vw;
   min-height: 25vh;
+  border-color: black;
   border-radius: 8px;
   border-style: solid;
   margin: 10px;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+  outline-style: none;
 }
 
-.yellowWidget img {
+.yellowWidget a img {
   display: flex;
   flex-basis: inherit;
   flex-direction: column;
@@ -29,7 +34,7 @@
   opacity: 0.25;
 }
 
-.yellowWidget .description {
+.yellowWidget a .description {
   display: flex;
   flex-basis: inherit;
   flex-flow: column wrap;
@@ -42,14 +47,14 @@
   color: white;
 }
 
-.yellowWidget h1 {
+.yellowWidget a h1 {
   position: relative;
   top: -3vh;
   font-size: 16px;
   text-align: center;
 }
 
-.yellowWidget p {
+.yellowWidget a p {
   font-size: 12px;
   text-align: center;
 }
