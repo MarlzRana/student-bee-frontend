@@ -11,7 +11,6 @@ function RegisterWidget() {
   const [enteredPassword, setEnteredPassword] = useState('');
   const [enteredConfirmPassword, setEnteredConfirmedPassword] = useState('');
   const [enteredDateOfBirth, setEnteredDateOfBirth] = useState('');
-
   const [messageToShow, setMessageToShow] = useState('');
   const register = async (e) => {
     e.preventDefault();
@@ -43,7 +42,7 @@ function RegisterWidget() {
             console.log(validationCheckDetails);
             if (!validationCheckDetails.username) {
               setMessageToShow(
-                'Your username must be between 4 and 50 characters and only contain letters and numbers'
+                'Your username must be between 4 and 25 characters and only contain letters and numbers'
               );
             } else if (!validationCheckDetails.password) {
               setMessageToShow(
@@ -51,11 +50,11 @@ function RegisterWidget() {
               );
             } else if (!validationCheckDetails.firstName) {
               setMessageToShow(
-                'Your first name should be between 4 and 25 letters long and only contain letters and hyphens'
+                'Your first name should be between 2 and 25 letters long and only contain letters and hyphens'
               );
             } else if (!validationCheckDetails.lastName) {
               setMessageToShow(
-                'Your last name should be between 4 and 25 letters long and only contain letters and and hyphens'
+                'Your last name should be between 2 and 25 letters long and only contain letters and and hyphens'
               );
             } else if (!validationCheckDetails.email) {
               setMessageToShow('Your email is invalid');
