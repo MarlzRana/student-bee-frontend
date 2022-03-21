@@ -22,16 +22,16 @@ function WidgetSpinner() {
   ]);
   const [newEventsArray, setNewEventsArray] = useState([
     {
-      title: "",
-      description: "",
+      title: null,
+      description: null,
     },
     {
-      username: "",
-      description: "",
+      username: null,
+      description: null,
     },
     {
-      username: "",
-      description: "",
+      username: null,
+      description: null,
     },
   ]);
   useEffect(() => {
@@ -43,8 +43,6 @@ function WidgetSpinner() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
-      console.log(res.data);
-      console.log(eventsArray);
       setNewEventsArray(res.data);
       if (eventsArray === "") {
         setEventsArray(res.data);
@@ -92,7 +90,3 @@ function WidgetSpinner() {
 }
 
 export default WidgetSpinner;
-
-// eventName="Music Event"
-//               description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sgaittis dictum mauris, eget tincidunt nulla dignissim ut. Quisque cursus ante placerat, auctor tellus vitae, accumsan neque. Etiam a tincidunt lorem. Nam magna erat, posuere vitae viverra nec, mollis sit amet libero. as da sda sd ad asd a "
-//               image={img}
