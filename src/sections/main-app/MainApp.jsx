@@ -7,6 +7,7 @@ const UpperNavbar = lazy(() => import('./components/UpperNavbar'));
 const LowerNavbar = lazy(() => import('./components/LowerNavbar'));
 const Events = lazy(() => import('../events-page/Events'));
 const EventDetails = lazy(() => import('../events-page/EventDetails'));
+const Home = lazy(() => import('../profile-section/Profile'));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -28,7 +29,7 @@ function MainApp() {
       <Suspense fallback={<div>Loading</div>}>
         <UpperNavbar />
         <LowerNavbar />
-        {subPageName === 'home' ? <></> : <></>}
+        {subPageName === 'home' ? <Home/> : <></>}
         {subPageName === 'events' ? <Events /> : <></>}
         {subPageName === 'eventDetails' ? <EventDetails /> : <></>}
       </Suspense>

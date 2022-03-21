@@ -1,0 +1,24 @@
+.notificationPanel {
+  background-color: red;
+  display: flex;
+  width: 20%;
+  height: 700px;
+  flex-direction: column;
+  align-items: flex-end;
+  border-radius: 15px;
+}
+.notifications {
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  width: 100%;
+}
+.notificationImage {
+  display: flex;
+  width: 50%;
+  height: 10px;
+}
+.notificationTitle {
+  display: flex;
+  justify-content: start;
+}

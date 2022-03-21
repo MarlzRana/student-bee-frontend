@@ -1,11 +1,6 @@
-.html {
-  height: 100%;
-}
 .leftPanel .panelContents {
-  background: #fa0202;
-  position: fixed;
-  top: 0;
-  left: 0;
+  background: var(--medium-yellow);
+  position: relative;
   width: calc(30px + 25vmin);
   height: 100%;
   transition: all 0.5s ease;
@@ -21,9 +16,10 @@
 
 .leftPanel .panelContents img {
   margin: 10px 0 5px;
-  width: calc(10px + 25vmin);
-  height: calc(10px + 25vmin);
+  width: calc(8px + 25vmin);
+  height: calc(8px + 25vmin);
   border-radius: 50%;
+  border: 2px solid black;
 }
 
 .leftPanel .panelContents h3 {
@@ -39,20 +35,20 @@
 
 .btn:link,
 .btn:visited {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: calc(5px + 20vmin);
-  height: calc(20px + 2vmin);
-  margin: 10px 0 5px;
-
+  height: calc(23px + 2vmin);
+  margin: 20px 0 5px;
   font-weight: 700;
-  font-size: calc(1px + 3vmin);
+  font-size: calc(3px + 2vmin);
   text-decoration: none;
   border-radius: calc(1px + 40vmin);
-  color: black;
+  color: white;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
-  background-color: #fcd615;
-  border: 1px solid #fcd615;
-  color: black;
-
+  background-color: var(--medium-black);
+  border: 1px solid var(--medium-black);
   text-decoration: center;
 }
 

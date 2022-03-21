@@ -1,11 +1,8 @@
 .container {
-  margin: auto; /* Not needed later */
-  margin-top: 50px; /* Not needed later */
   background-color: var(--medium-black);
   border-radius: 2vmin;
   width: 100vmin;
   min-height: 50vmin;
-  overflow: auto;
 }
 
 .fieldContainer {
