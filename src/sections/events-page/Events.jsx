@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import { Suspense, lazy, useState } from 'react';
 import styles from './Events.module.css';
 import img from './styling/placeholder.jpg';
