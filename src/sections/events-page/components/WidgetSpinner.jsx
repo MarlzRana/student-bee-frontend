@@ -6,18 +6,35 @@ import React, { useState, useEffect } from "react";
 
 function WidgetSpinner() {
   Axios.defaults.withCredentials = true;
-  const [eventOne, setEventOne] = useState("");
-  const [eventTwo, setEventTwo] = useState("");
-  const [eventThree, setEventThree] = useState("");
-  const [eventsArray, setEventsArray] = useState("");
+  const [eventsArray, setEventsArray] = useState([
+    {
+      username: null,
+      description: null,
+    },
+    {
+      username: null,
+      description: null,
+    },
+    {
+      username: null,
+      description: null,
+    },
+  ]);
+  const [newEventsArray, setNewEventsArray] = useState([
+    {
+      title: "",
+      description: "",
+    },
+    {
+      username: "",
+      description: "",
+    },
+    {
+      username: "",
+      description: "",
+    },
+  ]);
   useEffect(() => {
-    // async function fetchData() {
-    //   const lol = await Axios.get(
-    //     process.env.REACT_APP_APIHOSTADDRESS +
-    //       '/eventsSystem/top10MostRecentEvents'
-    //   );
-    //   return lol;
-    // }
     const fetchEvents = async () => {
       const res = await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS +
@@ -26,20 +43,18 @@ function WidgetSpinner() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
-      setEventOne(res.data[0]);
-      // console.log(res.data[0]);
-      setEventTwo(res.data[1]);
-      // console.log(res.data[1]);
-      setEventThree(res.data[2]);
-      // console.log(res.data[2]);
-      setEventsArray(res.data);
       console.log(res.data);
       console.log(eventsArray);
+      setNewEventsArray(res.data);
+      if (eventsArray === "") {
+        setEventsArray(res.data);
+      }
+      if (eventsArray !== newEventsArray) {
+        setEventsArray(res.data);
+      }
     };
     fetchEvents();
-    // console.log(res);
-    console.log(eventsArray);
-  }, []);
+  }, [eventsArray]);
 
   return (
     <div className={styles.container}>
@@ -47,8 +62,8 @@ function WidgetSpinner() {
         <span className={styles.first}>
           <div className="eventWidget">
             <FloatingWidget
-              eventName={eventOne.title}
-              description={eventOne.description}
+              eventName={eventsArray[0].title}
+              description={eventsArray[0].description}
               image={img}
             />
           </div>
@@ -56,8 +71,8 @@ function WidgetSpinner() {
         <span className={styles.second}>
           <div className="eventWidget">
             <FloatingWidget
-              eventName={eventTwo.title}
-              description={eventTwo.description}
+              eventName={eventsArray[1].title}
+              description={eventsArray[1].description}
               image={img}
             />
           </div>
@@ -65,8 +80,8 @@ function WidgetSpinner() {
         <span className={styles.third}>
           <div className="eventWidget">
             <FloatingWidget
-              eventName={eventThree.title}
-              description={eventThree.description}
+              eventName={eventsArray[2].title}
+              description={eventsArray[2].description}
               image={img}
             />
           </div>
