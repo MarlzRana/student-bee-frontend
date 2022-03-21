@@ -1,7 +1,6 @@
 .container {
   background-color: var(--medium-black);
-  border-radius: 2vmin;
-  width: 100vmin;
+  width: auto;
   min-height: 50vmin;
 }
 
@@ -15,7 +14,7 @@
 .field {
   background-color: white;
   padding-left: 1vmin;
-  width: 96vmin;
+  min-width: 90%;
   min-height: 4vmin;
   border: none;
   border-radius: 1vmin;
@@ -35,4 +34,5 @@
   color: white;
   display: flex;
   flex-direction: column;
+  width: auto;
 }

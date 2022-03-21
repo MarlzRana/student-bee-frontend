@@ -2,3 +2,21 @@
   display: flex;
   flex-direction: row;
 }
+
+.left {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+}
+
+.middle {
+  flex: 3 100%;
+  background-color: var(--medium-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right {
+  flex: 0.75;
+}

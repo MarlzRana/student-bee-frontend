@@ -1,12 +1,14 @@
+.leftPanel {
+  background: var(--medium-yellow);
+  height: 100%;
+}
+
 .leftPanel .panelContents {
   background: var(--medium-yellow);
-  position: relative;
-  width: calc(30px + 25vmin);
-  height: 100%;
+  width: calc(5px + 25vmin);
   transition: all 0.5s ease;
   margin-bottom: 30px;
   text-align: center;
-  left: 0px;
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -16,10 +18,9 @@
 
 .leftPanel .panelContents img {
   margin: 10px 0 5px;
-  width: calc(8px + 25vmin);
-  height: calc(8px + 25vmin);
+  width: calc(8px + 20vmin);
+  height: calc(8px + 20vmin);
   border-radius: 50%;
-  border: 2px solid black;
 }
 
 .leftPanel .panelContents h3 {
@@ -56,4 +57,14 @@
 .btn:active {
   background-color: #b89c11;
   border: 1px solid #b89c11;
+}
+
+@media only screen and (max-width: 321px) {
+  .leftPanel {
+    max-width: 80px;
+  }
+
+  .leftPanel .panelContents img {
+    padding-right: 5px;
+  }
 }

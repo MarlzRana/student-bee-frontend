@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "../styling/NotificationPanel.module.css";
-function Notifications({ name, description, image }) {
+function Notifications({ name, description, image, notificationTime }) {
   return (
-    <div>
+    <div className={styles.notificationContent}>
       <div className={styles.notificationImage}>
         <img src={image} alt="NImage" />
       </div>
-      <div>
-        <b>{name}</b> {description}
+      <div className={styles.userNotification}>
+        <p><b>{name}</b> {description}</p>
+        <div className={styles.timeOfNotification}>{notificationTime}</div>
       </div>
     </div>
   );

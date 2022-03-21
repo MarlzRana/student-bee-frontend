@@ -3,6 +3,10 @@
   text-decoration: none;
 }
 
+.reminder {
+  background-color: white;
+}
+
 @media (min-width: 0px) {
   .reminder {
     display: none;

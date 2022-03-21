@@ -10,9 +10,18 @@ function Home() {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <div className={styles.home}>
-                <LeftPanel/>
-                <TweetUI/>
-                <NotificationPanel/>
+                <div className={styles.left}>
+                    <LeftPanel/>
+                </div>
+                <div className={styles.middle}>
+                    <div className={styles.homeWidgets}>
+                        <Reminder/>
+                    </div>
+                    <TweetUI/>
+                </div>
+                <div className={styles.right}>
+                    <NotificationPanel/>
+                </div>        
             </div>
         </Suspense>
     );
