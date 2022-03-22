@@ -17,7 +17,6 @@
 
 .leftColumn {
   padding: 10px 10px;
-  border-right: 2px solid black;
 }
 
 .rightColumn {
@@ -50,7 +49,7 @@
   border-style: none;
   font-size: calc(8px + 1vmin);
   height: calc(3px + 4vh);
-  width: calc(150px + 30vmin);
+  width: calc(200px + 30vmin);
   background-color: var(--medium-gray);
   border-radius: 9px;
   text-indent: calc(1px + 0.75vmin);
@@ -69,7 +68,7 @@
   border: 0;
   background-color: var(--dark-black);
   font-size: calc(8px + 1vmin);
-  height: calc(10px + 2vmin);
+  height: calc(20px + 2vmin);
   width: calc(70px + 6vmin);
   margin-top: 20px;
   color: white;
