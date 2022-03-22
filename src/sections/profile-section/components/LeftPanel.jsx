@@ -1,5 +1,7 @@
 import styles from "../styling/LeftPanel.module.css";
 import profilePic from "./DefaultProfilePic.jpg";
+import { Link } from "react-router-dom";
+
 function LeftPanel() {
   return (
     <div className={styles.leftPanel}>
@@ -7,15 +9,15 @@ function LeftPanel() {
         <img src={profilePic} alt="profilePic" />
         <h3>Profile Name</h3>
         <p>Course</p>
-        <a className={styles.btn} href="#">
+        <Link className={styles.btn} to='/mainApp/editProfile'>
           Edit Profile
-        </a>
-        <a className={styles.btn} href="#">
+        </Link>
+        <Link className={styles.btn} to='/mainApp/mySocieties'>
           My Societies
-        </a>
-        <a className={styles.btn} href="#">
-          My Jobs
-        </a>
+        </Link>
+        <Link className={styles.btn} to='/mainApp/myEvents'>
+          My Events
+        </Link>
       </div>
     </div>
   );

@@ -1,11 +1,7 @@
 .container {
-  margin: auto; /* Not needed later */
-  margin-top: 50px; /* Not needed later */
   background-color: var(--medium-black);
-  border-radius: 2vmin;
-  width: 100vmin;
+  width: auto;
   min-height: 50vmin;
-  overflow: auto;
 }
 
 .fieldContainer {
@@ -18,19 +14,21 @@
 .field {
   background-color: white;
   padding-left: 1vmin;
-  width: 96vmin;
+  width: calc(10px + 60vw);
   min-height: 4vmin;
   border: none;
+  outline: none;
   border-radius: 1vmin;
   border-width: 0px;
   resize: none;
   font-size: calc(6px + 2vmin);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif, sans-serif;
 }
 
-::placeholder {
-  font-size: calc(8px + 2vmin);
+.field::placeholder {
+  font-size: calc(12px + 1vmin);
 }
 
 .feed {
@@ -38,4 +36,5 @@
   color: white;
   display: flex;
   flex-direction: column;
+  width: auto;
 }
