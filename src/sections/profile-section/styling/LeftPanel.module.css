@@ -1,6 +1,6 @@
 .leftPanel {
   background: var(--medium-yellow);
-  height: 100%;
+  min-height: 100%;
 }
 
 .leftPanel .panelContents {

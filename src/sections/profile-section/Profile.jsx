@@ -14,9 +14,7 @@ function Home() {
                     <LeftPanel/>
                 </div>
                 <div className={styles.middle}>
-                    <div className={styles.homeWidgets}>
-                        <Reminder/>
-                    </div>
+                    <Reminder/>
                     <TweetUI/>
                 </div>
                 <div className={styles.right}>
