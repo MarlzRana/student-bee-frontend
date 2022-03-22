@@ -7,7 +7,7 @@ function EditProfile() {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <div className={styles.editProfile}>
-                <LeftPanel/>
+                <div className={styles.leftProfilePanel}><LeftPanel/></div>
                 <div className={styles.editSection}> 
                     <form className={styles.editProfileForm}>
                         <div className={styles.leftColumn}>
@@ -38,7 +38,7 @@ function EditProfile() {
                                 />
                             </div>
                             <div className={styles.formEditInput}>
-                                <label htmlFor='dob'>Date of Birth:</label>
+                                <label htmlFor='dob'>Date of Birth</label>
                                 <input
                                     type='date'
                                     name='dob'
@@ -64,8 +64,6 @@ function EditProfile() {
                                     id='course'
                                 />
                             </div>
-                            <div className={styles.warningMessage}>Warning! This action is irreversible</div>
-                            <button className={styles.deleteProfileButton}>Delete Profile</button>
                         </div>
                         <div className={styles.rightColumn}>
                             <div className={styles.formEditInput}>
@@ -90,7 +88,7 @@ function EditProfile() {
                                 <label htmlFor='psw'>Current Password</label>
                                 <br/>
                                 <input
-                                    type='text'
+                                    type='password'
                                     name='psw'
                                     id='psw'
                                 />
@@ -104,7 +102,7 @@ function EditProfile() {
                                     id='newPassword'
                                 />
                             </div>
-                            <div className={styles.editDate}>
+                            <div className={styles.formEditInput}>
                                 <label htmlFor='confirmNewPassword'>Confirm New Password</label>
                                 <br/>
                                 <input
@@ -113,9 +111,9 @@ function EditProfile() {
                                     id='confirmNewPassword'
                                 />
                             </div>
-                                <div className={styles.errorMessage}>
-                            </div>
                             <button className={styles.editProfileButton}>Save Changes</button>
+                            <div className={styles.warningMessage}>Warning! This action is irreversible</div>
+                            <button className={styles.deleteProfileButton}>Delete Profile</button>
                         </div>    
                     </form>
                 </div>

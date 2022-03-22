@@ -1,11 +1,13 @@
+.leftProfilePanel {
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
 .editProfile {
   display: flex;
   flex-direction: row;
-  height: 82.8vh;
-}
-
-.editSection {
-  flex: 2 100%;
+  overflow-x: hidden;
 }
 
 .editProfileForm {
@@ -15,24 +17,18 @@
 
 .leftColumn {
   padding: 10px 10px;
-  flex: 2;
   border-right: 2px solid black;
 }
 
 .rightColumn {
   padding: 10px 10px;
-  flex: 2;
 }
 
 .formEditInput {
   display: flex;
   flex-direction: column;
   width: calc(500px + 15vmin);
-  margin-top: calc(1px + 2vh);
-}
-
-.formEditInput > label {
-  margin-right: 100px;
+  margin-top: calc(1px + 2.5vh);
 }
 
 .formEditInput > textarea {
@@ -52,9 +48,9 @@
   vertical-align: middle;
   border-radius: 5%;
   border-style: none;
-  font-size: calc(2vmin);
-  height: calc(3px + 5vh);
-  width: 50%;
+  font-size: calc(8px + 1vmin);
+  height: calc(3px + 4vh);
+  width: calc(150px + 30vmin);
   background-color: var(--medium-gray);
   border-radius: 9px;
   text-indent: calc(1px + 0.75vmin);
@@ -63,17 +59,19 @@
 .warningMessage {
   font-size: calc(5px + 1.5vmin);
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
   color: red;
 }
 
-.leftColumn > button {
+.leftColumn > button,
+.rightColumn > button {
   outline: none;
   border: 0;
   background-color: var(--dark-black);
   font-size: calc(8px + 1vmin);
-  width: calc(60px + 6vmin);
-  margin-top: 10px;
+  height: calc(10px + 2vmin);
+  width: calc(70px + 6vmin);
+  margin-top: 20px;
   color: white;
   border-radius: 20px;
   text-align: center;
@@ -81,4 +79,21 @@
 
 button:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 425px) {
+  .formEditInput > input,
+  .formEditInput > select,
+  .formEditInput > textarea {
+    width: calc(150px + 10vmin);
+    padding-left: 10px;
+  }
+
+  .editProfileForm {
+    flex-direction: column;
+  }
+
+  .formEditInput > label {
+    padding-left: 10px;
+  }
 }
