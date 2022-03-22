@@ -14,7 +14,7 @@
 .field {
   background-color: white;
   padding-left: 1vmin;
-  min-width: 92.5%;
+  width: calc(10px + 60vw);
   min-height: 4vmin;
   border: none;
   outline: none;

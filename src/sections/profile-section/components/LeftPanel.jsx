@@ -15,8 +15,8 @@ function LeftPanel() {
         <Link className={styles.btn} to='/mainApp/mySocieties'>
           My Societies
         </Link>
-        <Link className={styles.btn} to='/mainApp/myJobs'>
-          My Jobs
+        <Link className={styles.btn} to='/mainApp/myEvents'>
+          My Events
         </Link>
       </div>
     </div>

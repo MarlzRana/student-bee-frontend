@@ -11,10 +11,11 @@ function EditProfile() {
                 <div className={styles.editSection}> 
                     <form className={styles.editProfileForm}>
                         <div className={styles.leftColumn}>
-                            <div className={styles.formEditInput}>
+                            <div className={styles.formBio}>
                                 <label htmlFor='aboutMe'>Bio</label>
                                 <br/>
                                 <textarea
+                                    placeholder='150 characters limit'
                                     name='aboutMe'
                                     id='aboutMe'
                                 />
@@ -111,9 +112,10 @@ function EditProfile() {
                                     id='confirmNewPassword'
                                 />
                             </div>
-                            <button className={styles.editProfileButton}>Save Changes</button>
+                            
                             <div className={styles.warningMessage}>Warning! This action is irreversible</div>
                             <button className={styles.deleteProfileButton}>Delete Profile</button>
+                            <button className={styles.saveChangesButton}>Save Changes</button>  
                         </div>    
                     </form>
                 </div>

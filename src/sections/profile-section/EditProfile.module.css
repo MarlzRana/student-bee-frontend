@@ -1,9 +1,3 @@
-.leftProfilePanel {
-  height: auto;
-  position: relative;
-  z-index: 1;
-}
-
 .editProfile {
   display: flex;
   flex-direction: row;
@@ -27,10 +21,14 @@
   display: flex;
   flex-direction: column;
   width: calc(500px + 15vmin);
-  margin-top: calc(1px + 2.5vh);
+  margin-top: calc(1px + 3vh);
 }
 
-.formEditInput > textarea {
+.formBio > label {
+  padding-bottom: 10px;
+}
+
+.formBio > textarea {
   resize: none;
   background-color: var(--medium-gray);
   outline: none;
@@ -39,11 +37,20 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  vertical-align: middle;
+  border-radius: 5%;
+  border-style: none;
+  font-size: calc(8px + 1vmin);
+  height: calc(4px + 13vh);
+  width: calc(200px + 30vmin);
+  background-color: var(--medium-gray);
+  border-radius: 9px;
+  text-indent: calc(1px + 0.75vmin);
+  padding-top: 5px;
 }
 
 .formEditInput > input,
-.formEditInput > select,
-.formEditInput > textarea {
+.formEditInput > select {
   vertical-align: middle;
   border-radius: 5%;
   border-style: none;
@@ -62,7 +69,10 @@
   color: red;
 }
 
-.leftColumn > button,
+.saveChangesButton {
+  margin-left: calc(160px + 4vmin);
+}
+
 .rightColumn > button {
   outline: none;
   border: 0;
@@ -70,7 +80,7 @@
   font-size: calc(8px + 1vmin);
   height: calc(20px + 2vmin);
   width: calc(70px + 6vmin);
-  margin-top: 20px;
+  margin-top: 15px;
   color: white;
   border-radius: 20px;
   text-align: center;
@@ -80,10 +90,10 @@ button:hover {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
   .formEditInput > input,
   .formEditInput > select,
-  .formEditInput > textarea {
+  .formBio > textarea {
     width: calc(150px + 10vmin);
     padding-left: 10px;
   }
@@ -94,5 +104,13 @@ button:hover {
 
   .formEditInput > label {
     padding-left: 10px;
+  }
+
+  .saveChangesButton {
+    margin-left: calc(20px + 5vmin);
+  }
+
+  .rightColumn > button {
+    width: calc(60px + 6vmin);
   }
 }
