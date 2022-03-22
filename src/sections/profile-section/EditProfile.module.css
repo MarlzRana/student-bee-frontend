@@ -1,0 +1,116 @@
+.editProfile {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+.editProfileForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.leftColumn {
+  padding: 10px 10px;
+}
+
+.rightColumn {
+  padding: 10px 10px;
+}
+
+.formEditInput {
+  display: flex;
+  flex-direction: column;
+  width: calc(500px + 15vmin);
+  margin-top: calc(1px + 3vh);
+}
+
+.formBio > label {
+  padding-bottom: 10px;
+}
+
+.formBio > textarea {
+  resize: none;
+  background-color: var(--medium-gray);
+  outline: none;
+  border: none;
+  border-radius: 5%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  vertical-align: middle;
+  border-radius: 5%;
+  border-style: none;
+  font-size: calc(8px + 1vmin);
+  height: calc(4px + 13vh);
+  width: calc(200px + 30vmin);
+  background-color: var(--medium-gray);
+  border-radius: 9px;
+  text-indent: calc(1px + 0.75vmin);
+  padding-top: 5px;
+}
+
+.formEditInput > input,
+.formEditInput > select {
+  vertical-align: middle;
+  border-radius: 5%;
+  border-style: none;
+  font-size: calc(8px + 1vmin);
+  height: calc(3px + 4vh);
+  width: calc(200px + 30vmin);
+  background-color: var(--medium-gray);
+  border-radius: 9px;
+  text-indent: calc(1px + 0.75vmin);
+}
+
+.warningMessage {
+  font-size: calc(5px + 1.5vmin);
+  width: 100%;
+  margin-top: 15px;
+  color: red;
+}
+
+.saveChangesButton {
+  margin-left: calc(160px + 4vmin);
+}
+
+.rightColumn > button {
+  outline: none;
+  border: 0;
+  background-color: var(--dark-black);
+  font-size: calc(8px + 1vmin);
+  height: calc(20px + 2vmin);
+  width: calc(70px + 6vmin);
+  margin-top: 15px;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 426px) {
+  .formEditInput > input,
+  .formEditInput > select,
+  .formBio > textarea {
+    width: calc(150px + 10vmin);
+    padding-left: 10px;
+  }
+
+  .editProfileForm {
+    flex-direction: column;
+  }
+
+  .formEditInput > label {
+    padding-left: 10px;
+  }
+
+  .saveChangesButton {
+    margin-left: calc(20px + 5vmin);
+  }
+
+  .rightColumn > button {
+    width: calc(60px + 6vmin);
+  }
+}

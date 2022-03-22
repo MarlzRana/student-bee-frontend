@@ -50,9 +50,9 @@ function LowerNavbar() {
           </li>
         </ul>
       </div>
-      <div className={styles.rightSection}>
+      {/* <div className={styles.rightSection}>
         <input type='text' placeholder='Search' />
-      </div>
+      </div> */}
     </nav>
   );
 }

@@ -1,0 +1,23 @@
+.home {
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+}
+
+.middle {
+  flex: 3 100%;
+  border-top: calc(2px + 0.2vmin) solid var(--medium-yellow);
+  background-color: var(--medium-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right {
+  flex: 0.75;
+}
