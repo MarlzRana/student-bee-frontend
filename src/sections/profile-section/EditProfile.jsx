@@ -7,12 +7,14 @@ const LeftPanel = lazy(() => import("./components/LeftPanel"));
 function EditProfile() {
   Axios.defaults.withCredentials = true;
 
-  const [alertMessage, setAlertMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState(
+    "Warning! This action is irreversible"
+  );
   const [enteredBio, setEnteredBio] = useState("");
   const [enteredFirstName, setEnteredFirstName] = useState("");
   const [enteredLastName, setEnteredLastName] = useState("");
   const [enteredDob, setEnteredDob] = useState("");
-  const [enteredYear, setEnteredYear] = useState("");
+  const [enteredYear, setEnteredYear] = useState("1st");
   const [enteredCourse, setEnteredCourse] = useState("");
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -45,20 +47,20 @@ function EditProfile() {
         console.log(res);
         if (res.data.status == "failure") {
           if (res.data.reason == "Invalid Input Format") {
-            window.confirm("One of your inputs were invalid");
+            setAlertMessage("One of your inputs were invalid");
           } else if (res.data.reason == "Username already taken") {
-            window.confirm("That username is already taken");
+            setAlertMessage("That username is already taken");
           } else if (res.data.reason == "Password Incorrect") {
-            window.confirm("The password you entered was not correct");
+            setAlertMessage("The password you entered was incorrect");
           }
         } else {
-          window.confirm("Success!");
+          setAlertMessage("Success!");
         }
       } catch (error) {
         window.confirm("Something went wrong. Please try again later.");
       }
     } else {
-      window.confirm("Your passwords do not match");
+      setAlertMessage("Your passwords do not match");
     }
   };
   return (
@@ -196,9 +198,7 @@ function EditProfile() {
                 />
               </div>
 
-              <div className={styles.warningMessage}>
-                Warning! This action is irreversible
-              </div>
+              <div className={styles.warningMessage}>{alertMessage}</div>
               <button className={styles.deleteProfileButton}>
                 Delete Profile
               </button>
