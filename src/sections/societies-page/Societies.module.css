@@ -1,0 +1,80 @@
+.societiesPage {
+  background-color: var(--medium-black);
+  width: 100%; /* Originally: 100vw */
+  height: auto;
+  min-height: 100vh;
+  padding-bottom: 8rem;
+}
+
+.societiesHeading {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 3rem;
+}
+
+.societiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  transform: translateY(80px);
+  padding: 0;
+  background-color: var(--medium-black);
+  height: auto;
+}
+
+.societiesCell {
+  flex: 0 1 250px;
+  max-width: 250px;
+  height: 275px;
+  margin: 2px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.8);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  cursor: pointer;
+}
+
+.societiesImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.societiesText {
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: opacity 350ms;
+  text-shadow: 2px 2px 2px black;
+}
+
+.societiesCell::before,
+.societiesCell::after,
+.societiesImage {
+  top: -50%;
+  width: 100%;
+  height: 200%;
+  display: block;
+  position: absolute;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  z-index: 1;
+}
+
+.societiesCell:hover {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.2);
+  z-index: 99;
+  overflow: hidden;
+}

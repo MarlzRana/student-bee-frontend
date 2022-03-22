@@ -9,6 +9,7 @@ const Events = lazy(() => import('../events-page/Events'));
 const EventDetails = lazy(() => import('../events-page/EventDetails'));
 const Home = lazy(() => import('../profile-section/Profile'));
 const EditProfile = lazy(() => import('../profile-section/EditProfile'));
+const Societies = lazy(() => import('../societies-page/Societies'));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -34,6 +35,7 @@ function MainApp() {
         {subPageName === 'events' ? <Events /> : <></>}
         {subPageName === 'eventDetails' ? <EventDetails /> : <></>}
         {subPageName === 'editProfile' ? <EditProfile /> : <></>}
+        {subPageName === 'societies' ? <Societies /> : <></>}
       </Suspense>
     </main>
   );
