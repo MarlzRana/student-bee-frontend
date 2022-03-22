@@ -50,7 +50,7 @@
   font-size: calc(5px + 1vmin);
 }
 
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 480px) {
   .notificationPanel {
     display: none;
   }

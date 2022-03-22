@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styling/NotificationPanel.module.css";
 function Notifications({ name, description, image, notificationTime }) {
   return (

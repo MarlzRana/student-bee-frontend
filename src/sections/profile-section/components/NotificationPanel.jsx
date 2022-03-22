@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styling/NotificationPanel.module.css";
 import Notifications from "./Notifications";
 import DefaultPfP from "./DefaultProfilePic.jpg";
