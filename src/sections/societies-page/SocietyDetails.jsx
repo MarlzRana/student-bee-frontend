@@ -1,10 +1,13 @@
 import styles from './SocietyDetails.module.css';
+import { Suspense, lazy } from 'react';
 
 function SocietyDetails() {
     return(
-        <div>
-            
-        </div>
+        <Suspense>
+            <div className={styles.societyDetailsPage}>
+                test
+            </div>
+        </Suspense>
     );
 }
 
