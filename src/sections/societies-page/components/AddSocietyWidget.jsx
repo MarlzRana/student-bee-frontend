@@ -41,7 +41,7 @@ function AddSocietyWidget({ setIsAddSocietyWidgetShowing }) {
           <div className={styles.formTextInput}>
             <input
               type='text'
-              placeholder='Link'
+              placeholder='Link (Discord, Instagram, etc)'
               name='link'
               id='enteredLink'
               required
