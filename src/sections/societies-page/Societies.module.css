@@ -127,3 +127,9 @@
 .addSociety:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 426px) {
+  .societiesPage {
+    background-size: contain;
+  }
+}
