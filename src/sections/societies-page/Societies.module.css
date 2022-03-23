@@ -1,16 +1,19 @@
 .societiesPage {
-  background-color: var(--medium-black);
-  width: 100%; /* Originally: 100vw */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)),
+    url("./styling/society-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
   height: auto;
-  min-height: 100vh;
-  padding-bottom: 8rem;
+  min-height: 90vh;
+  padding-bottom: 15rem;
+  overflow-x: hidden;
 }
 
 .societiesHeading {
   color: white;
   text-align: center;
-  margin-bottom: 2rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .societiesContainer {
@@ -20,9 +23,9 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  transform: translateY(80px);
+  transform: translateY(20px);
   padding: 0;
-  background-color: var(--medium-black);
+  background-color: transparent;
   height: auto;
 }
 
@@ -34,7 +37,7 @@
   position: relative;
   text-align: center;
   z-index: 1;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.8);
+  /* box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.8); */
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   cursor: pointer;
 }
@@ -68,13 +71,59 @@
   display: block;
   position: absolute;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  z-index: 1;
+  z-index: -1;
 }
 
 .societiesCell:hover {
   opacity: 1;
   transition: all 0.3s ease-in-out;
-  transform: scale(1.2);
+  transform: scale(1.1);
   z-index: 99;
   overflow: hidden;
+}
+
+.societiesCell:before {
+  content: "";
+  position: absolute;
+  opacity: 0.2;
+  width: 350px;
+  height: 70px;
+  background: white;
+  top: 50;
+  left: 0;
+  z-index: 1;
+  transform: rotate(45deg);
+  transition: transform 1.5s;
+}
+
+.societiesCell:hover:before {
+  transform: translate(-100px, 600%) rotate(45deg);
+  transition: transform 0.5s;
+}
+
+.societyRedirect {
+  all: unset;
+}
+
+.addSociety {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 3vmin;
+  right: 3vmin;
+  border-radius: 100%;
+  height: calc(30px + 3vmin);
+  width: calc(30px + 3vmin);
+  background-color: var(--medium-black);
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: calc(16px + 1vmin);
+  border: 0.66vmin solid var(--dark-black);
+}
+
+.addSociety:hover {
+  cursor: pointer;
 }
