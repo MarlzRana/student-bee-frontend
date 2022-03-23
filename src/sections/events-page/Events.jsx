@@ -1,93 +1,51 @@
-import Axios from "axios";
-import { Suspense, lazy, useState, useEffect } from "react";
-import styles from "./Events.module.css";
-import img from "./styling/placeholder.jpg";
+import Axios from 'axios';
+import { Suspense, lazy, useState, useEffect } from 'react';
+import styles from './Events.module.css';
+import img from './styling/placeholder.jpg';
 
-const AddEventWidget = lazy(() => import("./components/AddEventWidget"));
-const WidgetSpinner = lazy(() => import("./components/WidgetSpinner"));
-const YellowWidget = lazy(() => import("./components/YellowWidget"));
+const AddEventWidget = lazy(() => import('./components/AddEventWidget'));
+const WidgetSpinner = lazy(() => import('./components/WidgetSpinner'));
+const YellowWidget = lazy(() => import('./components/YellowWidget'));
 
 function Events() {
   const [isAddEventWidgetShowing, setIsAddEventWidgetShowing] = useState(false);
-
-  Axios.defaults.withCredentials = true;
-  const [eventsArray, setEventsArray] = useState([
-    {
-      eventID: 0,
-      username: null,
-      startDateTime: null,
-    },
-  ]);
-  const [newEventsArray, setNewEventsArray] = useState([
-    {
-      eventID: 0,
-      title: null,
-      startDateTime: null,
-    },
-  ]);
-
+  const [top10MostRecentEvents, setTop10MostRecentEvents] = useState([]);
   useEffect(() => {
     const fetchEvents = async () => {
+      Axios.defaults.withCredentials = true;
       const res = await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS +
-          "/eventsSystem/top10MostRecentEvents"
+          '/eventsSystem/top10MostRecentEvents'
       );
-      if (res.data.status === "failure") {
-        window.confirm("Something went wrong. Please try again later.");
+      if (res.data.status === 'failure') {
+        window.confirm('Something went wrong. Please try again later.');
       }
-      setNewEventsArray([
-        res.data[3],
-        res.data[4],
-        res.data[5],
-        res.data[6],
-        res.data[7],
-        res.data[8],
-        res.data[9],
-      ]);
-      if (eventsArray === "") {
-        setEventsArray([
-          res.data[3],
-          res.data[4],
-          res.data[5],
-          res.data[6],
-          res.data[7],
-          res.data[8],
-          res.data[9],
-        ]);
-      }
-      if (eventsArray !== newEventsArray) {
-        setEventsArray([
-          res.data[3],
-          res.data[4],
-          res.data[5],
-          res.data[6],
-          res.data[7],
-          res.data[8],
-          res.data[9],
-        ]);
-      }
+      setTop10MostRecentEvents(res.data.events);
     };
     fetchEvents();
-  }, [eventsArray]);
-
+  }, []);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.topContent}>
         <h1 className={styles.title}>Events</h1>
         <div className={styles.widgetSpinner}>
-          <WidgetSpinner />
+          <WidgetSpinner firstThreeEvents={top10MostRecentEvents.slice(3)} />
         </div>
       </div>
       <div className={styles.lowerContent}>
         <div className={styles.eventsList}>
-          {eventsArray.map((item) => (
-            <YellowWidget
-              key={item.eventID}
-              eventName={item.title}
-              eventDate={item.startDateTime}
-              image={img}
-            />
-          ))}
+          {top10MostRecentEvents.slice(4).map((event, index) => {
+            console.log(event.title);
+            return (
+              <YellowWidget
+                eventID={event.eventID}
+                eventTitle={event.title}
+                eventStartDateTime={event.startDateTime}
+                image={img}
+                key={index}
+              />
+            );
+          })}
         </div>
       </div>
       {isAddEventWidgetShowing ? (
@@ -98,7 +56,7 @@ function Events() {
         <></>
       )}
       <button
-        title="Add an event!"
+        title='Add an event!'
         onClick={() => setIsAddEventWidgetShowing(true)}
         className={styles.addEvent}
       >
@@ -109,3 +67,11 @@ function Events() {
 }
 
 export default Events;
+
+{
+  /* <YellowWidget
+              eventName={item.title}
+              eventDate={item.startDateTime}
+              image={img}
+            /> */
+}
