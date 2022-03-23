@@ -26,7 +26,7 @@ function EventDetails() {
           setEventInfo(res.data.eventInformation);
         })
         .catch(function (error) {
-          window.confirm("You must be logged in");
+          return;
         });
     };
     fetchEventDetails();
