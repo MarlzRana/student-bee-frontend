@@ -58,7 +58,7 @@ function EditProfile() {
             } else if (!res.data.validationCheckDetails.newPassword) {
               setAlertMessage("Please provide a new password");
             } else if (!res.data.validationCheckDetails.username) {
-              setAlertMessage("Please provide a username ");
+              setAlertMessage("Please provide a username");
             } else if (!res.data.validationCheckDetails.studentYear) {
               setAlertMessage("Please specify your current year of study");
             }
