@@ -1,5 +1,4 @@
 import styles from "./EventDetails.module.css";
-import events from "./components/FloatingWidget";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
@@ -9,17 +8,26 @@ function EventDetails() {
   const [eventInfo, setEventInfo] = useState("");
   const routerNavigator = useNavigate();
   useEffect(() => {
+    //Abort controller
+    const abortCont = new AbortController();
+
     const fetchEventDetails = async () => {
-      const res = await Axios.get(
+      await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS +
           "/eventsSystem/getEventDetails/" +
-          eventIDIn
-      );
-      if (res.data.status === "failure") {
-        window.confirm("Something went wrong. Please try again later.");
-      }
-      console.log(res);
-      setEventInfo(res.data.eventInformation);
+          eventIDIn,
+        { signal: abortCont.signal }
+      )
+        .then(function (res) {
+          if (res.data.status === "failure") {
+            window.confirm("Something went wrong. Please try again later.");
+          }
+          console.log(res);
+          setEventInfo(res.data.eventInformation);
+        })
+        .catch(function (error) {
+          window.confirm("You must be logged in");
+        });
     };
     fetchEventDetails();
 
@@ -33,6 +41,9 @@ function EventDetails() {
       }
     };
     checkIsUserLogged();
+
+    //Cleanup function
+    return () => abortCont.abort();
   }, [routerNavigator]);
   return (
     <div className={styles.details}>
