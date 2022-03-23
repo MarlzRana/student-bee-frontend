@@ -37,17 +37,31 @@ function EditProfile() {
       password: enteredPassword,
       newPassword: enteredNewPassword,
     };
-    console.log(payload);
     if (enteredNewPassword == enteredConfirmNewPassword) {
       try {
         const res = await Axios.post(
           process.env.REACT_APP_APIHOSTADDRESS + "/loginSystem/editProfile",
           payload
         );
-        console.log(res);
         if (res.data.status == "failure") {
           if (res.data.reason == "Invalid Input Format") {
-            setAlertMessage("One of your inputs were invalid");
+            if (!res.data.validationCheckDetails.course) {
+              setAlertMessage("Please specify your course");
+            } else if (!res.data.validationCheckDetails.dob) {
+              setAlertMessage("Please specify your date of birth");
+            } else if (!res.data.validationCheckDetails.emailAddress) {
+              setAlertMessage("Please specify your email address");
+            } else if (!res.data.validationCheckDetails.firstName) {
+              setAlertMessage("Please specify your first name");
+            } else if (!res.data.validationCheckDetails.lastName) {
+              setAlertMessage("Please specify your last name");
+            } else if (!res.data.validationCheckDetails.newPassword) {
+              setAlertMessage("Please provide a new password");
+            } else if (!res.data.validationCheckDetails.username) {
+              setAlertMessage("Please provide a username ");
+            } else if (!res.data.validationCheckDetails.studentYear) {
+              setAlertMessage("Please specify your current year of study");
+            }
           } else if (res.data.reason == "Username already taken") {
             setAlertMessage("That username is already taken");
           } else if (res.data.reason == "Password Incorrect") {
