@@ -1,0 +1,91 @@
+.societyBanner {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./styling/society-bg.jpg");
+  width: auto;
+  height: 40vh;
+  background-size: 100% auto;
+}
+
+.societyBannerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.societyBannerText h1,
+.societyBannerText p {
+  text-align: center;
+  color: white;
+}
+
+.societyDesc {
+  display: flex;
+  background-color: var(--medium-black);
+  width: auto;
+  min-height: calc(100px + 2vmin);
+  color: white;
+  padding: calc(30px + 0.5vmin);
+}
+
+.societyInfo {
+  padding-right: calc(20px + 0.5vmin);
+  flex: 6;
+}
+
+.societyMembers {
+  background-color: var(--medium-yellow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.societyMembers > ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.societyMembers > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px;
+}
+
+.societyMembers ul li img {
+  border-radius: 50%;
+  width: calc(100px);
+  height: calc(100px);
+}
+
+.societyLinks {
+  border-left: 2px solid white;
+  padding-left: 40px;
+  flex: 0.5;
+}
+
+.societyLinks > ul > li {
+  list-style-type: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .societyDesc {
+    flex-direction: column-reverse;
+  }
+
+  .societyLinks {
+    border: 2px solid white;
+    padding-bottom: 10px;
+  }
+
+  .societyInfo {
+    padding-top: 10px;
+  }
+}
