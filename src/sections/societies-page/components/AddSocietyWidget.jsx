@@ -4,15 +4,15 @@ import styles from "../styling/AddSocietyWidget.module.css";
 
 function AddSocietyWidget({ setIsAddSocietyWidgetShowing }) {
   const [enteredSocietyName, setEnteredSocietyName] = useState("");
-  const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredLeaderName, setEnteredLeaderName] = useState("");
   const [enteredLink, setEnteredLink] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
+  const [messageToDisplay, setMessageToDisplay] = useState("");
   const addSociety = async (e) => {
     e.preventDefault();
+
     const payload = {
       societyNameIn: enteredSocietyName,
-      usernameIn: enteredUsername,
       societyLeaderNameIn: enteredLeaderName,
       societyMainSocialLinkIn: enteredLink,
       societyDescriptionIn: enteredDescription,
@@ -24,11 +24,28 @@ function AddSocietyWidget({ setIsAddSocietyWidgetShowing }) {
         payload
       );
       if (res.data.status === "success") {
+        setEnteredSocietyName("");
+        setEnteredDescription("");
+        setEnteredLeaderName("");
+        setEnteredLink("");
+
         console.log(res);
+        setMessageToDisplay("Your society was created");
         console.log("success");
       }
       if (res.data.status === "failure") {
         console.log(res);
+        if (res.data.reason === "invalidInputFormat") {
+          if (!res.data.validationCheckDetails.societyLeaderNameIn) {
+            setMessageToDisplay("Please provide a name for the society leader");
+          } else if (!res.data.validationCheckDetails.societyNameIn) {
+            setMessageToDisplay("Please provide a name for the society");
+          } else if (!res.data.validationCheckDetails.societyMainSocialLinkIn) {
+            setMessageToDisplay(
+              "Please provide a link or email for your society"
+            );
+          }
+        }
         console.log("failure");
       }
     } catch (error) {
@@ -58,16 +75,6 @@ function AddSocietyWidget({ setIsAddSocietyWidgetShowing }) {
           <div className={styles.formTextInput}>
             <input
               type="text"
-              placeholder="Username (Society Leader)"
-              name="enteredUsername"
-              id="enteredLeaderName"
-              onChange={(e) => setEnteredUsername(e.target.value)}
-              required
-            />
-          </div>
-          <div className={styles.formTextInput}>
-            <input
-              type="text"
               placeholder="Name (Society Leader)"
               name="enteredLeaderName"
               id="enteredLeaderName"
@@ -78,7 +85,7 @@ function AddSocietyWidget({ setIsAddSocietyWidgetShowing }) {
           <div className={styles.formTextInput}>
             <input
               type="text"
-              placeholder="Link (Discord, Instagram, etc)"
+              placeholder="Link (Facebook, Email ect.)"
               name="enteredLink"
               id="enteredLink"
               onChange={(e) => setEnteredLink(e.target.value)}
@@ -107,7 +114,7 @@ function AddSocietyWidget({ setIsAddSocietyWidgetShowing }) {
           </div>
         </form>
         <div>
-          <p></p>
+          <p>{messageToDisplay}</p>
         </div>
       </div>
     </div>
