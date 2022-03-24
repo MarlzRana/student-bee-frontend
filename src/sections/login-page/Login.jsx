@@ -15,9 +15,7 @@ function Login() {
       const res = await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS + '/loginSystem/isLoggedIn'
       );
-      if (res.data.isLoggedIn === true) {
-        routerNavigator('/mainApp/home');
-      }
+      console.log(res);
     };
     checkIsUserLogged();
   }, [routerNavigator]);
