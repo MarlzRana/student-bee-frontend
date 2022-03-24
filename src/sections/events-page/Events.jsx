@@ -1,11 +1,11 @@
-import Axios from 'axios';
-import { Suspense, lazy, useState, useEffect } from 'react';
-import styles from './Events.module.css';
-import img from './styling/placeholder.jpg';
+import Axios from "axios";
+import { Suspense, lazy, useState, useEffect } from "react";
+import styles from "./Events.module.css";
+import img from "./styling/placeholder.jpg";
 
-const AddEventWidget = lazy(() => import('./components/AddEventWidget'));
-const WidgetSpinner = lazy(() => import('./components/WidgetSpinner'));
-const YellowWidget = lazy(() => import('./components/YellowWidget'));
+const AddEventWidget = lazy(() => import("./components/AddEventWidget"));
+const WidgetSpinner = lazy(() => import("./components/WidgetSpinner"));
+const YellowWidget = lazy(() => import("./components/YellowWidget"));
 
 function Events() {
   const [isAddEventWidgetShowing, setIsAddEventWidgetShowing] = useState(false);
@@ -15,10 +15,10 @@ function Events() {
       Axios.defaults.withCredentials = true;
       const res = await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS +
-          '/eventsSystem/top10MostRecentEvents'
+          "/eventsSystem/top10MostRecentEvents"
       );
-      if (res.data.status === 'failure') {
-        window.confirm('Something went wrong. Please try again later.');
+      if (res.data.status === "failure") {
+        window.confirm("Something went wrong. Please try again later.");
       }
       setTop10MostRecentEvents(res.data.events);
     };
@@ -35,7 +35,6 @@ function Events() {
       <div className={styles.lowerContent}>
         <div className={styles.eventsList}>
           {top10MostRecentEvents.slice(4).map((event, index) => {
-            console.log(event.title);
             return (
               <YellowWidget
                 eventID={event.eventID}
@@ -56,7 +55,7 @@ function Events() {
         <></>
       )}
       <button
-        title='Add an event!'
+        title="Add an event!"
         onClick={() => setIsAddEventWidgetShowing(true)}
         className={styles.addEvent}
       >
@@ -67,11 +66,3 @@ function Events() {
 }
 
 export default Events;
-
-{
-  /* <YellowWidget
-              eventName={item.title}
-              eventDate={item.startDateTime}
-              image={img}
-            /> */
-}
