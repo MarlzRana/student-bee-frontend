@@ -59,7 +59,14 @@
   padding: 10px 30px;
 }
 
-.societyMembers ul li img {
+.societyMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.societyMember img {
   border-radius: 50%;
   width: calc(100px);
   height: calc(100px);
