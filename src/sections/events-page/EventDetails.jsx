@@ -4,19 +4,25 @@ import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 function EventDetails() {
-  const eventIDIn = useParams().eventID;
+  const eventIDIn = parseInt(useParams().eventID);
   const [eventInfo, setEventInfo] = useState("");
   const routerNavigator = useNavigate();
   useEffect(() => {
     //Abort controller
     const abortCont = new AbortController();
+    Axios.defaults.withCredentials = true;
 
     const fetchEventDetails = async () => {
+      console.log(eventIDIn);
+      const payload = {
+        signal: abortCont.signal,
+      };
+
       await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS +
           "/eventsSystem/getEventDetails/" +
           eventIDIn,
-        { signal: abortCont.signal }
+        payload
       )
         .then(function (res) {
           if (res.data.status === "failure") {
@@ -37,7 +43,6 @@ function EventDetails() {
     };
     fetchEventDetails();
 
-    Axios.defaults.withCredentials = true;
     const checkIsUserLogged = async () => {
       const res = await Axios.get(
         process.env.REACT_APP_APIHOSTADDRESS + "/loginSystem/isLoggedIn"
