@@ -1,10 +1,15 @@
 .title {
   text-align: center;
   font-size: calc(20px + 2vmin);
+  color: white;
+  text-shadow: 2px 2px 2px black;
 }
 
 .topContent {
-  background-image: url("./styling/bg.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./styling/bg.jpg");
+  background-size: contain;
+  background-position: center center;
   padding-top: 10vmin;
   height: 63vh;
   background-color: var(--dark-black);
