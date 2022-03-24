@@ -8,54 +8,41 @@ function EventDetails() {
   const [eventInfo, setEventInfo] = useState("");
   const routerNavigator = useNavigate();
   useEffect(() => {
-    //Abort controller
-    const abortCont = new AbortController();
     Axios.defaults.withCredentials = true;
 
     const fetchEventDetails = async () => {
       console.log(eventIDIn);
       const payload = {
-        signal: abortCont.signal,
+        eventID: eventIDIn,
       };
 
-      await Axios.get(
-        process.env.REACT_APP_APIHOSTADDRESS +
-          "/eventsSystem/getEventDetails/" +
-          eventIDIn,
+      await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS + "/eventsSystem/getEventDetails",
         payload
       )
         .then(function (res) {
           if (res.data.status === "failure") {
+            if (res.data.reason === "notLoggedIn") {
+              routerNavigator("/loginSystem/login");
+            }
             if (
               res.data.reason === "This event does not exist" ||
               res.data.reason === "Invalid ID format"
             ) {
-              console.log("Invalid");
               routerNavigator("/mainApp/events");
+              window.confirm(res.data.reason);
             }
+          } else if (res.data.status === "success") {
+            setEventInfo(res.data.eventInformation);
           }
           console.log(res);
-          setEventInfo(res.data.eventInformation);
         })
         .catch(function (error) {
           return;
         });
     };
     fetchEventDetails();
-
-    const checkIsUserLogged = async () => {
-      const res = await Axios.get(
-        process.env.REACT_APP_APIHOSTADDRESS + "/loginSystem/isLoggedIn"
-      );
-      if (res.data.isLoggedIn === false) {
-        routerNavigator("/loginSystem/login");
-      }
-    };
-    checkIsUserLogged();
-
-    //Cleanup function
-    return () => abortCont.abort();
-  }, [routerNavigator]);
+  }, []);
   return (
     <div className={styles.details}>
       <div className={styles.banner}>
