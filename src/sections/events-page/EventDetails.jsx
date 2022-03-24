@@ -20,7 +20,13 @@ function EventDetails() {
       )
         .then(function (res) {
           if (res.data.status === "failure") {
-            window.confirm("Something went wrong. Please try again later.");
+            if (
+              res.data.reason === "This event does not exist" ||
+              res.data.reason === "Invalid ID format"
+            ) {
+              console.log("Invalid");
+              routerNavigator("/mainApp/events");
+            }
           }
           console.log(res);
           setEventInfo(res.data.eventInformation);
