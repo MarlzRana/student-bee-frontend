@@ -11,6 +11,7 @@ const Home = lazy(() => import('../profile-section/Profile'));
 const EditProfile = lazy(() => import('../profile-section/EditProfile'));
 const Societies = lazy(() => import('../societies-page/Societies'));
 const SocietyDetails = lazy(() => import('../societies-page/SocietyDetails'));
+const Jobs = lazy(() => import('../jobs-page/Jobs'));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -38,6 +39,7 @@ function MainApp() {
         {subPageName === 'editProfile' ? <EditProfile /> : <></>}
         {subPageName === 'societies' ? <Societies /> : <></>}
         {subPageName === 'societyDetails' ? <SocietyDetails /> : <></>}
+        {subPageName === 'jobs' ? <Jobs /> : <></>}
       </Suspense>
     </main>
   );
