@@ -69,3 +69,9 @@
   background-color: #b89c11;
   border: 1px solid #b89c11;
 }
+
+@media screen and (max-width: 426px) {
+  .widget {
+    height: calc(190px + 20vmin);
+  }
+}
