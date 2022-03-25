@@ -6,16 +6,16 @@ function AddJobWidget({ setIsAddJobWidgetShowing }) {
     <div className={styles.background}>
       <div className={styles.addJobWidget}>
         <header className={styles.header}>
-          <h1>Society Details</h1>
+          <h1>Job Details</h1>
         </header>
         <form className={styles.form}>
           <div className={styles.row0}>
             <div className={styles.formTextInput}>
               <input
                 type='text'
-                placeholder='Society Name'
-                name='SocietyName'
-                id='SocietyName'
+                placeholder='Job Name'
+                name='JobName'
+                id='JobName'
                 required
               />
             </div>
@@ -23,35 +23,72 @@ function AddJobWidget({ setIsAddJobWidgetShowing }) {
           <div className={styles.formTextInput}>
             <input
               type='text'
-              placeholder='Username (Society Leader)'
-              name='username'
-              id='enteredLeaderName'
+              placeholder='Wage'
+              name='wage'
+              id='wage'
               required
             />
           </div>
           <div className={styles.formTextInput}>
             <input
               type='text'
-              placeholder='Name (Society Leader)'
-              name='name'
-              id='enteredLeaderName'
+              placeholder='Working hours per week'
+              name='hoursPerWeek'
+              id='hoursPerWeek'
               required
             />
           </div>
           <div className={styles.formTextInput}>
             <input
               type='text'
-              placeholder='Link (Discord, Instagram, etc)'
-              name='link'
-              id='enteredLink'
+              placeholder='Location'
+              name='location'
+              id='location'
+              required
+            />
+          </div>
+          <div className={styles.formDateInput}>
+            <label htmlFor="startDate">Start Date</label>
+            <input
+              type='date'
+              placeholder='Start Date'
+              name='startDate'
+              id='startDate'
+              required
+            />
+          </div>
+          <div className={styles.formTextInput}>
+            <input
+              type='text'
+              placeholder='Employer Contact Number'
+              name='contactNo'
+              id='contactNo'
+              required
+            />
+          </div>
+          <div className={styles.formTextInput}>
+            <input
+              type='text'
+              placeholder='Employer Contact Email'
+              name='contactEmail'
+              id='contactEmail'
+              required
+            />
+          </div>
+          <div className={styles.formTextInput}>
+            <input
+              type='text'
+              placeholder='Application Link'
+              name='appLink'
+              id='appLink'
               required
             />
           </div>
           <div className={styles.formTextInput}>
             <textarea
-              placeholder='Society Description'
+              placeholder='Job Description and Requirements'
               name='desc'
-              id='enteredDescription'
+              id='enteredDesc'
               required
             />
           </div>
