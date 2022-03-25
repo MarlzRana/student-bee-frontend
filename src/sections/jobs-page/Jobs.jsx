@@ -30,7 +30,7 @@ function Jobs() {
             <></>
         )}
         {!isAddJobWidgetShowing ? (<button
-            title='Add your own society!'
+            title='Add a new job!'
             onClick={() => setIsAddJobWidgetShowing(true)}
             className={styles.addJob}
         >
