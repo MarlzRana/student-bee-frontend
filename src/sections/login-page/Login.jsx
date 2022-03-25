@@ -1,11 +1,11 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Axios from 'axios';
-import styles from './Login.module.css';
+import { lazy, Suspense, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import Axios from "axios";
+import styles from "./Login.module.css";
 
-const LoginWidget = lazy(() => import('./components/LoginWidget'));
-const RegisterWidget = lazy(() => import('./components/RegisterWidget'));
-const HomePageNavbar = lazy(() => import('../home-page/components/Navbar'));
+const LoginWidget = lazy(() => import("./components/LoginWidget"));
+const RegisterWidget = lazy(() => import("./components/RegisterWidget"));
+const HomePageNavbar = lazy(() => import("../home-page/components/Navbar"));
 
 function Login() {
   const routerNavigator = useNavigate();
@@ -13,7 +13,7 @@ function Login() {
     Axios.defaults.withCredentials = true;
     const checkIsUserLogged = async () => {
       const res = await Axios.get(
-        process.env.REACT_APP_APIHOSTADDRESS + '/loginSystem/isLoggedIn'
+        process.env.REACT_APP_APIHOSTADDRESS + "/loginSystem/isLoggedIn"
       );
       console.log(res);
     };
@@ -25,8 +25,8 @@ function Login() {
       <HomePageNavbar />
       <div className={styles.border}></div>
       <div className={styles.widget}>
-        {subPageName === 'register' ? <RegisterWidget /> : <></>}
-        {subPageName === 'login' ? <LoginWidget /> : <></>}
+        {subPageName === "register" ? <RegisterWidget /> : <></>}
+        {subPageName === "login" ? <LoginWidget /> : <></>}
       </div>
       <div className={styles.botBorder}></div>
     </Suspense>
