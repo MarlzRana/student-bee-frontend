@@ -25,6 +25,7 @@
 }
 
 .bannerText > button {
+  border-radius: 100px;
   margin-top: 20px;
   background-color: var(--medium-yellow);
   width: calc(70px + 5vmin);
