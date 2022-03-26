@@ -20,9 +20,7 @@ function Societies() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
-      console.log(res.data.returnObjects);
       setTenRandomSocieties(res.data.returnObjects);
-      console.log(tenRandomSocieties);
     };
     fetchSocieties();
   }, []);

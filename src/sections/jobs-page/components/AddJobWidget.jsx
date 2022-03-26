@@ -45,7 +45,6 @@ function AddJobWidget({ setIsAddJobWidgetShowing }) {
       }
       if (res.data.status === "failure") {
         if (res.data.reason === "invalidInputFormat") {
-          console.log(res);
           setMessageToShow("Invalid inputs");
         }
       }
