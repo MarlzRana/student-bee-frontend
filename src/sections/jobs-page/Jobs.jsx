@@ -19,10 +19,7 @@ function Jobs() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
-      console.log("Here");
-      console.log(res.data);
       setEightRandomJobs(res.data.events);
-      console.log(eightRandomJobs);
     };
     fetchJobs();
   }, []);
@@ -35,6 +32,7 @@ function Jobs() {
           {eightRandomJobs.map((job, index) => {
             return (
               <JobWidget
+                jobID={job.jobID}
                 jobTitle={job.jobTitle}
                 jobImage={placeholderImg}
                 wage={job.wage}
