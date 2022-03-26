@@ -1,25 +1,23 @@
 import styles from "../styling/JobWidget.module.css";
-import defaultJobImage from "./defaultJobsPic.jpg";
+import { Link } from 'react-router-dom';
 
-function JobWidget({ jobTitle, jobImage, salary, requirements }) {
+function JobWidget({ jobTitle, jobImage, wage, hoursPerWeek, location, startDate }) {
   return (
     <div className={styles.widget}>
       <div className={styles.mainBody}>
         <h1>{jobTitle}</h1>
-        <img src={defaultJobImage} alt="jobImage" />
-        <h2>Salary: £{salary}</h2>
-        <h2>Requirements:</h2>
-        <ul>
-          {requirements.map((element) => (
-            <li>{element}</li>
-          ))}
-        </ul>
-
-        <div className={styles.btn}>
-          <a className={styles.btn} href="#">
-            Find out more
-          </a>
+        <img src={jobImage} alt="jobImage" />
+        <h2>Wage: £{wage}/h</h2>
+        <div className={styles.jobInfo}>
+          <ul>
+            <li><b>Working Hours:</b> <br /> {hoursPerWeek} hours</li>
+            <li><b>Location:</b> <br /> {location}</li>
+            <li><b>Start Date:</b> <br /> {startDate}</li>
+          </ul>
         </div>
+        <Link className={styles.btn} to='/mainApp/jobDetails'>
+          Find out more
+        </Link>
       </div>
     </div>
   );

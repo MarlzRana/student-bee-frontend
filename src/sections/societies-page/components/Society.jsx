@@ -1,15 +1,20 @@
-import styles from '../Societies.module.css';
-import { Link } from 'react-router-dom';
+import styles from "../Societies.module.css";
+import { Link } from "react-router-dom";
 
-function Society({ societyName, societyImage }) {
-    return (
-        <div className={styles.societiesCell}>
-            <Link className={styles.societyRedirect} to='/mainApp/societyDetails'>
-                <img src={societyImage} alt={societyName} className={styles.societiesImage}/>
-                <div className={styles.societiesText}>{societyName}</div>
-            </Link>
-        </div>
-    );
+function Society({ societyID, societyName, societyImage }) {
+  const address = "/mainApp/societyDetails/" + societyID;
+  return (
+    <div className={styles.societiesCell}>
+      <Link className={styles.societyRedirect} to={address}>
+        <img
+          src={societyImage}
+          alt={societyName}
+          className={styles.societiesImage}
+        />
+        <div className={styles.societiesText}>{societyName}</div>
+      </Link>
+    </div>
+  );
 }
 
 export default Society;
