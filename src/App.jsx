@@ -3,6 +3,7 @@ import "./global.css";
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePageContent from "./sections/home-page/components/Content";
+import SocietyDetails from "./sections/societies-page/SocietyDetails";
 
 const HomePageNavbar = lazy(() =>
   import("./sections/home-page/components/Navbar")
@@ -12,6 +13,10 @@ const Login = lazy(() => import("./sections/login-page/Login"));
 const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 
 const EventDetails = lazy(() => import("./sections/events-page/EventDetails"));
+
+const eventDetails = lazy(() =>
+  import("./sections/societies-page/SocietyDetails")
+);
 
 function App() {
   return (
@@ -48,6 +53,14 @@ function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <EventDetails />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/mainApp/societyDetails/:societyID"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <SocietyDetails />
               </Suspense>
             }
           ></Route>
