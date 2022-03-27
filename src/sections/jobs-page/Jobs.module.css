@@ -21,6 +21,12 @@
   color: white;
 }
 
+.searchContainer {
+  display: flex;
+  padding-left: 15%;
+  padding-top: 2vh;
+}
+
 .jobsContainer {
   padding-top: 7.5%;
   display: flex;

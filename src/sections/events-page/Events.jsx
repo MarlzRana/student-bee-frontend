@@ -6,6 +6,7 @@ import img from "./styling/placeholder.jpg";
 const AddEventWidget = lazy(() => import("./components/AddEventWidget"));
 const WidgetSpinner = lazy(() => import("./components/WidgetSpinner"));
 const YellowWidget = lazy(() => import("./components/YellowWidget"));
+const Search = lazy(() => import("./components/Search"));
 
 function Events() {
   const [isAddEventWidgetShowing, setIsAddEventWidgetShowing] = useState(false);
@@ -32,6 +33,7 @@ function Events() {
           <WidgetSpinner firstThreeEvents={top10MostRecentEvents.slice(3)} />
         </div>
       </div>
+      <div className={styles.search}><Search /></div>
       <div className={styles.lowerContent}>
         <div className={styles.eventsList}>
           {top10MostRecentEvents.slice(4).map((event, index) => {
@@ -45,6 +47,8 @@ function Events() {
               />
             );
           })}
+          <YellowWidget/>
+          <YellowWidget/>
         </div>
       </div>
       {isAddEventWidgetShowing ? (
