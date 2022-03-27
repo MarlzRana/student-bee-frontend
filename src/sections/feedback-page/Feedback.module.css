@@ -1,0 +1,106 @@
+.feedbackPage {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./styling/feedback-bg.jpg");
+  background-size: contain;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.feedbackContainer {
+  background-color: var(--medium-black);
+  width: 75%;
+  min-height: calc(500px + 50vh);
+}
+
+.feedbackHeader > h1,
+.feedbackHeader > p {
+  text-align: center;
+  background-color: var(--light-yellow);
+}
+
+.feedbackHeader > p {
+  padding-bottom: 10px;
+}
+
+.feedbackForm {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.feedbackForm > h2 {
+  font-weight: 350;
+  color: white;
+  font-size: 1rem;
+  padding-bottom: 10px;
+}
+
+.feedbackChoices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.feedbackChoice {
+  user-select: none;
+}
+
+.radio {
+  display: none;
+}
+
+.radio ~ span {
+  font-size: 2rem;
+  filter: grayscale(100);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.radio:checked ~ span {
+  filter: grayscale(0);
+  font-size: 2.5rem;
+}
+
+.feedbackForm > textarea {
+  border-radius: 10px;
+  outline: none;
+  resize: none;
+  width: 90%;
+  height: calc(100px + 10vh);
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.feedbackForm > textarea::placeholder {
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.submitFeedback {
+  margin-top: 30px;
+  width: calc(50px + 2vmin);
+  height: calc(15px + 1vmin);
+  background-color: var(--medium-yellow);
+  border: none;
+  border-radius: 5%;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 426px) {
+  .feedbackContainer {
+    width: 100%;
+  }
+
+  .feedbackChoices {
+    gap: calc(10px);
+  }
+}
