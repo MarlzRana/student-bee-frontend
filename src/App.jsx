@@ -2,8 +2,8 @@ import "./global.css";
 
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePageContent from "./sections/home-page/components/Content";
-import SocietyDetails from "./sections/societies-page/SocietyDetails";
+
+const HomePageContent = lazy(() => import("./sections/home-page/components/Content"));
 
 const HomePageNavbar = lazy(() =>
   import("./sections/home-page/components/Navbar")
