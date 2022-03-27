@@ -13,6 +13,8 @@ const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 
 const EventDetails = lazy(() => import("./sections/events-page/EventDetails"));
 
+const Footer = lazy(() =>  import("./global-components/Footer"));
+
 function App() {
   return (
     <div className="App">
@@ -24,6 +26,7 @@ function App() {
               <Suspense fallback={<div>Loading...</div>}>
                 <HomePageNavbar />
                 <HomePageContent />
+                <Footer />
               </Suspense>
             }
           ></Route>
