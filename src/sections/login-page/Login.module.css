@@ -1,4 +1,4 @@
-body {
+.loginContainer {
   background-color: var(--dark-yellow);
   background-image: url("./components/bg.png");
   background-size: auto 175vmin;
