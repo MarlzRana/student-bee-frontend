@@ -16,28 +16,42 @@ function Feedback() {
                     </div>
                     
                     <form className={styles.feedbackForm}>
-                        <h2>How easy was it to use our website?</h2>
+                        <h2>What was your first impression when you first entered our website?</h2>
                         <FeedbackChoices question={1} />
                         <br />
-                        <h2>How easy was it to use our website?</h2>
+                        <h2>How likely are you to recommend us to a friend or colleague?</h2>
                         <FeedbackChoices question={2} />
                         <br />
                         <h2>How easy was it to use our website?</h2>
                         <FeedbackChoices question={3} />
                         <br />
-                        <h2>How easy was it to use our website?</h2>
-                        <FeedbackChoices question={4} />
+                        <h2>What is a feature you wish our website had?</h2>
+                        <input 
+                            className={styles.feedbackTextInput}
+                            name=""
+                            id=""
+                            type="text" 
+                        />
                         <br />
-                        <h2>How easy was it to use our website?</h2>
-                        <FeedbackChoices question={5} />
+                        <h2>How did you hear about us?</h2>
+                        <input 
+                            className={styles.feedbackTextInput}
+                            placeholder="Ads, Social Media, etc"
+                            name=""
+                            id=""
+                            type="text" 
+                        />
                         <br />
                         <textarea 
                             name="" 
+                            id=""
                             placeholder="Do you have any other suggestions or complaints?"
                         >
                         </textarea>
                         <input 
                             className={styles.submitFeedback}
+                            name=""
+                            value=""
                             type="submit"
                         />
                     </form>
