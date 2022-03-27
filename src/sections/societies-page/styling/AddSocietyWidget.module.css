@@ -166,7 +166,7 @@
   text-align: left;
 }
 
-button {
+.submit button {
   outline: none;
   border: 0;
   background-color: transparent;
@@ -176,7 +176,7 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+.submit button:hover {
   cursor: pointer;
 }
 
