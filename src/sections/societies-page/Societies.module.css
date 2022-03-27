@@ -16,6 +16,14 @@
   padding-top: 2rem;
 }
 
+.search {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0 5px;
+}
+
 .societiesContainer {
   display: flex;
   flex-wrap: wrap;

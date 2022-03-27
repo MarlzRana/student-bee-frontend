@@ -1,8 +1,5 @@
 .searchBar {
-  position: absolute;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%); */
+  display: flex;
   background: var(--medium-black);
   height: calc(20px + 2vmin);
   border-radius: calc(20px + 2vmin);

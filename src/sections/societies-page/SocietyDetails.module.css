@@ -25,7 +25,7 @@
   display: flex;
   background-color: var(--medium-black);
   width: auto;
-  min-height: calc(100px + 2vmin);
+  min-height: calc(300px + 20vh);
   color: white;
   padding: calc(30px + 0.5vmin);
 }
@@ -74,7 +74,7 @@
 
 .societyLinks {
   border-left: 2px solid white;
-  padding-left: 40px;
+  padding-left: 50px;
   flex: 0.5;
 }
 
@@ -90,6 +90,8 @@
   .societyLinks {
     border: 2px solid white;
     padding-bottom: 10px;
+    padding-left: 0;
+    text-align: center;
   }
 
   .societyInfo {
