@@ -2,7 +2,7 @@
   display: flex;
   background-color: var(--medium-black);
   color: whitesmoke;
-  font-size: calc(1px + 1.75vmin);
+  font-size: calc(1px + 1.6vmin);
   flex-direction: column;
 }
 .footerSpacing {
@@ -12,7 +12,7 @@
   height: 2vmin;
 }
 .footerTop {
-  height: 18vmin;
+  height: 15vmin;
   display: flex;
   width: calc(100% - 2vmin);
   justify-content: space-between;
