@@ -20,6 +20,8 @@ const SocietyDetails = lazy(() =>
   import("./sections/societies-page/SocietyDetails")
 );
 
+const JobDetails = lazy(() => import("./sections/jobs-page/JobDetails"));
+
 function App() {
   return (
     <div className="App">
@@ -64,6 +66,14 @@ function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <SocietyDetails />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/mainApp/jobDetails/:jobID"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <JobDetails />
               </Suspense>
             }
           ></Route>

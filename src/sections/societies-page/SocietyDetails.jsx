@@ -38,9 +38,7 @@ function SocietyDetails() {
             }
           } else if (res.data.status === "success") {
             setSocietyInfo(res.data.societyInformation);
-            console.log("success");
           }
-          console.log(res);
         })
         .catch(function (error) {
           return;
