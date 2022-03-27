@@ -95,6 +95,7 @@
 }
 
 .feedbackForm > textarea::placeholder {
+  text-align: center;
   font-size: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -122,5 +123,9 @@
 
   .feedbackChoices {
     gap: calc(10px);
+  }
+
+  .feedbackTextInput {
+    width: 90%;
   }
 }

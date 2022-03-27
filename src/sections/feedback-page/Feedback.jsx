@@ -31,6 +31,7 @@ function Feedback() {
                             name=""
                             id=""
                             type="text" 
+                            required
                         />
                         <br />
                         <h2>How did you hear about us?</h2>
@@ -40,8 +41,10 @@ function Feedback() {
                             name=""
                             id=""
                             type="text" 
+                            required
                         />
                         <br />
+                        <h2>Other suggestions</h2>
                         <textarea 
                             name="" 
                             id=""
@@ -51,7 +54,7 @@ function Feedback() {
                         <input 
                             className={styles.submitFeedback}
                             name=""
-                            value=""
+                            value="Submit"
                             type="submit"
                         />
                     </form>
