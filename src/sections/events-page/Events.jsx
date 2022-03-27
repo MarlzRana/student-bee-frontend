@@ -47,8 +47,6 @@ function Events() {
               />
             );
           })}
-          <YellowWidget/>
-          <YellowWidget/>
         </div>
       </div>
       {isAddEventWidgetShowing ? (
