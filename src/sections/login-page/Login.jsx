@@ -6,6 +6,7 @@ import styles from "./Login.module.css";
 const LoginWidget = lazy(() => import("./components/LoginWidget"));
 const RegisterWidget = lazy(() => import("./components/RegisterWidget"));
 const HomePageNavbar = lazy(() => import("../home-page/components/Navbar"));
+const Footer = lazy(() => import("../../global-components/Footer"));
 
 function Login() {
   const routerNavigator = useNavigate();
@@ -23,12 +24,14 @@ function Login() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <HomePageNavbar />
-      <div className={styles.border}></div>
-      <div className={styles.widget}>
-        {subPageName === "register" ? <RegisterWidget /> : <></>}
-        {subPageName === "login" ? <LoginWidget /> : <></>}
+      <div className={styles.loginContainer}>
+        <div className={styles.border}></div>
+        <div className={styles.widget}>
+          {subPageName === "register" ? <RegisterWidget /> : <></>}
+          {subPageName === "login" ? <LoginWidget /> : <></>}
+        </div>
       </div>
-      <div className={styles.botBorder}></div>
+      <Footer />
     </Suspense>
   );
 }
