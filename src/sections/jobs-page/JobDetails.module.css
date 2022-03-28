@@ -107,6 +107,7 @@
   .buttonGroup {
     flex-direction: row;
     justify-content: space-evenly;
+    padding-bottom: 10px;
   }
 
   .editJobButton,

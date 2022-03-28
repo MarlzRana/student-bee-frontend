@@ -5,8 +5,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 
 const SocietyMember = lazy(() => import("./components/SocietyMember"));
+const EditSociety = lazy(() => import("./components/EditSociety"));
+const DeleteConfirm = lazy(() => import("./components/DeleteConfirm"));
 
 function SocietyDetails() {
+  const [isEditSocietyShowing, setIsEditSocietyShowing] = useState(false);
+  const [isConfirmDeleteShowing, setIsConfirmDeleteShowing] = useState(false);
   const societyIDIn = parseInt(useParams().societyID);
   const [societyInfo, setSocietyInfo] = useState("");
   const routerNavigator = useNavigate();
@@ -71,12 +75,28 @@ function SocietyDetails() {
             <p>{societyInfo.description}</p>
           </div>
           <div className={styles.societyLinks}>
+            <div className={styles.buttonGroup}>
+              <button
+                onClick = {() => setIsEditSocietyShowing(true)}
+                className={styles.editSocietyButton}
+              >
+                Edit Details
+              </button>
+              <button
+                onClick = {() => setIsConfirmDeleteShowing(true)}
+                className={styles.deleteSocietyButton}
+              >
+                Delete Job
+              </button>
+            </div>
             <h2>Links</h2>
             <ul>
               <li>{societyInfo.contactLinks}</li>
             </ul>
           </div>
         </div>
+        {isEditSocietyShowing ? <EditSociety setIsEditSocietyShowing={setIsEditSocietyShowing} /> : <></>}
+        {isConfirmDeleteShowing ? <DeleteConfirm setIsConfirmDeleteShowing={setIsConfirmDeleteShowing} /> : <></>}
       </div>
     </Suspense>
   );

@@ -16,7 +16,6 @@ function EditJob({ setIsEditJobShowing }) {
                 type='text'
                 name='enteredJobName'
                 id='JobName'
-                value=""
               />
             </div>
           </div>
@@ -26,7 +25,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='text'
               name='enteredWage'
               id='wage'
-              value=""
             />
           </div>
           <div className={styles.formTextInput}>
@@ -35,7 +33,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='text'
               name='enteredHours'
               id='hoursPerWeek'
-              value=""
             />
           </div>
           <div className={styles.formTextInput}>
@@ -44,7 +41,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='text'
               name='enteredLocation'
               id='location'
-              value=""
             />
           </div>
           <div className={styles.formDateInput}>
@@ -53,7 +49,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='date'
               name='enteredDate'
               id='startDate'
-              value=""
             />
           </div>
           <div className={styles.formTextInput}>
@@ -62,7 +57,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='text'
               name='enteredContactNumber'
               id='contactNo'
-              value=""
             />
           </div>
           <div className={styles.formTextInput}>
@@ -71,7 +65,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='text'
               name='enteredContactEmail'
               id='contactEmail'
-              value=""
             />
           </div>
           <div className={styles.formTextInput}>
@@ -80,7 +73,6 @@ function EditJob({ setIsEditJobShowing }) {
               type='text'
               name='enteredApplicationLink'
               id='appLink'
-              value=""
             />
           </div>
           <div className={styles.formTextInput}>
@@ -88,7 +80,6 @@ function EditJob({ setIsEditJobShowing }) {
             <textarea
               name='enteredJobDescription'
               id='enteredDes'
-              value=""
             />
           </div>
           <div className={styles.submit}>

@@ -16,7 +16,6 @@ function EditEvent({ setIsEditEventShowing }) {
                 type='text'
                 name='EventTitle'
                 id='enteredTitle'
-                value=""
                 required
               />
             </div>
@@ -27,7 +26,6 @@ function EditEvent({ setIsEditEventShowing }) {
               type='text'
               name='EventLocation'
               id='enteredLocation'
-              value=""
               required
             />
           </div>
@@ -38,7 +36,6 @@ function EditEvent({ setIsEditEventShowing }) {
                 type='datetime-local'
                 name='StartTime'
                 id='enteredStartDateTime'
-                value=""
                 required
               />
             </div>
@@ -49,7 +46,6 @@ function EditEvent({ setIsEditEventShowing }) {
                 type='datetime-local'
                 name='EndTime'
                 id='enteredEndDateTime'
-                value=""
                 required
               />
             </div>
@@ -60,7 +56,6 @@ function EditEvent({ setIsEditEventShowing }) {
               type='text'
               name='name'
               id='enteredOrganizerName'
-              value=""
               required
             />
           </div>
@@ -70,7 +65,6 @@ function EditEvent({ setIsEditEventShowing }) {
               type='text'
               name='email'
               id='enteredContactEmail'
-              value=""
               required
             />
           </div>
@@ -80,7 +74,6 @@ function EditEvent({ setIsEditEventShowing }) {
               type='text'
               name='phonenum'
               id='enteredContactPhoneNumber'
-              value=""
               required
             />
           </div>
@@ -89,7 +82,6 @@ function EditEvent({ setIsEditEventShowing }) {
             <textarea
               name='desc'
               id='enteredDescription'
-              value=""
               required
             />
           </div>
