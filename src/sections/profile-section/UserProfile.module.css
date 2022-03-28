@@ -1,0 +1,84 @@
+.userPage {
+  display: flex;
+  min-height: 80vh;
+}
+
+.coverPic {
+  background-image: url("./styling/coverPic.jpg");
+  background-size: cover;
+  background-position: center center;
+  flex: 1 0 auto;
+  background-color: white;
+  min-height: 100px;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 2;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0)
+    ),
+    var(--medium-yellow);
+  color: var(--medium-black);
+  min-height: 80vh;
+}
+
+.userDetails img {
+  margin: 10px 0;
+  width: calc(100px + 2vmin);
+  height: calc(100px + 2vmin);
+  border-radius: 50%;
+}
+
+.userDetails h1 {
+  font-size: 2em;
+}
+
+.userDescription p {
+  padding: 0 40px;
+}
+
+.joinedSocieties {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.joinedSocieties > ul {
+  padding-top: 10px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: auto;
+  gap: calc(20px + 2vmin);
+}
+
+@media screen and (max-width: 426px) {
+  .userPage {
+    flex-direction: column;
+  }
+
+  .coverPic {
+    background-position: center 60%;
+  }
+
+  .userDetails h2 {
+    font-size: 1.5rem;
+  }
+
+  .userDetails img {
+    margin: 10px 0;
+    width: calc(75px + 2vmin);
+    height: calc(75px + 2vmin);
+  }
+}

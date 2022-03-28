@@ -5,6 +5,7 @@ import Axios from "axios";
 
 const JobWidget = lazy(() => import("./components/JobWidget"));
 const AddJobWidget = lazy(() => import("./components/AddJobWidget"));
+const Search = lazy(() => import("./components/Search"));
 
 function Jobs() {
   const [isAddJobWidgetShowing, setIsAddJobWidgetShowing] = useState(false);
@@ -28,6 +29,7 @@ function Jobs() {
       <div className={styles.jobsPage}>
         <h1>Jobs</h1>
         <p>A chance to develop your skills.</p>
+        <div className={styles.searchContainer}><Search /></div>
         <div className={styles.jobsContainer}>
           {eightRandomJobs.map((job, index) => {
             return (

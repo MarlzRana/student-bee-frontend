@@ -41,7 +41,7 @@
   height: calc(12px + 1vmin);
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 426px) {
   .rightSection > input {
     width: calc(20px + 20vmin);
   }
@@ -111,7 +111,7 @@
   background-size: calc(14px + 2vmin) calc(10px + 2vmin);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 820px) {
   .iconLabel {
     display: none;
   }

@@ -15,6 +15,14 @@
   background-color: var(--dark-black);
 }
 
+.search {
+  background-color: var(--medium-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0 5px;
+}
+
 .lowerContent {
   border-top: calc(5px + 0.1vmin) solid var(--dark-black);
   padding-top: 5px;

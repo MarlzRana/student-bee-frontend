@@ -5,6 +5,7 @@ import Axios from "axios";
 
 const Society = lazy(() => import("./components/Society"));
 const AddSocietyWidget = lazy(() => import("./components/AddSocietyWidget"));
+const Search = lazy(() => import("./components/Search"));
 
 function Societies() {
   const [isAddSocietyWidgetShowing, setIsAddSocietyWidgetShowing] =
@@ -30,6 +31,7 @@ function Societies() {
         <div className={styles.societiesHeading}>
           <h1>Societies</h1>
           <p>Enhance your university experience!</p>
+          <div className={styles.search}><Search /></div>
         </div>
         <div className={styles.societiesContainer}>
           {tenRandomSocieties.map((event, index) => {
