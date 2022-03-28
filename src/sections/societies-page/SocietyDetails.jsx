@@ -108,19 +108,6 @@ function SocietyDetails() {
           </div>
           <div className={styles.societyLinks}>
             <div className={styles.buttonGroup}>
-              {/* <button
-                onClick={() => setIsEditSocietyShowing(true)}
-                className={styles.editSocietyButton}
-              >
-                Edit Details
-              </button>
-              <button
-                onClick={() => setIsConfirmDeleteShowing(true)}
-                className={styles.deleteSocietyButton}
-              >
-                Delete Society
-              </button> */}
-
               {isOwnedByUser ? (
                 <button
                   onClick={() => setIsEditSocietyShowing(true)}

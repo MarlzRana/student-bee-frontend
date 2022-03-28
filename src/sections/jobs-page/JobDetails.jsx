@@ -11,10 +11,44 @@ function JobDetails() {
   const [isConfirmDeleteShowing, setIsConfirmDeleteShowing] = useState(false);
   const jobIDIn = useParams().jobID;
   const [jobInfo, setJobInfo] = useState("");
+  const [isOwnedByUser, setIsOwnedByUser] = useState(false);
   const routerNavigator = useNavigate();
   useEffect(() => {
     Axios.defaults.withCredentials = true;
-    console.log("Are we even reaching here?");
+
+    Axios.defaults.withCredentials = true;
+
+    const doesUserOwnJob = async () => {
+      const payload = {
+        jobID: jobIDIn,
+      };
+
+      await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS + "/jobsSystem/ownsJob",
+        payload
+      )
+        .then(function (res) {
+          if (res.data.status === "failure") {
+            if (res.data.reason === "notLoggedIn") {
+              routerNavigator("/loginSystem/login");
+            }
+            if (
+              res.data.reason === "This event does not exist" ||
+              res.data.reason === "Invalid ID format"
+            ) {
+              routerNavigator("/mainApp/jobs");
+              window.confirm(res.data.reason);
+            }
+          } else if (res.data.status === "success") {
+            setIsOwnedByUser(res.data.owned);
+          }
+        })
+        .catch(function (error) {
+          return;
+        });
+    };
+    doesUserOwnJob();
+
     const fetchJobDetails = async () => {
       console.log(jobIDIn);
       const payload = {
@@ -67,18 +101,27 @@ function JobDetails() {
           </div>
           <div className={styles.contact}>
             <div className={styles.buttonGroup}>
-              <button
-                onClick = {() => setIsEditJobShowing(true)}
-                className={styles.editJobButton}
-              >
-                Edit Details
-              </button>
-              <button
-                onClick = {() => setIsConfirmDeleteShowing(true)}
-                className={styles.deleteJobButton}
-              >
-                Delete Job
-              </button>
+              {isOwnedByUser ? (
+                <button
+                  onClick={() => setIsEditJobShowing(true)}
+                  className={styles.editJobButton}
+                >
+                  Edit Details
+                </button>
+              ) : (
+                <></>
+              )}
+
+              {isOwnedByUser ? (
+                <button
+                  onClick={() => setIsConfirmDeleteShowing(true)}
+                  className={styles.deleteJobButton}
+                >
+                  Delete Job
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
             <h2>Contacts</h2>
             <br />
@@ -87,8 +130,18 @@ function JobDetails() {
             </ul>
           </div>
         </div>
-        {isEditJobShowing ? <EditJob setIsEditJobShowing={setIsEditJobShowing} /> : <></>}
-        {isConfirmDeleteShowing ? <DeleteConfirm setIsConfirmDeleteShowing={setIsConfirmDeleteShowing} /> : <></>}
+        {isEditJobShowing ? (
+          <EditJob setIsEditJobShowing={setIsEditJobShowing} jobID={jobIDIn} />
+        ) : (
+          <></>
+        )}
+        {isConfirmDeleteShowing ? (
+          <DeleteConfirm
+            setIsConfirmDeleteShowing={setIsConfirmDeleteShowing}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </Suspense>
   );
