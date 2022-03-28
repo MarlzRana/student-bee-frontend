@@ -11,9 +11,41 @@ function EventDetails() {
   const [isConfirmDeleteShowing, setIsConfirmDeleteShowing] = useState(false);
   const eventIDIn = parseInt(useParams().eventID);
   const [eventInfo, setEventInfo] = useState("");
+  const [isOwnedByUser, setIsOwnedByUser] = useState(false);
   const routerNavigator = useNavigate();
   useEffect(() => {
     Axios.defaults.withCredentials = true;
+
+    const doesUserOwnEvent = async () => {
+      const payload = {
+        eventID: eventIDIn,
+      };
+
+      await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS + "/eventsSystem/ownsEvent",
+        payload
+      )
+        .then(function (res) {
+          if (res.data.status === "failure") {
+            if (res.data.reason === "notLoggedIn") {
+              routerNavigator("/loginSystem/login");
+            }
+            if (
+              res.data.reason === "This event does not exist" ||
+              res.data.reason === "Invalid ID format"
+            ) {
+              routerNavigator("/mainApp/events");
+              window.confirm(res.data.reason);
+            }
+          } else if (res.data.status === "success") {
+            setIsOwnedByUser(res.data.owned);
+          }
+        })
+        .catch(function (error) {
+          return;
+        });
+    };
+    doesUserOwnEvent();
 
     const fetchEventDetails = async () => {
       console.log(eventIDIn);
@@ -40,7 +72,6 @@ function EventDetails() {
           } else if (res.data.status === "success") {
             setEventInfo(res.data.eventInformation);
           }
-          console.log(res);
         })
         .catch(function (error) {
           return;
@@ -48,6 +79,7 @@ function EventDetails() {
     };
     fetchEventDetails();
   }, []);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.details}>
@@ -62,18 +94,28 @@ function EventDetails() {
             <p>{eventInfo.description}</p>
           </div>
           <div className={styles.contact}>
-            <button
-              onClick = {() => setIsEditEventShowing(true)}
-              className={styles.editEventButton}
-            >
-              Edit Details
-            </button>
-            <button
-              onClick = {() => setIsConfirmDeleteShowing(true)}
-              className={styles.deleteEventButton}
-            >
-              Delete Event
-            </button>
+            {isOwnedByUser ? (
+              <button
+                onClick={() => setIsEditEventShowing(true)}
+                className={styles.editEventButton}
+              >
+                Edit Details
+              </button>
+            ) : (
+              <></>
+            )}
+
+            {isOwnedByUser ? (
+              <button
+                onClick={() => setIsConfirmDeleteShowing(true)}
+                className={styles.deleteEventButton}
+              >
+                Delete Event
+              </button>
+            ) : (
+              <></>
+            )}
+
             <br />
             <h2>Contacts</h2>
             <ul>
@@ -87,8 +129,21 @@ function EventDetails() {
             </ul>
           </div>
         </div>
-        {isConfirmDeleteShowing ? <DeleteConfirm setIsConfirmDeleteShowing={setIsConfirmDeleteShowing} /> : <></>}
-        {isEditEventShowing ? <EditEvent setIsEditEventShowing={setIsEditEventShowing} /> : <></>}
+        {isConfirmDeleteShowing ? (
+          <DeleteConfirm
+            setIsConfirmDeleteShowing={setIsConfirmDeleteShowing}
+          />
+        ) : (
+          <></>
+        )}
+        {isEditEventShowing ? (
+          <EditEvent
+            setIsEditEventShowing={setIsEditEventShowing}
+            eventID={eventIDIn}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </Suspense>
   );
