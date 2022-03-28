@@ -83,7 +83,7 @@ function JobDetails() {
             <h2>Contacts</h2>
             <br />
             <ul>
-              <li>{jobInfo.applicationLink}test</li>
+              <li>{jobInfo.applicationLink}</li>
             </ul>
           </div>
         </div>
