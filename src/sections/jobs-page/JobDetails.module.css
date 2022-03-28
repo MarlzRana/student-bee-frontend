@@ -34,6 +34,8 @@
   font-weight: 600;
   font-size: calc(12px + 0.5vmin);
   transition: all 0.5s ease-in-out;
+  border: none;
+  outline: none;
 }
 
 .bannerText > button:hover {
@@ -63,6 +65,30 @@
   padding: 0 15px 0;
 }
 
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.editJobButton,
+.deleteJobButton {
+  background-color: var(--medium-yellow);
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  height: calc(20px + 2vh);
+  border-radius: 20px;
+  font-weight: 700;
+  width: calc(50px + 10vmin);
+}
+
+.editJobButton:hover,
+.deleteJobButton:hover {
+  cursor: pointer;
+}
+
 .contact > ul {
   list-style-type: none;
   text-align: center;
@@ -75,7 +101,17 @@
 
   .contact {
     border: 2px solid white;
-    padding: 25px 0 25px;
+    padding: 5px 0 25px;
+  }
+
+  .buttonGroup {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .editJobButton,
+  .deleteJobButton {
+    width: 40%;
   }
 
   .info {

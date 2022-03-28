@@ -1,9 +1,14 @@
 import styles from "./JobDetails.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense, lazy } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Axios from "axios";
 
+const DeleteConfirm = lazy(() => import("./components/DeleteConfirm"));
+const EditJob = lazy(() => import("./components/EditJob"));
+
 function JobDetails() {
+  const [isEditJobShowing, setIsEditJobShowing] = useState(false);
+  const [isConfirmDeleteShowing, setIsConfirmDeleteShowing] = useState(false);
   const jobIDIn = useParams().jobID;
   const [jobInfo, setJobInfo] = useState("");
   const routerNavigator = useNavigate();
@@ -46,28 +51,46 @@ function JobDetails() {
     fetchJobDetails();
   }, []);
   return (
-    <div className={styles.details}>
-      <div className={styles.banner}>
-        <div className={styles.bannerText}>
-          <h1>{jobInfo.jobTitle}</h1>
-          <p>Start Date : {jobInfo.startDate}</p>
-          <button>Apply Now</button>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className={styles.details}>
+        <div className={styles.banner}>
+          <div className={styles.bannerText}>
+            <h1>{jobInfo.jobTitle}</h1>
+            <p>Start Date : {jobInfo.startDate}</p>
+            <button>Apply Now</button>
+          </div>
         </div>
+        <div className={styles.jobDesc}>
+          <div className={styles.info}>
+            <h2>Job Description and Requirements</h2>
+            <p>{jobInfo.description}</p>
+          </div>
+          <div className={styles.contact}>
+            <div className={styles.buttonGroup}>
+              <button
+                onClick = {() => setIsEditJobShowing(true)}
+                className={styles.editJobButton}
+              >
+                Edit Details
+              </button>
+              <button
+                onClick = {() => setIsConfirmDeleteShowing(true)}
+                className={styles.deleteJobButton}
+              >
+                Delete Job
+              </button>
+            </div>
+            <h2>Contacts</h2>
+            <br />
+            <ul>
+              <li>{jobInfo.applicationLink}test</li>
+            </ul>
+          </div>
+        </div>
+        {isEditJobShowing ? <EditJob setIsEditJobShowing={setIsEditJobShowing} /> : <></>}
+        {isConfirmDeleteShowing ? <DeleteConfirm setIsConfirmDeleteShowing={setIsConfirmDeleteShowing} /> : <></>}
       </div>
-      <div className={styles.jobDesc}>
-        <div className={styles.info}>
-          <h2>Job Description and Requirements</h2>
-          <p>{jobInfo.description}</p>
-        </div>
-        <div className={styles.contact}>
-          <h2>Contacts</h2>
-          <br />
-          <ul>
-            <li>{jobInfo.applicationLink}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </Suspense>
   );
 }
 
