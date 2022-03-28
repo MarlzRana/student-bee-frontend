@@ -73,6 +73,7 @@
 }
 
 .societyLinks {
+  text-align: center;
   border-left: 2px solid white;
   padding-left: 50px;
   flex: 0.5;
@@ -80,6 +81,29 @@
 
 .societyLinks > ul > li {
   list-style-type: none;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.editSocietyButton,
+.deleteSocietyButton {
+  background-color: var(--medium-yellow);
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  height: calc(20px + 2vh);
+  border-radius: 20px;
+  font-weight: 700;
+  width: calc(50px + 10vmin);
+}
+
+.editSocietyButton:hover,
+.deleteSocietyButton:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {
@@ -92,6 +116,16 @@
     padding-bottom: 10px;
     padding-left: 0;
     text-align: center;
+  }
+
+  .buttonGroup {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .editSocietyButton,
+  .deleteSocietyButton {
+    width: 40%;
   }
 
   .societyInfo {
