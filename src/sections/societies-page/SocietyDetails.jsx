@@ -86,7 +86,7 @@ function SocietyDetails() {
                 onClick = {() => setIsConfirmDeleteShowing(true)}
                 className={styles.deleteSocietyButton}
               >
-                Delete Job
+                Delete Society
               </button>
             </div>
             <h2>Links</h2>
