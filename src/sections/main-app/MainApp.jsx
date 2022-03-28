@@ -15,6 +15,7 @@ const Jobs = lazy(() => import('../jobs-page/Jobs'));
 const JobDetails = lazy (() => import('../jobs-page/JobDetails'));
 const Feedback = lazy(() => import('../feedback-page/Feedback'));
 const Footer = lazy(() => import('../../global-components/Footer'));
+const UserProfile = lazy(() => import("../profile-section/UserProfile"));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -45,6 +46,7 @@ function MainApp() {
         {subPageName === 'jobs' ? <Jobs /> : <></>}
         {subPageName === 'jobDetails' ? <JobDetails /> : <></>}
         {subPageName === 'feedback' ? <Feedback /> : <></>}
+        {subPageName === 'userProfile' ? <UserProfile /> : <></>}
         <Footer/>
       </Suspense>
     </main>

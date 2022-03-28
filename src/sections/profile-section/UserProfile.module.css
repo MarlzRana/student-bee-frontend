@@ -1,0 +1,55 @@
+.userPage {
+  display: flex;
+  min-height: 80vh;
+}
+
+.coverPic {
+  background-image: url("./styling/coverPic.jpg");
+  background-size: cover;
+  background-position: center center;
+  flex: 1 0 auto;
+  background-color: white;
+  min-height: 100px;
+}
+
+.userDetails {
+  text-align: center;
+  flex: 2;
+  background: var(--medium-yellow);
+  color: var(--medium-black);
+}
+
+.userDetails img {
+  margin: 25px 0;
+  width: calc(100px + 2vmin);
+  height: calc(100px + 2vmin);
+  border-radius: 50%;
+}
+
+.userDetails h1 {
+  font-size: 2em;
+}
+
+.userDescription p {
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 426px) {
+  .userPage {
+    flex-direction: column;
+  }
+
+  .coverPic {
+    background-position: center 60%;
+  }
+
+  .userDetails h2 {
+    font-size: 1.5rem;
+  }
+
+  .userDetails img {
+    margin: 10px 0;
+    width: calc(75px + 2vmin);
+    height: calc(75px + 2vmin);
+  }
+}
