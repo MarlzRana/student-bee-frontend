@@ -10,6 +10,9 @@ function TweetUI() {
           className={styles.field}
           placeholder="What are you up to today?"
         />
+        <button className={styles.tweetButton}>
+          Tweet
+        </button>
       </form>
       <div className={styles.feed}>
         <Tweet
