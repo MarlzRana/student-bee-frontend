@@ -5,26 +5,51 @@
 }
 
 .fieldContainer {
+  width: 90%;
   padding-top: 2vmin;
+  padding-left: 20px;
   border-radius: 2vmin;
   background-color: var(--medium-black);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .field {
   background-color: white;
   padding-left: 1vmin;
   width: calc(10px + 60vw);
-  min-height: 4vmin;
+  min-height: 10vmin;
   border: none;
   outline: none;
   border-radius: 1vmin;
+  border-bottom-right-radius: 0;
   border-width: 0px;
   resize: none;
-  font-size: calc(6px + 2vmin);
+  font-size: calc(6px + 1vmin);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif, sans-serif;
+}
+
+.tweetButton {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  height: calc(20px + 1vh);
+  width: calc(50px + 2vmin);
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  background-color: var(--medium-yellow);
+}
+
+.tweetButton:hover {
+  cursor: pointer;
 }
 
 .field::placeholder {

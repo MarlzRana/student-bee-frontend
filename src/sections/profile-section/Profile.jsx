@@ -79,7 +79,6 @@ function Home() {
           />
         </div>
         <div className={styles.middle}>
-          <Reminder />
           <TweetUI />
         </div>
         <div className={styles.right}>
