@@ -24,14 +24,14 @@
   font-size: 0.9rem;
 }
 
-.jobTitle {
+.societyTitle {
   text-decoration: underline;
   color: black;
   font-weight: 500;
   font-size: 1rem;
 }
 
-.jobTitle:hover {
+.societyTitle:hover {
   font-size: 1.1rem;
   transition: all 0.1s ease-in-out;
 }

@@ -17,6 +17,8 @@ const Feedback = lazy(() => import('../feedback-page/Feedback'));
 const Footer = lazy(() => import('../../global-components/Footer'));
 const UserProfile = lazy(() => import("../profile-section/UserProfile"));
 const JobSearch = lazy(() => import("../jobs-page/JobSearch"));
+const EventSearch = lazy(() => import("../events-page/EventSearch"));
+const SocietySearch = lazy(() => import("../societies-page/SocietySearch"));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -49,6 +51,8 @@ function MainApp() {
         {subPageName === 'feedback' ? <Feedback /> : <></>}
         {subPageName === 'userProfile' ? <UserProfile /> : <></>}
         {subPageName === 'jobSearch' ? <JobSearch /> : <></>}
+        {subPageName === 'eventSearch' ? <EventSearch /> : <></>}
+        {subPageName === 'societySearch' ? <SocietySearch /> : <></>}
         <Footer/>
       </Suspense>
     </main>
