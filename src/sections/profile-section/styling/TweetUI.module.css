@@ -26,6 +26,7 @@
   border: none;
   outline: none;
   border-radius: 1vmin;
+  border-bottom-right-radius: 0;
   border-width: 0px;
   resize: none;
   font-size: calc(6px + 1vmin);
@@ -41,7 +42,9 @@
   font-weight: 600;
   height: calc(20px + 1vh);
   width: calc(50px + 2vmin);
-  border-radius: 10px;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
   background-color: var(--medium-yellow);
 }
 
