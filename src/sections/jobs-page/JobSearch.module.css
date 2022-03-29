@@ -1,12 +1,50 @@
 .jobSearchPage {
   display: flex;
-  height: 80vh;
-  background-color: yellow;
+  min-height: 80vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./styling/job-search-bg.jpg");
+  background-size: contain;
+  background-position: 0 center;
 }
 
 .searchBarArea {
-  flex: 1;
-  background-color: blue;
+  flex: 1 0 auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchHeader {
+  display: flex;
+  color: white;
+}
+
+.searchHeader > h1 {
+  font-size: 1.5rem;
+}
+
+.searchBar input {
+  background-color: var(--medium-black);
+  outline: none;
+  border: none;
+  height: calc(30px + 1vh);
+  width: calc(120px + 10vmin);
+  border-radius: 20px;
+  color: white;
+  font-size: 1rem;
+  padding-left: 10px;
+}
+
+.searchIcon {
+  background-image: url("./styling/searchIcon.svg");
+  background-size: 75% 75%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 35px;
+  filter: invert(100%);
 }
 
 .searchResults {
@@ -19,14 +57,47 @@
 }
 
 .searchResultsContainer {
-  background-color: red;
+  background-color: var(--medium-black);
   width: 90%;
   height: 90%;
   border-radius: 10px;
-}
-
-.searchResultsContainer > ul {
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   list-style-type: none;
+  border: 5px solid var(--medium-black) inset;
+}
+
+.searchResultsContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.searchResultsContainer::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0px grey;
+  border-radius: 10px;
+}
+
+.searchResultsContainer::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+.searchResultsContainer::-webkit-scrollbar-thumb:hover {
+  background: grey;
+}
+
+@media screen and (max-width: 769px) {
+  .searchBarArea {
+    padding: 25px 0;
+  }
+
+  .searchResultsContainer {
+    margin-bottom: 50px;
+  }
+
+  .jobSearchPage {
+    flex-direction: column;
+  }
 }

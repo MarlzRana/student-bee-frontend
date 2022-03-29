@@ -1,0 +1,36 @@
+.result {
+  display: flex;
+  background-color: var(--medium-yellow);
+  border-bottom: 5px solid var(--medium-black);
+  width: 100%;
+  min-height: auto;
+}
+
+.result img {
+  width: calc(30px + 10vw);
+  height: calc(45px + 10vh);
+  object-fit: cover;
+}
+
+.resultDetails > ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.resultDetails > ul > li {
+  font-size: 0.9rem;
+}
+
+.jobTitle {
+  text-decoration: underline;
+  color: black;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.jobTitle:hover {
+  font-size: 1.1rem;
+  transition: all 0.1s ease-in-out;
+}
