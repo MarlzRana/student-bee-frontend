@@ -21,10 +21,12 @@ function Events() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
+      console.log(res);
       setTop10MostRecentEvents(res.data.events);
     };
     fetchEvents();
   }, []);
+  console.log(top10MostRecentEvents);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.topContent}>
@@ -33,7 +35,9 @@ function Events() {
           <WidgetSpinner firstThreeEvents={top10MostRecentEvents.slice(3)} />
         </div>
       </div>
-      <div className={styles.search}><Search /></div>
+      <div className={styles.search}>
+        <Search />
+      </div>
       <div className={styles.lowerContent}>
         <div className={styles.eventsList}>
           {top10MostRecentEvents.slice(4).map((event, index) => {

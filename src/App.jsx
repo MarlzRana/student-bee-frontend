@@ -3,7 +3,9 @@ import "./global.css";
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const HomePageContent = lazy(() => import("./sections/home-page/components/Content"));
+const HomePageContent = lazy(() =>
+  import("./sections/home-page/components/Content")
+);
 
 const HomePageNavbar = lazy(() =>
   import("./sections/home-page/components/Navbar")
@@ -14,13 +16,17 @@ const MainApp = lazy(() => import("./sections/main-app/MainApp"));
 
 const EventDetails = lazy(() => import("./sections/events-page/EventDetails"));
 
-const Footer = lazy(() =>  import("./global-components/Footer"));
+const Footer = lazy(() => import("./global-components/Footer"));
 
 const SocietyDetails = lazy(() =>
   import("./sections/societies-page/SocietyDetails")
 );
 
 const JobDetails = lazy(() => import("./sections/jobs-page/JobDetails"));
+
+const UserProfile = lazy(() =>
+  import("./sections/profile-section/UserProfile")
+);
 
 function App() {
   return (
@@ -74,6 +80,14 @@ function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <JobDetails />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/mainApp/userProfile/:username"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <UserProfile />
               </Suspense>
             }
           ></Route>

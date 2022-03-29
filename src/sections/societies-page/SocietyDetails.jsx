@@ -13,9 +13,41 @@ function SocietyDetails() {
   const [isConfirmDeleteShowing, setIsConfirmDeleteShowing] = useState(false);
   const societyIDIn = parseInt(useParams().societyID);
   const [societyInfo, setSocietyInfo] = useState("");
+  const [isOwnedByUser, setIsOwnedByUser] = useState(false);
   const routerNavigator = useNavigate();
   useEffect(() => {
     Axios.defaults.withCredentials = true;
+
+    const doesUserOwnSociety = async () => {
+      const payload = {
+        societyID: societyIDIn,
+      };
+
+      await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS + "/societiesSystem/ownsSociety",
+        payload
+      )
+        .then(function (res) {
+          if (res.data.status === "failure") {
+            if (res.data.reason === "notLoggedIn") {
+              routerNavigator("/loginSystem/login");
+            }
+            if (
+              res.data.reason === "This event does not exist" ||
+              res.data.reason === "Invalid ID format"
+            ) {
+              routerNavigator("/mainApp/societies");
+              window.confirm(res.data.reason);
+            }
+          } else if (res.data.status === "success") {
+            setIsOwnedByUser(res.data.owned);
+          }
+        })
+        .catch(function (error) {
+          return;
+        });
+    };
+    doesUserOwnSociety();
 
     const fetchSocietyDetails = async () => {
       console.log(societyIDIn);
@@ -76,18 +108,27 @@ function SocietyDetails() {
           </div>
           <div className={styles.societyLinks}>
             <div className={styles.buttonGroup}>
-              <button
-                onClick = {() => setIsEditSocietyShowing(true)}
-                className={styles.editSocietyButton}
-              >
-                Edit Details
-              </button>
-              <button
-                onClick = {() => setIsConfirmDeleteShowing(true)}
-                className={styles.deleteSocietyButton}
-              >
-                Delete Society
-              </button>
+              {isOwnedByUser ? (
+                <button
+                  onClick={() => setIsEditSocietyShowing(true)}
+                  className={styles.editSocietyButton}
+                >
+                  Edit Details
+                </button>
+              ) : (
+                <></>
+              )}
+
+              {isOwnedByUser ? (
+                <button
+                  onClick={() => setIsConfirmDeleteShowing(true)}
+                  className={styles.deleteSocietyButton}
+                >
+                  Delete Society
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
             <h2>Links</h2>
             <ul>
@@ -95,8 +136,21 @@ function SocietyDetails() {
             </ul>
           </div>
         </div>
-        {isEditSocietyShowing ? <EditSociety setIsEditSocietyShowing={setIsEditSocietyShowing} /> : <></>}
-        {isConfirmDeleteShowing ? <DeleteConfirm setIsConfirmDeleteShowing={setIsConfirmDeleteShowing} /> : <></>}
+        {isEditSocietyShowing ? (
+          <EditSociety
+            setIsEditSocietyShowing={setIsEditSocietyShowing}
+            societyID={societyIDIn}
+          />
+        ) : (
+          <></>
+        )}
+        {isConfirmDeleteShowing ? (
+          <DeleteConfirm
+            setIsConfirmDeleteShowing={setIsConfirmDeleteShowing}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </Suspense>
   );
