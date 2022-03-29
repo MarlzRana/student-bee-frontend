@@ -1,0 +1,32 @@
+.jobSearchPage {
+  display: flex;
+  height: 80vh;
+  background-color: yellow;
+}
+
+.searchBarArea {
+  flex: 1;
+  background-color: blue;
+}
+
+.searchResults {
+  flex: 2;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchResultsContainer {
+  background-color: red;
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.searchResultsContainer > ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+}
