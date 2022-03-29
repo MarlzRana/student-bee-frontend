@@ -44,6 +44,7 @@ function EditProfile() {
           payload
         );
         if (res.data.status == "failure") {
+          console.log(res);
           if (res.data.reason == "Invalid Input Format") {
             if (!res.data.validationCheckDetails.course) {
               setAlertMessage("Please specify your course");
