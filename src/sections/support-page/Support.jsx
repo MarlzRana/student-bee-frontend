@@ -3,21 +3,47 @@ import styles from "./Support.module.css";
 function Support() {
     return (
         <div className={styles.supportPage}>
+            <h1>Support Section</h1>
             <div className={styles.contacts}>
                 <div className={styles.contactHeader}>
-                    <h1>Contact Numbers</h1>
+                    <h2>Contact Numbers</h2>
                     <i className={styles.phoneIcon}></i>
                 </div>
                 <ul>
                     <li>
-                        <b>test</b> 
+                        <b>National Suicide Prevention Helpline UK</b> 
                         <br />
-                        test
+                        0800 689 5652 (24/7)
+                    </li>
+                    <li>
+                        <b>HopeLine UK</b> 
+                        <br />
+                        0800 068 4141 (24/7)
+                    </li>
+                    <li>
+                        <b>National Emergency Number UK</b> 
+                        <br />
+                        999 (24/7)
+                    </li>
+                    <li>
+                        <b>National Health Service UK</b> 
+                        <br />
+                        111 (24/7)
+                    </li>
+                    <li>
+                        <b>YoungMinds</b> 
+                        <br />
+                        Text YM to 85258 (24/7)
+                    </li>
+                    <li>
+                        <b>Switchboard</b> 
+                        <br />
+                        0300 330 0630 (10am - 10pm every day)
                     </li>
                 </ul>
             </div>
             <div className={styles.faqContainer}>
-                <h1>Frequently Asked Questions</h1>
+                <h2>Frequently Asked Questions (FAQ)</h2>
                 <div className={styles.faq}>
                     <div>
                         <input 

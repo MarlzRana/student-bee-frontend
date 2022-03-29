@@ -1,14 +1,38 @@
 .supportPage {
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
     url("./styling/support-bg.jpg");
   background-size: cover;
   background-position: 0 center;
   min-height: 80vh;
 }
 
+.supportPage > h1 {
+  padding: 10px 0;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .contacts > ul {
   display: flex;
+  flex-direction: column;
   list-style-type: none;
+  background-color: var(--medium-black);
+  width: calc(125px + 50vw);
+  min-height: calc(100px + 10vh);
+}
+
+.contacts > ul > li {
+  color: white;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .contactHeader {
@@ -16,9 +40,14 @@
   justify-content: center;
 }
 
-.contactHeader > h1 {
+.contactHeader > h2 {
+  background-color: var(--medium-yellow);
+  margin-top: 20px;
   font-size: 1.5rem;
-  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: black;
+  width: calc(125px + 50vw);
   text-align: center;
 }
 
@@ -36,12 +65,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 30px;
 }
 
-.faqContainer > h1 {
+.faqContainer > h2 {
+  width: calc(125px + 50vw);
   font-size: 1.5rem;
   color: white;
   padding: 10px 0;
+  text-align: center;
+  background: var(--medium-black);
 }
 
 .faqLabel,
