@@ -132,6 +132,7 @@ function EventDetails() {
         {isConfirmDeleteShowing ? (
           <DeleteConfirm
             setIsConfirmDeleteShowing={setIsConfirmDeleteShowing}
+            eventID={eventIDIn}
           />
         ) : (
           <></>

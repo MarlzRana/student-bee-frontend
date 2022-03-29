@@ -147,6 +147,7 @@ function SocietyDetails() {
         {isConfirmDeleteShowing ? (
           <DeleteConfirm
             setIsConfirmDeleteShowing={setIsConfirmDeleteShowing}
+            societyID={societyIDIn}
           />
         ) : (
           <></>
