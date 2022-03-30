@@ -27,6 +27,7 @@
 .tweetHeader {
   margin-top: 10px;
   display: flex;
+  align-items: center;
 }
 
 .publishTime {
@@ -45,4 +46,71 @@
   height: calc(10px + 7vmin);
   border-radius: 50%;
   margin: calc(5px + 1.5vmin);
+}
+
+.likeContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.likeCounter {
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.likeButton {
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.likeButton:hover {
+  cursor: pointer;
+}
+
+.notLikedIcon {
+  float: left;
+  background-image: url("./NotHearted.svg");
+  background-size: calc(10px + 2vmin) calc(10px + 2vmin);
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: invert(60%);
+  width: calc(10px + 2vmin);
+  height: calc(10px + 2vmin);
+  transition: filter 0.1s ease-in-out;
+}
+
+.notLikedIcon:hover {
+  filter: invert(0%);
+  background-image: url("./Hearted.svg");
+}
+
+.likedIcon {
+  float: left;
+  background-image: url("./Hearted.svg");
+  background-size: calc(10px + 2vmin) calc(10px + 2vmin);
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: calc(10px + 2vmin);
+  height: calc(10px + 2vmin);
+  animation-name: enlarge;
+  animation-duration: 0.3s;
+}
+
+@keyframes enlarge {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.75);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

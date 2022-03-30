@@ -16,6 +16,10 @@ const JobDetails = lazy (() => import('../jobs-page/JobDetails'));
 const Feedback = lazy(() => import('../feedback-page/Feedback'));
 const Footer = lazy(() => import('../../global-components/Footer'));
 const UserProfile = lazy(() => import("../profile-section/UserProfile"));
+const JobSearch = lazy(() => import("../jobs-page/JobSearch"));
+const EventSearch = lazy(() => import("../events-page/EventSearch"));
+const SocietySearch = lazy(() => import("../societies-page/SocietySearch"));
+const Support = lazy(() => import("../support-page/Support"));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -47,6 +51,10 @@ function MainApp() {
         {subPageName === 'jobDetails' ? <JobDetails /> : <></>}
         {subPageName === 'feedback' ? <Feedback /> : <></>}
         {subPageName === 'userProfile' ? <UserProfile /> : <></>}
+        {subPageName === 'jobSearch' ? <JobSearch /> : <></>}
+        {subPageName === 'eventSearch' ? <EventSearch /> : <></>}
+        {subPageName === 'societySearch' ? <SocietySearch /> : <></>}
+        {subPageName === 'support' ? <Support /> : <></>}
         <Footer/>
       </Suspense>
     </main>

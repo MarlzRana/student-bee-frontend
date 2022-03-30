@@ -1,0 +1,129 @@
+.supportPage {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)),
+    url("./styling/support-bg.jpg");
+  background-size: cover;
+  background-position: 0 center;
+  min-height: 80vh;
+}
+
+.supportPage > h1 {
+  padding: 10px 0;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacts > ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: var(--medium-black);
+  width: calc(125px + 50vw);
+  min-height: calc(100px + 10vh);
+}
+
+.contacts > ul > li {
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.contactHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.contactHeader > h2 {
+  background-color: var(--medium-yellow);
+  margin-top: 20px;
+  font-size: 1.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: black;
+  width: calc(125px + 50vw);
+  text-align: center;
+}
+
+.faq {
+  width: calc(125px + 50vw);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  background: var(--medium-yellow);
+}
+
+.faqContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.faqContainer > h2 {
+  width: calc(125px + 50vw);
+  font-size: 1.5rem;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  background: var(--medium-black);
+}
+
+.faqLabel,
+.faqContent {
+  padding: 14px 20px;
+}
+
+.faqLabel {
+  display: block;
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.1s;
+}
+
+.faqLabel:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.faqLabel::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  width: 12px;
+  height: 6px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%23FFFFFF99;" /></svg>');
+  background-size: contain;
+  transition: transform 0.4s;
+}
+
+.faqContent {
+  background: var(--medium-black);
+  line-height: 1.6;
+  font-size: 0.85em;
+  display: none;
+  color: white;
+}
+
+.faqInput {
+  display: none;
+}
+
+.faqInput:checked ~ .faqContent {
+  display: block;
+}
+
+.faqInput:checked ~ .faqLabel::after {
+  transform: translateY(-50%) rotate(0.5turn);
+}
