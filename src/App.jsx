@@ -28,6 +28,16 @@ const UserProfile = lazy(() =>
   import("./sections/profile-section/UserProfile")
 );
 
+const JobSearch = lazy(() => import("./sections/jobs-page/JobSearch"));
+
+const EventSearch = lazy(() => import("./sections/events-page/EventSearch"));
+
+const SocietySearch = lazy(() => import("./sections/societies-page/SocietySearch"));
+
+const UpperNavbar = lazy(() => import("./sections/main-app/components/UpperNavbar"));
+
+const LowerNavbar = lazy(() => import("./sections/main-app/components/LowerNavbar"));
+
 function App() {
   return (
     <div className="App">
@@ -88,6 +98,39 @@ function App() {
             element={
               <Suspense fallback={<div>Loading...</div>}>
                 <UserProfile />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/mainApp/eventSearch/:result"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
+                <EventSearch />
+                <Footer />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/mainApp/societySearch/:result"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
+                <SocietySearch />
+                <Footer />
+              </Suspense>
+            }
+          ></Route>
+          <Route
+            path="/mainApp/jobSearch/:result"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
+                <JobSearch />
+                <Footer />
               </Suspense>
             }
           ></Route>
