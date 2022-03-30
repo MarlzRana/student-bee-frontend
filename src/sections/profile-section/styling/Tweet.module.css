@@ -6,6 +6,7 @@
 .tweetContent,
 .userTweet {
   background-color: var(--medium-black);
+  width: 100%;
   color: white;
 }
 
@@ -21,7 +22,6 @@
 .tweet {
   display: flex;
   padding-bottom: 20px;
-  /* width: 100%; */
 }
 
 .tweetHeader {
