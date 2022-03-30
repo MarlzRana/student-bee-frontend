@@ -10,15 +10,20 @@ function SocietySearch () {
                 <div className={styles.searchBarArea}>
                     <div className={styles.searchHeader}>
                         <h1>Society Search</h1>
-                        <i className={styles.searchIcon}></i>
                     </div>
-                    <div className={styles.searchBar}>
+                    <form className={styles.searchBar}>
                         <input 
                             type="text" 
                             placeholder="Search..."
                             // onChange={}
                         />
-                    </div>
+                        <button 
+                            className={styles.searchButton} 
+                            type="submit"
+                        >
+                            <i className={styles.searchIcon}></i>
+                        </button>
+                    </form>
                 </div>
                 <div className={styles.searchResults}>
                     <div className={styles.searchResultsContainer}>
