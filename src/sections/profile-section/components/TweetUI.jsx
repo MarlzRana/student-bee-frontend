@@ -17,10 +17,8 @@ function TweetUI() {
         process.env.REACT_APP_APIHOSTADDRESS + "/tweetsSystem/get20RecentTweets"
       )
         .then(function (res) {
-          console.log(res);
           if (res.data.status === "success") {
             setRecentTweets(res.data.tweets);
-            console.log("Tweets: " + res.data.tweets);
           }
         })
         .catch(function (error) {
@@ -40,7 +38,6 @@ function TweetUI() {
         .replace("T", " "),
       content: enteredTweetContent,
     };
-    console.log(payload);
     try {
       const res = await Axios.post(
         process.env.REACT_APP_APIHOSTADDRESS + "/tweetsSystem/addTweet",
@@ -48,13 +45,9 @@ function TweetUI() {
       );
       if (res.data.status === "success") {
         setMostRecentlyAdded(payload);
-        console.log(res);
-        console.log("success");
       }
       if (res.data.status === "failure") {
-        console.log(res);
         window.confirm("Something went wrong. Please try again later.");
-        console.log("failure");
       }
     } catch (error) {
       window.confirm("Something went wrong. Please try again later.");
@@ -81,6 +74,7 @@ function TweetUI() {
               username={event.authorUsername}
               time={event.howLongAgo}
               post={event.content}
+              tweetID={event.tweetID}
               key={index}
             />
           );
