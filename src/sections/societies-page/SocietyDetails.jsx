@@ -14,6 +14,8 @@ function SocietyDetails() {
   const societyIDIn = parseInt(useParams().societyID);
   const [societyInfo, setSocietyInfo] = useState("");
   const [isOwnedByUser, setIsOwnedByUser] = useState(false);
+  const [isUserParticipating, setIsUserParticipating] = useState(false);
+  const [joinButtonMessage, setJoinButtonMessage] = useState("Join Event");
   const routerNavigator = useNavigate();
   useEffect(() => {
     Axios.defaults.withCredentials = true;
@@ -81,7 +83,76 @@ function SocietyDetails() {
         });
     };
     fetchSocietyDetails();
+
+    const checkIfAlreadyMember = async () => {
+      const payload = {
+        societyID: societyIDIn,
+      };
+
+      await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS +
+          "/societiesSystem/isUserPartOfSociety",
+        payload
+      )
+        .then(function (res) {
+          if (res.data.status === "failure") {
+            if (res.data.reason === "notLoggedIn") {
+              routerNavigator("/loginSystem/login");
+            }
+            if (
+              res.data.reason === "This event does not exist" ||
+              res.data.reason === "Invalid ID format"
+            ) {
+              routerNavigator("/mainApp/societies");
+              window.confirm(res.data.reason);
+            }
+          } else if (res.data.status === "success") {
+            console.log("User participating: ");
+            console.log(res.data.reason.userIsPartOfSociety);
+            if (res.data.reason.userIsPartOfSociety) {
+              setJoinButtonMessage("Leave Society");
+            } else {
+              setJoinButtonMessage("Join Society");
+            }
+            setIsUserParticipating(res.data.reason.userIsPartOfSociety);
+          }
+        })
+        .catch(function (error) {
+          return;
+        });
+    };
+    checkIfAlreadyMember();
   }, []);
+
+  const joinLeaveSociety = async (e) => {
+    e.preventDefault();
+    const payload = {
+      societyID: societyIDIn,
+    };
+    try {
+      const res = await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS +
+          "/societiesSystem/invertIsUserPartOfSociety",
+        payload
+      );
+      if (res.data.status === "success") {
+        if (res.data.reason === "userParticipationDeleted") {
+          setIsUserParticipating(false);
+          setJoinButtonMessage("Join Society");
+        } else if (res.data.reason === "userParticipationAdded") {
+          setIsUserParticipating(true);
+          setJoinButtonMessage("Leave Society");
+        }
+      }
+      if (res.data.status === "failure") {
+        if (res.data.reason === "invalidInputFormat") {
+          console.log(res);
+        }
+      }
+    } catch (error) {
+      window.confirm("Something went wrong. Please try again later.");
+    }
+  };
   return (
     <Suspense>
       <div className={styles.societyDetails}>
@@ -116,7 +187,12 @@ function SocietyDetails() {
                   Edit Details
                 </button>
               ) : (
-                <></>
+                <button
+                  onClick={(e) => joinLeaveSociety(e)}
+                  className={styles.editSocietyButton}
+                >
+                  {joinButtonMessage}
+                </button>
               )}
 
               {isOwnedByUser ? (

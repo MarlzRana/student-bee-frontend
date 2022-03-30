@@ -12,6 +12,8 @@ function EventDetails() {
   const eventIDIn = parseInt(useParams().eventID);
   const [eventInfo, setEventInfo] = useState("");
   const [isOwnedByUser, setIsOwnedByUser] = useState(false);
+  const [isUserParticipating, setIsUserParticipating] = useState(false);
+  const [joinButtonMessage, setJoinButtonMessage] = useState("Join Event");
   const routerNavigator = useNavigate();
   useEffect(() => {
     Axios.defaults.withCredentials = true;
@@ -48,7 +50,6 @@ function EventDetails() {
     doesUserOwnEvent();
 
     const fetchEventDetails = async () => {
-      console.log(eventIDIn);
       const payload = {
         eventID: eventIDIn,
       };
@@ -78,7 +79,76 @@ function EventDetails() {
         });
     };
     fetchEventDetails();
+
+    const checkIfParticipating = async () => {
+      const payload = {
+        eventID: eventIDIn,
+      };
+
+      await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS +
+          "/eventsSystem/isUserPartOfEvent",
+        payload
+      )
+        .then(function (res) {
+          if (res.data.status === "failure") {
+            if (res.data.reason === "notLoggedIn") {
+              routerNavigator("/loginSystem/login");
+            }
+            if (
+              res.data.reason === "This event does not exist" ||
+              res.data.reason === "Invalid ID format"
+            ) {
+              routerNavigator("/mainApp/events");
+              window.confirm(res.data.reason);
+            }
+          } else if (res.data.status === "success") {
+            console.log("User participating: ");
+            console.log(res.data.reason.userIsPartOfEvent);
+            if (res.data.reason.userIsPartOfEvent) {
+              setJoinButtonMessage("Leave Event");
+            } else {
+              setJoinButtonMessage("Join Event");
+            }
+            setIsUserParticipating(res.data.reason.userIsPartOfEvent);
+          }
+        })
+        .catch(function (error) {
+          return;
+        });
+    };
+    checkIfParticipating();
   }, []);
+
+  const joinLeaveEvent = async (e) => {
+    e.preventDefault();
+    const payload = {
+      eventID: eventIDIn,
+    };
+    try {
+      const res = await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS +
+          "/eventsSystem/invertIsUserPartOfEvent",
+        payload
+      );
+      if (res.data.status === "success") {
+        if (res.data.reason === "userParticipationDeleted") {
+          setIsUserParticipating(false);
+          setJoinButtonMessage("Join Event");
+        } else if (res.data.reason === "userParticipationAdded") {
+          setIsUserParticipating(true);
+          setJoinButtonMessage("Leave Event");
+        }
+      }
+      if (res.data.status === "failure") {
+        if (res.data.reason === "invalidInputFormat") {
+          console.log(res);
+        }
+      }
+    } catch (error) {
+      window.confirm("Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -102,7 +172,12 @@ function EventDetails() {
                 Edit Details
               </button>
             ) : (
-              <></>
+              <button
+                onClick={(e) => joinLeaveEvent(e)}
+                className={styles.editEventButton}
+              >
+                {joinButtonMessage}
+              </button>
             )}
 
             {isOwnedByUser ? (
