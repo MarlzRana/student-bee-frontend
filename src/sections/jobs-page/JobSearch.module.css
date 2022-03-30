@@ -25,16 +25,34 @@
   font-size: 1.5rem;
 }
 
+.searchBar {
+  display: flex;
+}
+
 .searchBar input {
   background-color: var(--medium-black);
   outline: none;
   border: none;
   height: calc(30px + 1vh);
   width: calc(120px + 10vmin);
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
   color: white;
   font-size: 1rem;
   padding-left: 10px;
+}
+
+.searchButton {
+  width: calc(20px + 2vmin);
+  height: calc(30px + 1vh);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background: var(--medium-yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  border: none;
 }
 
 .searchIcon {
@@ -42,9 +60,8 @@
   background-size: 75% 75%;
   background-position: center center;
   background-repeat: no-repeat;
-  width: 35px;
-  height: 35px;
-  filter: invert(100%);
+  width: 50px;
+  height: 50px;
 }
 
 .searchResults {

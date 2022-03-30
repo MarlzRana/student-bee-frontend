@@ -55,6 +55,9 @@ function EventSearch() {
               placeholder="Search..."
               onChange={(e) => setNewQuery(e.target.value)}
             />
+            <button className={styles.searchButton} type="submit">
+              <i className={styles.searchIcon}></i>
+            </button>
           </div>
         </div>
         <div className={styles.searchResults}>

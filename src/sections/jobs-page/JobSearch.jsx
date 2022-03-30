@@ -55,6 +55,9 @@ function JobSearch() {
               placeholder="Search..."
               // onChange={}
             />
+            <button className={styles.searchButton} type="submit">
+              <i className={styles.searchIcon}></i>
+            </button>
           </div>
         </div>
         <div className={styles.searchResults}>
