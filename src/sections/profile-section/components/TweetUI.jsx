@@ -67,7 +67,6 @@ function TweetUI() {
         </button>
       </form>
       <div className={styles.feed}>
-        <Tweet username="sussy balls" userImage={pic} post={"HELLOOOOOOOOOOOOOO"}/>
         {recentTweets.map((event, index) => {
           return (
             <Tweet
