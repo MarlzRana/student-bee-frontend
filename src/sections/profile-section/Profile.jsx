@@ -11,6 +11,7 @@ const NotificationPanel = lazy(() => import("./components/NotificationPanel"));
 function Home() {
   const [username, setUsername] = useState("");
   const [userInformation, setUserInformation] = useState("");
+  const [recentTweets, setRecentTweets] = useState([]);
   const routerNavigator = useNavigate();
 
   useEffect(() => {
@@ -26,7 +27,6 @@ function Home() {
         payload
       )
         .then(function (res) {
-          console.log(res);
           if (res.data.status === "failure") {
             if (res.data.reason === "notLoggedIn") {
               routerNavigator("/loginSystem/login");
@@ -79,7 +79,7 @@ function Home() {
           />
         </div>
         <div className={styles.middle}>
-          <TweetUI />
+          <TweetUI tweetArray={recentTweets} />
         </div>
         <div className={styles.right}>
           <NotificationPanel />

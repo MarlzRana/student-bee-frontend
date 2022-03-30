@@ -50,12 +50,9 @@ function JobDetails() {
     doesUserOwnJob();
 
     const fetchJobDetails = async () => {
-      console.log(jobIDIn);
       const payload = {
         jobID: jobIDIn,
       };
-      console.log("Payload: ");
-      console.log(payload);
 
       await Axios.post(
         process.env.REACT_APP_APIHOSTADDRESS + "/jobsSystem/getJobDetails",
@@ -138,6 +135,7 @@ function JobDetails() {
         {isConfirmDeleteShowing ? (
           <DeleteConfirm
             setIsConfirmDeleteShowing={setIsConfirmDeleteShowing}
+            jobID={jobIDIn}
           />
         ) : (
           <></>
