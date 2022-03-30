@@ -16,7 +16,7 @@ function SearchResult({
       <div className={styles.resultDetails}>
         <ul>
           <Link className={styles.eventTitle} to={destination}>
-            Concert {title}
+            {title}
           </Link>
           <li>
             <b>Start Date: {startDateTime}</b>

@@ -1,6 +1,6 @@
 import styles from "./EventSearch.module.css";
 import { Suspense, lazy, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Axios from "axios";
 
 const SearchResult = lazy(() => import("./components/SearchResult"));
@@ -11,6 +11,7 @@ function EventSearch() {
   const [newQuery, setNewQuery] = useState("");
   console.log("Query:");
   console.log(query);
+
   const [searchResults, setSearchResults] = useState([]);
   useEffect(() => {
     try {
@@ -25,6 +26,9 @@ function EventSearch() {
           payload
         );
         if (res.data.status === "failure") {
+          if (res.data.reason === "notLoggedIn") {
+            routerNavigator("/loginSystem/login");
+          }
           console.log("res.data.status = failure");
           console.log(res);
         } else {
@@ -40,7 +44,18 @@ function EventSearch() {
       window.confirm("Something went wrong. Please try again later.");
       routerNavigator("/mainApp/events");
     }
-  }, []);
+  }, [query]);
+
+  const search = async (e) => {
+    e.preventDefault();
+    try {
+      const destination = "/mainApp/eventSearch/" + newQuery;
+      routerNavigator(destination);
+    } catch (error) {
+      window.confirm("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.eventSearchPage}>
@@ -55,7 +70,11 @@ function EventSearch() {
               placeholder="Search..."
               onChange={(e) => setNewQuery(e.target.value)}
             />
-            <button className={styles.searchButton} type="submit">
+            <button
+              className={styles.searchButton}
+              type="submit"
+              onClick={(e) => search(e)}
+            >
               <i className={styles.searchIcon}></i>
             </button>
           </div>

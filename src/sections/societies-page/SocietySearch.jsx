@@ -25,6 +25,9 @@ function SocietySearch() {
           payload
         );
         if (res.data.status === "failure") {
+          if (res.data.reason === "notLoggedIn") {
+            routerNavigator("/loginSystem/login");
+          }
           console.log("res.data.status = failure");
           console.log(res);
         } else {
@@ -40,7 +43,18 @@ function SocietySearch() {
       window.confirm("Something went wrong. Please try again later.");
       routerNavigator("/mainApp/societies");
     }
-  }, []);
+  }, [query]);
+
+  const search = async (e) => {
+    e.preventDefault();
+    try {
+      const destination = "/mainApp/societySearch/" + newQuery;
+      routerNavigator(destination);
+    } catch (error) {
+      window.confirm("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.societySearchPage}>
@@ -53,9 +67,13 @@ function SocietySearch() {
             <input
               type="text"
               placeholder="Search..."
-              // onChange={}
+              onChange={(e) => setNewQuery(e.target.value)}
             />
-            <button className={styles.searchButton} type="submit">
+            <button
+              className={styles.searchButton}
+              type="submit"
+              onClick={(e) => search(e)}
+            >
               <i className={styles.searchIcon}></i>
             </button>
           </div>
