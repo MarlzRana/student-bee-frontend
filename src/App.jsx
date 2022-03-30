@@ -32,17 +32,11 @@ const JobSearch = lazy(() => import("./sections/jobs-page/JobSearch"));
 
 const EventSearch = lazy(() => import("./sections/events-page/EventSearch"));
 
-const SocietySearch = lazy(() =>
-  import("./sections/societies-page/SocietySearch")
-);
+const SocietySearch = lazy(() => import("./sections/societies-page/SocietySearch"));
 
-const UpperNavbar = lazy(() =>
-  import("./sections/main-app/components/UpperNavbar")
-);
+const UpperNavbar = lazy(() => import("./sections/main-app/components/UpperNavbar"));
 
-const LowerNavbar = lazy(() =>
-  import("./sections/main-app/components/LowerNavbar")
-);
+const LowerNavbar = lazy(() => import("./sections/main-app/components/LowerNavbar"));
 
 function App() {
   return (
