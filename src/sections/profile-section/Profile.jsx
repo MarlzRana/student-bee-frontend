@@ -79,6 +79,12 @@ function Home() {
           />
         </div>
         <div className={styles.middle}>
+          <div className={styles.middleCoverPic}>
+            <div className={styles.coverText}>
+              <h2>Post</h2>
+              <p>Express your thoughts.</p>
+            </div>
+          </div>
           <TweetUI tweetArray={recentTweets} />
         </div>
         <div className={styles.right}>
