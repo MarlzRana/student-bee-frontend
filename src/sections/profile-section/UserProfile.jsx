@@ -58,7 +58,7 @@ function UserProfile() {
             {userInformation.firstName} {userInformation.lastName}
           </h1>
           <p>
-            {userInformation.studentYear} Year, {userInformation.courseName}
+            {userInformation.studentYear} {userInformation.courseName}
           </p>
           <br />
           <div className={styles.userDescription}>

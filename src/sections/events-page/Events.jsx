@@ -21,7 +21,6 @@ function Events() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
-      console.log(res);
       setTop10MostRecentEvents(res.data.events);
     };
     fetchEvents();

@@ -39,7 +39,6 @@ function EditJob({ setIsEditJobShowing, jobID }) {
       setEnteredWage(res.data.jobInformation.wage);
 
       const currentStartDate = res.data.jobInformation.startDate;
-      console.log(res.data.jobInformation.startDate);
       const currentStart = currentStartDate.split("/");
       const startyy = currentStart[2];
 
@@ -86,7 +85,6 @@ function EditJob({ setIsEditJobShowing, jobID }) {
       employerPhoneNumber: enteredContactNumber,
       link: enteredApplicationLink,
     };
-    console.log(payload);
     try {
       const res = await Axios.post(
         process.env.REACT_APP_APIHOSTADDRESS + "/jobsSystem/editJobDetails",
