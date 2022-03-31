@@ -95,14 +95,6 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
       );
       if (res.data.status === "success") {
         setMessageToShow("Success! Your event has been edited");
-        // setEnteredTitle("");
-        // setEnteredStartDateTime("");
-        // setEnteredEndDateTime("");
-        // setEnteredLocation("");
-        // setEnteredOrganizerName("");
-        // setEnteredContactEmail("");
-        // setEnteredContactPhoneNumber("");
-        // setEnteredDescription("");
       }
       if (res.data.status === "failure") {
         if (res.data.reason === "invalidInputFormat") {
