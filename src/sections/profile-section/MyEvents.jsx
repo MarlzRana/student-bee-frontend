@@ -16,6 +16,7 @@ function MyEvents() {
                 <h2>My Events</h2>
                 <div className={styles.myContainer}>
                     <Content 
+                        contentType="event"
                         contentBg={placeholder}
                         contentTitle={"Noice"}
                     />
