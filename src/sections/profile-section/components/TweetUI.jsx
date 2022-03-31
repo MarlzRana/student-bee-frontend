@@ -3,7 +3,6 @@ import pic from "./DefaultProfilePic.jpg";
 import Tweet from "./Tweet";
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import pfpCollection from "./pfpCollection";
 
 function TweetUI() {
   const [enteredTweetContent, setEnteredTweetContent] = useState("");
@@ -68,12 +67,15 @@ function TweetUI() {
         </button>
       </form>
       <div className={styles.feed}>
-        {/* <Tweet userImage={pfpCollection[(Math.floor(Math.random() * pfpCollection.length))]} username="akmal rizal" post="hello there!"/>
-        <Tweet userImage={pfpCollection[(Math.floor(Math.random() * pfpCollection.length))]} username="akmal rizal" post="hello there!"/> */}
+        <Tweet userImage={pic} username="akmal rizal" post="hello there!"/>
+        <Tweet userImage={pic} username="akmal rizal" post="hello there!"/>
+        <Tweet userImage={pic} username="akmal rizal" post="hello there!"/>
+        <Tweet userImage={pic} username="akmal rizal" post="hello there!"/>
+        <Tweet userImage={pic} username="akmal rizal" post="hello there!"/>
         {recentTweets.map((event, index) => {
           return (
             <Tweet
-              userImage={pfpCollection[(Math.floor(Math.random() * pfpCollection.length))]}
+              userImage={pic}
               username={event.authorUsername}
               time={event.howLongAgo}
               post={event.content}
