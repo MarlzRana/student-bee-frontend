@@ -4,4 +4,88 @@
     url("./styling/my-bg.jpg");
   background-position: center center;
   background-size: cover;
+  padding-bottom: 20px;
+}
+
+.myHeader {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.myHeader img {
+  border-radius: 50%;
+  width: calc(80px + 2vmin);
+}
+
+.myHeader h1 {
+  color: white;
+}
+
+.mySectionPage h2 {
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  animation-name: glow;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+.myContainer {
+  display: flex;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+  background-color: transparent;
+  width: 90%;
+  min-height: calc(100px + 10vh);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contentCircle {
+  flex: 0 1 calc(100px + 5vmin);
+  max-width: calc(100px + 5vmin);
+  height: calc(100px + 5vmin);
+  margin: 2px;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  cursor: pointer;
+  clip-path: circle(50% at 50% 50%);
+}
+
+.contentImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+.contentCircle::before,
+.contentCircle::after,
+.contentImg {
+  top: -50%;
+  width: 100%;
+  height: 200%;
+  display: block;
+  position: absolute;
+  clip-path: circle(50% at 50% 50%);
+  z-index: -1;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--medium-yellow),
+      0 0 40px var(--medium-yellow), 0 0 50px var(--medium-yellow),
+      0 0 60px var(--medium-yellow), 0 0 70px var(--medium-yellow);
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+  100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--medium-yellow),
+      0 0 40px var(--medium-yellow), 0 0 50px var(--medium-yellow),
+      0 0 60px var(--medium-yellow), 0 0 70px var(--medium-yellow);
+  }
 }
