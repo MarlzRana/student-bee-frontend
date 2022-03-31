@@ -25,7 +25,6 @@ function Tweet(props) {
         .then(function (res) {
           if (res.data.status === "success") {
             setLikeCount(res.data.likeCount);
-            console.log("Likes: " + res.data.likeCount);
           }
         })
         .catch(function (error) {
@@ -62,8 +61,6 @@ function Tweet(props) {
         const payload = {
           likeID: likeID,
         };
-        console.log("Unlike payload: ");
-        console.log(payload);
         const res = await Axios.post(
           process.env.REACT_APP_APIHOSTADDRESS + "/tweetsSystem/unlikeTweet",
           payload
@@ -76,7 +73,6 @@ function Tweet(props) {
           window.confirm("Something went wrong. Please try again later.");
         }
       } catch (error) {
-        console.log(error);
         window.confirm("Something went wrong. Please try again later.");
       }
     } else {
@@ -94,11 +90,9 @@ function Tweet(props) {
           setLikeID(res.data.likeID);
         }
         if (res.data.status === "failure") {
-          console.log(res);
           window.confirm("Something went wrong. Please try again later.");
         }
       } catch (error) {
-        console.log(error);
         window.confirm("Something went wrong. Please try again later.");
       }
     }

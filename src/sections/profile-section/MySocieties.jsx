@@ -9,6 +9,8 @@ const Content = lazy(() => import("./components/Content"));
 function MySocieties() {
   const [myRelevantSocieties, setMyRelevantSocieties] = useState([]);
   const [joinedAnyYet, setJoinedAnyYet] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   useEffect(() => {
     try {
       const fetchSocieties = async () => {
@@ -26,6 +28,29 @@ function MySocieties() {
         }
       };
       fetchSocieties();
+      const fetchName = async () => {
+        Axios.defaults.withCredentials = true;
+        const res = await Axios.get(
+          process.env.REACT_APP_APIHOSTADDRESS +
+            "/loginSystem/getCurrentUsername"
+        );
+        if (res.data.status === "failure") {
+          return;
+        } else if (res.data.status === "success") {
+          const payload = { username: res.data.username };
+          const res2 = await Axios.post(
+            process.env.REACT_APP_APIHOSTADDRESS +
+              "/loginSystem/getPersonalInformation",
+            payload
+          );
+          if (res2.data.status === "failure") {
+          } else if (res2.data.status === "success") {
+            setFirstName(res2.data.userInformation.firstName);
+            setLastName(res2.data.userInformation.lastName);
+          }
+        }
+      };
+      fetchName();
     } catch (error) {
       window.confirm("Something went wrong. Please try again later.");
     }
@@ -35,7 +60,9 @@ function MySocieties() {
       <div className={styles.mySectionPage}>
         <div className={styles.myHeader}>
           <img src={pic} alt="" />
-          <h1>Akmal Rizal</h1>
+          <h1>
+            {firstName} {lastName}
+          </h1>
         </div>
         <h2>My Societies</h2>
         <div className={styles.myContainer}>

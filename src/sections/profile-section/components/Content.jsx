@@ -45,7 +45,6 @@ function Content({ contentType, contentBg, contentID }) {
               window.confirm("Something went wrong. Please try again later.");
               routerNavigator("/mainApp/home");
             }
-            console.log(res);
             setContentTitle(res.data.societyInformation.title);
             setDestination("/mainApp/societyDetails/" + contentID);
           };
