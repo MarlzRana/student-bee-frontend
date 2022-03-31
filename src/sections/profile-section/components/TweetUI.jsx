@@ -1,5 +1,5 @@
 import styles from "../styling/TweetUI.module.css";
-import pic from "./DefaultProfilePic.jpg";
+import pic from "./DefaultProfilePic.png";
 import Tweet from "./Tweet";
 import { useEffect, useState } from "react";
 import Axios from "axios";

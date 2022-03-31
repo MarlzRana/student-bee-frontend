@@ -1,7 +1,7 @@
 import styles from "./MySections.module.css";
 import { Suspense, lazy } from "react";
-import pic from "./components/DefaultProfilePic.jpg";
-import placeholder from "../events-page/styling/bg.jpg";
+import pic from "./components/DefaultProfilePic.png";
+import eventPicCollection from "../events-page/components/eventPicCollection";
 
 const Content = lazy(() => import("./components/Content"));
 
@@ -17,7 +17,7 @@ function MyEvents() {
                 <div className={styles.myContainer}>
                     <Content 
                         contentType="event"
-                        contentBg={placeholder}
+                        contentBg={eventPicCollection[(Math.floor(Math.random() * eventPicCollection.length))]}
                         contentTitle={"Noice"}
                     />
                 </div>

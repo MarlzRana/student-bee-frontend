@@ -1,7 +1,7 @@
 import styles from "./MySections.module.css";
 import { Suspense, lazy } from "react";
-import placeholder from "../events-page/styling/bg.jpg";
-import pic from "./components/DefaultProfilePic.jpg";
+import societyPicCollection from "../societies-page/components/societyPicCollection";
+import pic from "./components/DefaultProfilePic.png";
 
 const Content = lazy(() => import("./components/Content"));
 
@@ -17,7 +17,7 @@ function MySocieties() {
                 <div className={styles.myContainer}>
                     <Content 
                         contentType="society"
-                        contentBg={placeholder}
+                        contentBg={societyPicCollection[(Math.floor(Math.random() * societyPicCollection.length))]}
                         contentTitle={"Noice"}
                     />
                 </div>

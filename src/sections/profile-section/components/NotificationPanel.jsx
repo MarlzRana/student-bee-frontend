@@ -1,6 +1,6 @@
 import styles from "../styling/NotificationPanel.module.css";
 import Notifications from "./Notifications";
-import DefaultPfP from "./DefaultProfilePic.jpg";
+import DefaultPfP from "./DefaultProfilePic.png";
 
 function NotificationPanel() {
   return (
