@@ -117,7 +117,10 @@ function Tweet(props) {
 
   return (
     <div className={styles.tweet}>
-      <img src={userImage} alt="Profile Pic" />
+      <img 
+        src={userImage} 
+        alt="Profile Pic" 
+      />
       <div className={styles.userTweet}>
         <div className={styles.tweetHeader}>
           <h2>
