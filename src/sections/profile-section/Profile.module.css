@@ -52,3 +52,15 @@
 .right {
   flex: 0.75;
 }
+
+@media screen and (max-width: 321px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .left {
+    background-color: var(--medium-yellow);
+    justify-content: center;
+    align-items: center;
+  }
+}

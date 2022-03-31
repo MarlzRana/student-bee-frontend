@@ -5,9 +5,8 @@
 }
 
 .fieldContainer {
-  width: 90%;
+  width: 100%;
   padding-top: 2vmin;
-  padding-left: 20px;
   border-radius: 2vmin;
   background-color: var(--medium-black);
   text-align: center;
