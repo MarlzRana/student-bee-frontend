@@ -23,7 +23,6 @@
 .widget .mainBody h1 {
   margin: 10px 0 5px;
   font-size: calc(8px + 1vmin);
-
   color: #000000;
 }
 
@@ -41,6 +40,8 @@
   width: calc(90px + 9vmin);
   height: calc(50px + 4vmin);
   border-radius: 10%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .widget .mainBody h2 {

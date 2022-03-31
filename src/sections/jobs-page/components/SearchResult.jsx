@@ -1,12 +1,13 @@
 import styles from "../styling/SearchResult.module.css";
 import placeholder from "../components/defaultJobsPic.jpg";
+import jobPicCollection from "./jobPicCollection";
 import { Link } from "react-router-dom";
 
 function SearchResult({ jobTitle, wage, hours, location, startDate, jobID }) {
   const destination = "/mainApp/jobDetails/" + jobID;
   return (
     <div className={styles.result}>
-      <img src={placeholder} alt="" />
+      <img src={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]} alt="" />
       <div className={styles.resultDetails}>
         <ul>
           <Link className={styles.jobTitle} to={destination}>

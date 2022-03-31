@@ -1,6 +1,6 @@
 import styles from "./Jobs.module.css";
 import { Suspense, lazy, useState, useEffect } from "react";
-import placeholderImg from "./components/defaultJobsPic.jpg";
+import jobPicCollection from "./components/jobPicCollection";
 import Axios from "axios";
 
 const JobWidget = lazy(() => import("./components/JobWidget"));
@@ -31,12 +31,13 @@ function Jobs() {
         <p>A chance to develop your skills.</p>
         <div className={styles.searchContainer}><Search /></div>
         <div className={styles.jobsContainer}>
+          <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
           {eightRandomJobs.map((job, index) => {
             return (
               <JobWidget
                 jobID={job.jobID}
                 jobTitle={job.jobTitle}
-                jobImage={placeholderImg}
+                jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}
                 wage={job.wage}
                 hoursPerWeek={job.workingHours}
                 location={job.location}
