@@ -10,6 +10,7 @@
 .myHeader {
   padding-top: 50px;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 .myHeader img {
@@ -37,11 +38,15 @@
   margin-right: auto;
   padding-bottom: 10px;
   background-color: transparent;
-  width: 90%;
+  width: 70%;
   min-height: calc(100px + 10vh);
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+.contentRedirect {
+  text-decoration: none;
 }
 
 .contentCircle {
@@ -52,13 +57,21 @@
   position: relative;
   text-align: center;
   z-index: 1;
-  cursor: pointer;
   clip-path: circle(50% at 50% 50%);
+  animation: glow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.contentCircle:hover {
+  animation: hovereffect;
+  animation-duration: 1s;
 }
 
 .contentImg {
   object-fit: cover;
   object-position: center;
+  filter: brightness(60%);
 }
 
 .contentCircle::before,
@@ -71,6 +84,20 @@
   position: absolute;
   clip-path: circle(50% at 50% 50%);
   z-index: -1;
+}
+
+.contentTitle {
+  height: 100%;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: opacity 350ms;
+  text-shadow: 1px 1px 1px black;
 }
 
 @keyframes glow {
@@ -87,5 +114,34 @@
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--medium-yellow),
       0 0 40px var(--medium-yellow), 0 0 50px var(--medium-yellow),
       0 0 60px var(--medium-yellow), 0 0 70px var(--medium-yellow);
+  }
+}
+
+@keyframes hovereffect {
+  30% {
+    transform: scale(1.2);
+  }
+  40%,
+  60% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .myContainer {
+    width: 90%;
+  }
+
+  .myHeader {
+    padding-bottom: 20px;
   }
 }

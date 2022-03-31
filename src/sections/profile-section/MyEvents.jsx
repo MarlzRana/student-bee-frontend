@@ -1,6 +1,7 @@
 import styles from "./MySections.module.css";
 import { Suspense, lazy } from "react";
 import pic from "./components/DefaultProfilePic.jpg";
+import placeholder from "../events-page/styling/bg.jpg";
 
 const Content = lazy(() => import("./components/Content"));
 
@@ -14,14 +15,10 @@ function MyEvents() {
                 </div>
                 <h2>My Events</h2>
                 <div className={styles.myContainer}>
-                    <Content />
-                    <Content />
-                    <Content />
-                    <Content />
-                    <Content />
-                    <Content />
-                    <Content />
-                    <Content />
+                    <Content 
+                        contentBg={placeholder}
+                        contentTitle={"Noice"}
+                    />
                 </div>
             </div>
         </Suspense>

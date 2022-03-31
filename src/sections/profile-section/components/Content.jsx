@@ -1,17 +1,16 @@
 import styles from "../MySections.module.css";
 import { Link } from "react-router-dom";
-import placeholder from "../../events-page/styling/placeholder.jpg";
 
-function Content() {
+function Content({ contentBg, contentTitle }) {
     return (
         <div className={styles.contentCircle}>
-            <Link className={styles.myRedirect} to="/mainApp/eventDetails">
+            <Link className={styles.contentRedirect} to="/mainApp/eventDetails">
                 <img 
                     className={styles.contentImg}
-                    src={placeholder} 
+                    src={contentBg}
                     alt="" 
                 />
-                <div className={styles.contentText}></div>
+                <div className={styles.contentTitle}>{contentTitle}</div>
             </Link>
         </div>
     );
