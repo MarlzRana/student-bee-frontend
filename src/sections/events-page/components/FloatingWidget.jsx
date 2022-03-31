@@ -1,4 +1,5 @@
 import styles from "../styling/FloatingWidget.module.css";
+import eventPicCollection from "./eventPicCollection";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
