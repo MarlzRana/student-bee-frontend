@@ -20,6 +20,9 @@ const JobSearch = lazy(() => import("../jobs-page/JobSearch"));
 const EventSearch = lazy(() => import("../events-page/EventSearch"));
 const SocietySearch = lazy(() => import("../societies-page/SocietySearch"));
 const Support = lazy(() => import("../support-page/Support"));
+const MyEvents = lazy(() => import("../profile-section/MyEvents"));
+const MyJobs = lazy(() => import("../profile-section/MyJobs"));
+const MySocieties = lazy(() => import("../profile-section/MySocieties"));
 
 function MainApp() {
   const routerNavigator = useNavigate();
@@ -55,6 +58,9 @@ function MainApp() {
         {subPageName === 'eventSearch' ? <EventSearch /> : <></>}
         {subPageName === 'societySearch' ? <SocietySearch /> : <></>}
         {subPageName === 'support' ? <Support /> : <></>}
+        {subPageName === 'mySocieties' ? <MySocieties /> : <></>}
+        {subPageName === 'myEvents' ? <MyEvents /> : <></>}
+        {subPageName === 'myJobs' ? <MyJobs /> : <></>}
         <Footer/>
       </Suspense>
     </main>
