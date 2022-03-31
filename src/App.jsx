@@ -73,7 +73,10 @@ function App() {
             path="/mainApp/events/viewEvent/:eventID"
             element={
               <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
                 <EventDetails />
+                <Footer />
               </Suspense>
             }
           ></Route>
@@ -81,7 +84,10 @@ function App() {
             path="/mainApp/societyDetails/:societyID"
             element={
               <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
                 <SocietyDetails />
+                <Footer />
               </Suspense>
             }
           ></Route>
@@ -89,7 +95,10 @@ function App() {
             path="/mainApp/jobDetails/:jobID"
             element={
               <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
                 <JobDetails />
+                <Footer />
               </Suspense>
             }
           ></Route>
@@ -97,7 +106,10 @@ function App() {
             path="/mainApp/userProfile/:username"
             element={
               <Suspense fallback={<div>Loading...</div>}>
+                <UpperNavbar />
+                <LowerNavbar />
                 <UserProfile />
+                <Footer />
               </Suspense>
             }
           ></Route>
