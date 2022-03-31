@@ -26,7 +26,6 @@ function Events() {
     };
     fetchEvents();
   }, []);
-  console.log(top10MostRecentEvents);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.topContent}>
