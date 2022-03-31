@@ -20,9 +20,6 @@ function LeftPanel({ firstName, lastName, courseName }) {
         <Link className={styles.btn} to="/mainApp/myEvents">
           My Events
         </Link>
-        <Link className={styles.btn} to="/mainApp/myJobs">
-          My Jobs
-        </Link>
       </div>
     </div>
   );
