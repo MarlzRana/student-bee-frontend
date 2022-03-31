@@ -15,10 +15,11 @@ function MySocieties() {
                 </div>
                 <h2>My Societies</h2>
                 <div className={styles.myContainer}>
-                    {/* <Content 
+                    <Content 
+                        contentType="society"
                         contentBg={placeholder}
                         contentTitle={"Noice"}
-                    /> */}
+                    />
                 </div>
             </div>
         </Suspense>
