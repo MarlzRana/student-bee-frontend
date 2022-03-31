@@ -103,8 +103,6 @@ function EventDetails() {
               window.confirm(res.data.reason);
             }
           } else if (res.data.status === "success") {
-            console.log("User participating: ");
-            console.log(res.data.reason.userIsPartOfEvent);
             if (res.data.reason.userIsPartOfEvent) {
               setJoinButtonMessage("Leave Event");
             } else {
@@ -142,7 +140,6 @@ function EventDetails() {
       }
       if (res.data.status === "failure") {
         if (res.data.reason === "invalidInputFormat") {
-          console.log(res);
         }
       }
     } catch (error) {
