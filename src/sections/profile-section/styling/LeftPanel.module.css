@@ -63,4 +63,12 @@
   .leftPanel .panelContents img {
     padding-right: 5px;
   }
+
+  .btn {
+    min-width: calc(100px + 5vw);
+  }
+
+  .btn:visited, .btn:link {
+    font-size: 0.75rem;
+  }
 }
