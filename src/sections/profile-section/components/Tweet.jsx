@@ -23,10 +23,8 @@ function Tweet(props) {
         payload
       )
         .then(function (res) {
-          // console.log(res);
           if (res.data.status === "success") {
             setLikeCount(res.data.likeCount);
-            console.log("Likes: " + res.data.likeCount);
           }
         })
         .catch(function (error) {
@@ -42,7 +40,6 @@ function Tweet(props) {
         payload
       )
         .then(function (res) {
-          // console.log(res);
           if (res.data.liked) {
             setIsLiked(true);
             setLikeID(res.data.likeID);
@@ -64,8 +61,6 @@ function Tweet(props) {
         const payload = {
           likeID: likeID,
         };
-        console.log("Unlike payload: ");
-        console.log(payload);
         const res = await Axios.post(
           process.env.REACT_APP_APIHOSTADDRESS + "/tweetsSystem/unlikeTweet",
           payload
@@ -73,16 +68,11 @@ function Tweet(props) {
         if (res.data.status === "success") {
           setIsLiked(false);
           setLastAction("unliked");
-          console.log(res);
-          console.log("success");
         }
         if (res.data.status === "failure") {
-          console.log(res);
           window.confirm("Something went wrong. Please try again later.");
-          console.log("failure");
         }
       } catch (error) {
-        console.log(error);
         window.confirm("Something went wrong. Please try again later.");
       }
     } else {
@@ -90,8 +80,6 @@ function Tweet(props) {
         const payload = {
           tweetID: tweetID,
         };
-        console.log("Like payload: ");
-        console.log(payload);
         const res = await Axios.post(
           process.env.REACT_APP_APIHOSTADDRESS + "/tweetsSystem/likeTweet",
           payload
@@ -99,17 +87,12 @@ function Tweet(props) {
         if (res.data.status === "success") {
           setIsLiked(true);
           setLastAction("liked");
-          console.log(res);
-          console.log("success");
           setLikeID(res.data.likeID);
         }
         if (res.data.status === "failure") {
-          console.log(res);
           window.confirm("Something went wrong. Please try again later.");
-          console.log("failure");
         }
       } catch (error) {
-        console.log(error);
         window.confirm("Something went wrong. Please try again later.");
       }
     }
