@@ -19,8 +19,6 @@
 }
 
 .middleCoverPic {
-  border-top: 5px solid white;
-  border-bottom: 5px solid white;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("./styling/feed-cover.jpg");
   background-size: cover;
@@ -53,4 +51,16 @@
 
 .right {
   flex: 0.75;
+}
+
+@media screen and (max-width: 321px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .left {
+    background-color: var(--medium-yellow);
+    justify-content: center;
+    align-items: center;
+  }
 }

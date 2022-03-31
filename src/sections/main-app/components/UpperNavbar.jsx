@@ -13,6 +13,7 @@ function UpperNavbar() {
       <nav className={styles.mainNavbar}>
         <div className={styles.leftSection}>
           <h1>StudentBee</h1>
+          <i className={styles.mainLogo}></i>
         </div>
         <div className={styles.rightSection}>
           <Link to='/' onClick={logoutUser}>

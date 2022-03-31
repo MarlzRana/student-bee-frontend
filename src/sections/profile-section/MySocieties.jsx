@@ -1,7 +1,7 @@
 import styles from "./MySections.module.css";
+import societyPicCollection from "../societies-page/components/societyPicCollection";
+import pic from "./components/DefaultProfilePic.png";
 import { Suspense, lazy, useState, useEffect } from "react";
-import placeholder from "../events-page/styling/bg.jpg";
-import pic from "./components/DefaultProfilePic.jpg";
 import Axios from "axios";
 
 const Content = lazy(() => import("./components/Content"));
@@ -71,7 +71,7 @@ function MySocieties() {
               return (
                 <Content
                   contentType="society"
-                  contentBg={placeholder}
+                  contentBg={societyPicCollection[(Math.floor(Math.random() * societyPicCollection.length))]}
                   contentID={society.societyID}
                   key={index}
                 />

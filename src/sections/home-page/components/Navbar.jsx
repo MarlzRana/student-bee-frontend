@@ -7,6 +7,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.leftSection}>
         <h1>StudentBee</h1>
+        <i className={styles.mainLogo}></i>
       </div>
       <div className={styles.rightSection}>
         <ul>

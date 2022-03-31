@@ -1,5 +1,5 @@
 import styles from "../styling/SearchResult.module.css";
-import placeholder from "../styling/placeholder.jpg";
+import eventPicCollection from "./eventPicCollection";
 import { Link } from "react-router-dom";
 
 function SearchResult({
@@ -12,7 +12,7 @@ function SearchResult({
   const destination = "/mainApp/events/viewEvent/" + eventID;
   return (
     <div className={styles.result}>
-      <img src={placeholder} alt="" />
+      <img src={eventPicCollection[(Math.floor(Math.random() * eventPicCollection.length))]} alt="event picture" />
       <div className={styles.resultDetails}>
         <ul>
           <Link className={styles.eventTitle} to={destination}>

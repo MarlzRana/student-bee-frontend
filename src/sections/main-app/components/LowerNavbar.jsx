@@ -30,12 +30,12 @@ function LowerNavbar() {
             <span className={styles.iconLabel}>Societies</span>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to='/mainApp/accommodation'>
             <i className={styles.aIcon}></i>
             <span className={styles.iconLabel}>Accommodation</span>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to='/mainApp/feedback'>
             <i className={styles.fIcon}></i>

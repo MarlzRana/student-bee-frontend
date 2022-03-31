@@ -8,9 +8,19 @@
 }
 
 .leftSection {
-  justify-self: flex-start;
+  display: flex;
+  align-items: center;
   margin-right: auto;
   margin-left: 1vw;
+}
+
+.mainLogo {
+  float: left;
+  background-image: url("./Logo.svg");
+  width: calc(30px + 2vmin);
+  height: calc(20px + 2vmin);
+  background-repeat: no-repeat;
+  background-size: calc(30px + 2vmin) calc(20px + 2vmin);
 }
 
 .leftSection > h1 {

@@ -22,6 +22,7 @@
 .tweet {
   display: flex;
   padding-bottom: 20px;
+  border-bottom: 1px solid white;
 }
 
 .tweetHeader {
@@ -42,10 +43,13 @@
 }
 
 .tweet img {
+  min-width: calc(10px + 7vmin);
   width: calc(10px + 7vmin);
+  max-width: calc(10px + 7vmin);
   height: calc(10px + 7vmin);
   border-radius: 50%;
   margin: calc(5px + 1.5vmin);
+  object-fit: cover;
 }
 
 .likeContainer {

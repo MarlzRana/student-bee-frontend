@@ -1,5 +1,5 @@
 import styles from "./SocietyDetails.module.css";
-import pic from "../profile-section/components/DefaultProfilePic.jpg";
+import pic from "../profile-section/components/DefaultProfilePic.png";
 import { Suspense, lazy, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";

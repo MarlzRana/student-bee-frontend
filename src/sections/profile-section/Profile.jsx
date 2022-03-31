@@ -87,9 +87,9 @@ function Home() {
           </div>
           <TweetUI tweetArray={recentTweets} />
         </div>
-        <div className={styles.right}>
+        {/* <div className={styles.right}>
           <NotificationPanel />
-        </div>
+        </div> */}
       </div>
     </Suspense>
   );

@@ -1,6 +1,6 @@
 import styles from "./Societies.module.css";
 import { Suspense, lazy, useState, useEffect } from "react";
-import img from "./styling/placeholder2.jpg";
+import societyPicCollection from "./components/societyPicCollection";
 import Axios from "axios";
 
 const Society = lazy(() => import("./components/Society"));
@@ -39,7 +39,7 @@ function Societies() {
               <Society
                 societyID={event.societyID}
                 societyName={event.societyName}
-                societyImage={img}
+                societyImage={societyPicCollection[(Math.floor(Math.random() * societyPicCollection.length))]}
                 key={index}
               />
             );

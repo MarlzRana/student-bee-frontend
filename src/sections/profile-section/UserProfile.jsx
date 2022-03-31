@@ -1,6 +1,6 @@
 import styles from "./UserProfile.module.css";
 import { Suspense, lazy, useState, useEffect } from "react";
-import DefaultProfilePic from "./components/DefaultProfilePic.jpg";
+import DefaultProfilePic from "./components/DefaultProfilePic.png";
 import { useParams, useNavigate } from "react-router-dom";
 import Axios from "axios";
 

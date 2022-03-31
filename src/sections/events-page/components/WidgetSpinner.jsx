@@ -1,6 +1,6 @@
 import styles from '../styling/WidgetSpinner.module.css';
-import img from '../styling/placeholder.jpg';
 import FloatingWidget from './FloatingWidget';
+import eventPicCollection from './eventPicCollection';
 
 function WidgetSpinner({ firstThreeEvents }) {
   return (
@@ -16,7 +16,7 @@ function WidgetSpinner({ firstThreeEvents }) {
                   eventID={event.eventID}
                   eventTitle={event.title}
                   eventDescription={event.description}
-                  image={img}
+                  image={eventPicCollection[(Math.floor(Math.random() * eventPicCollection.length))]}
                   key={index}
                 />
               </div>

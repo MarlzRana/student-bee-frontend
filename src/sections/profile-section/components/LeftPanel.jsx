@@ -1,5 +1,5 @@
 import styles from "../styling/LeftPanel.module.css";
-import profilePic from "./DefaultProfilePic.jpg";
+import profilePic from "./DefaultProfilePic.png";
 import { Link } from "react-router-dom";
 
 function LeftPanel({ firstName, lastName, courseName }) {

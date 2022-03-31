@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { Suspense, lazy, useState, useEffect } from "react";
 import styles from "./Events.module.css";
-import img from "./styling/placeholder.jpg";
+import eventPicCollection from "./components/eventPicCollection";
 
 const AddEventWidget = lazy(() => import("./components/AddEventWidget"));
 const WidgetSpinner = lazy(() => import("./components/WidgetSpinner"));
@@ -44,7 +44,7 @@ function Events() {
                 eventID={event.eventID}
                 eventTitle={event.title}
                 eventStartDateTime={event.startDateTime}
-                image={img}
+                image={eventPicCollection[(Math.floor(Math.random() * eventPicCollection.length))]}
                 key={index}
               />
             );
