@@ -32,6 +32,12 @@ function Jobs() {
         <div className={styles.searchContainer}><Search /></div>
         <div className={styles.jobsContainer}>
           <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
+          <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
+          <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
+          <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
+          <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
+          <JobWidget jobImage={jobPicCollection[(Math.floor(Math.random() * jobPicCollection.length))]}/>
+          
           {eightRandomJobs.map((job, index) => {
             return (
               <JobWidget
