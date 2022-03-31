@@ -66,14 +66,6 @@ function UserProfile() {
             <p>{userInformation.bio}</p>
           </div>
           <br />
-          <div className={styles.joinedSocieties}>
-            <h2>Societies</h2>
-            <ul>
-              <li>Gaming</li>
-              <li>Computer Science</li>
-              <li>Aerospace</li>
-            </ul>
-          </div>
         </div>
       </div>
     </Suspense>
