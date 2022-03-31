@@ -25,6 +25,8 @@
   border-width: calc(5px + 1px);
   padding-left: calc(1px + 3vmin);
   padding-right: calc(1px + 3vmin);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .header {
@@ -189,9 +191,9 @@
   }
 }
 
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 921px) {
   .addEventsWidget {
-    height: calc(690px + 10vh);
+    height: calc(450px + 10vh);
     margin-left: calc(1px + 1vmin);
     margin-right: calc(1px + 1vmin);
     top: -80px;
@@ -235,7 +237,7 @@
 @media only screen and (max-width: 450px) {
   .addEventsWidget {
     width: 100%;
-    height: calc(230px + 58vh);
+    height: calc(230px + 40vh);
     margin-left: calc(1px + 1vmin);
     margin-right: calc(1px + 1vmin);
     top: 0;
