@@ -8,7 +8,7 @@ function Content({ contentBg, contentTitle }) {
                 <img 
                     className={styles.contentImg}
                     src={contentBg}
-                    alt="" 
+                    alt={contentTitle}
                 />
                 <div className={styles.contentTitle}>{contentTitle}</div>
             </Link>
