@@ -59,7 +59,6 @@ function JobDetails() {
         payload
       )
         .then(function (res) {
-          console.log(res);
           if (res.data.status === "failure") {
             if (res.data.reason === "notLoggedIn") {
               routerNavigator("/loginSystem/login");
@@ -81,6 +80,16 @@ function JobDetails() {
     };
     fetchJobDetails();
   }, []);
+
+  const openLink = async (e) => {
+    e.preventDefault();
+    try {
+      window.open("https://" + jobInfo.applicationLink, "_blank");
+    } catch (error) {
+      window.confirm("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className={styles.details}>
@@ -88,7 +97,7 @@ function JobDetails() {
           <div className={styles.bannerText}>
             <h1>{jobInfo.jobTitle}</h1>
             <p>Start Date : {jobInfo.startDate}</p>
-            <button>Apply Now</button>
+            <button onClick={(e) => openLink(e)}>Apply Now</button>
           </div>
         </div>
         <div className={styles.jobDesc}>

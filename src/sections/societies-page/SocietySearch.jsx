@@ -9,8 +9,6 @@ function SocietySearch() {
   const routerNavigator = useNavigate();
   const query = useParams().result;
   const [newQuery, setNewQuery] = useState("");
-  console.log("Query:");
-  console.log(query);
   const [searchResults, setSearchResults] = useState([]);
   useEffect(() => {
     try {
@@ -19,7 +17,6 @@ function SocietySearch() {
         const payload = {
           query: query,
         };
-        console.log("just before the post request");
         const res = await Axios.post(
           process.env.REACT_APP_APIHOSTADDRESS + "/societiesSystem/search",
           payload
@@ -28,18 +25,12 @@ function SocietySearch() {
           if (res.data.reason === "notLoggedIn") {
             routerNavigator("/loginSystem/login");
           }
-          console.log("res.data.status = failure");
-          console.log(res);
         } else {
-          console.log(res.data);
           setSearchResults(res.data);
-          console.log("setSearchResults called");
         }
       };
       fetchResults();
     } catch (error) {
-      console.log("Total error");
-      console.log(error);
       window.confirm("Something went wrong. Please try again later.");
       routerNavigator("/mainApp/societies");
     }

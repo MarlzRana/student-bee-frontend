@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import styles from "../styling/EditSociety.module.css";
 import Axios from "axios";
 
@@ -8,6 +8,29 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
   const [enteredLink, setEnteredLink] = useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
   const [messageToDisplay, setMessageToDisplay] = useState("");
+
+  useEffect(() => {
+    const setInputs = async () => {
+      Axios.defaults.withCredentials = true;
+      const payload = {
+        societyID: societyID,
+      };
+      const res = await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS +
+          "/societiesSystem/getSocietyDetails",
+        payload
+      );
+      if (res.data.status === "failure") {
+        return;
+      }
+      setEnteredSocietyName(res.data.societyInformation.title);
+      setEnteredLeaderName(res.data.societyInformation.leaderName);
+      setEnteredDescription(res.data.societyInformation.description);
+      setEnteredLink(res.data.societyInformation.contactLinks);
+    };
+    setInputs();
+  }, []);
+
   const editSociety = async (e) => {
     e.preventDefault();
 
@@ -18,7 +41,6 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
       societyMainSocialLinkIn: enteredLink,
       societyDescriptionIn: enteredDescription,
     };
-    console.log(payload);
     try {
       const res = await Axios.post(
         process.env.REACT_APP_APIHOSTADDRESS +
@@ -26,17 +48,9 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
         payload
       );
       if (res.data.status === "success") {
-        setEnteredSocietyName("");
-        setEnteredDescription("");
-        setEnteredLeaderName("");
-        setEnteredLink("");
-
-        console.log(res);
         setMessageToDisplay("Your society was successfully edited");
-        console.log("success");
       }
       if (res.data.status === "failure") {
-        console.log(res);
         if (res.data.reason === "invalidInputFormat") {
           if (!res.data.validationCheckDetails.societyLeaderNameIn) {
             setMessageToDisplay("Please provide a name for the society leader");
@@ -48,7 +62,6 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
             );
           }
         }
-        console.log("failure");
       }
     } catch (error) {
       window.confirm("Something went wrong. Please try again later.");
@@ -69,6 +82,7 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
                 type="text"
                 name="enteredSocietyName"
                 id="SocietyName"
+                value={enteredSocietyName || ""}
                 onChange={(e) => setEnteredSocietyName(e.target.value)}
               />
             </div>
@@ -79,6 +93,7 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
               type="text"
               name="enteredLeaderName"
               id="enteredLeaderName"
+              value={enteredLeaderName || ""}
               onChange={(e) => setEnteredLeaderName(e.target.value)}
             />
           </div>
@@ -88,6 +103,7 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
               type="text"
               name="enteredLink"
               id="enteredLink"
+              value={enteredLink || ""}
               onChange={(e) => setEnteredLink(e.target.value)}
             />
           </div>
@@ -96,6 +112,7 @@ function EditSociety({ setIsEditSocietyShowing, societyID }) {
             <textarea
               name="enteredDescription"
               id="enteredDescription"
+              value={enteredDescription || ""}
               onChange={(e) => setEnteredDescription(e.target.value)}
             />
           </div>

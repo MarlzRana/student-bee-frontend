@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import styles from "../styling/EditEvent.module.css";
 import Axios from "axios";
 
@@ -14,6 +14,66 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
     useState("");
   const [enteredDescription, setEnteredDescription] = useState("");
   const [messageToShow, setMessageToShow] = useState("");
+
+  useEffect(() => {
+    const setInputs = async () => {
+      Axios.defaults.withCredentials = true;
+      const payload = {
+        eventID: eventID,
+      };
+      const res = await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS + "/eventsSystem/getEventDetails",
+        payload
+      );
+      if (res.data.status === "failure") {
+        return;
+      }
+      setEnteredContactEmail(res.data.eventInformation.contactEmail);
+      setEnteredContactPhoneNumber(
+        res.data.eventInformation.contactPhoneNumber
+      );
+      setEnteredDescription(res.data.eventInformation.description);
+      setEnteredLocation(res.data.eventInformation.location);
+      setEnteredOrganizerName(res.data.eventInformation.organizerName);
+      setEnteredTitle(res.data.eventInformation.title);
+
+      const currentStartDate = res.data.eventInformation.startDatetime;
+      const currentStart = currentStartDate.split("T");
+      const startDate = currentStart[0].split("-");
+      const startTime = currentStart[1].split(":");
+      const startdd = startDate[2];
+      const startmm = startDate[1];
+      const startyy = startDate[0];
+      const starthh = startTime[0];
+      const startmin = startTime[1];
+      const correctStartDate =
+        startyy +
+        "-" +
+        startmm +
+        "-" +
+        startdd +
+        "T" +
+        starthh +
+        ":" +
+        startmin;
+      setEnteredStartDateTime(correctStartDate);
+
+      const currentEndDate = res.data.eventInformation.endDatetime;
+      const currentEnd = currentEndDate.split("T");
+      const endDate = currentEnd[0].split("-");
+      const endTime = currentEnd[1].split(":");
+      const enddd = endDate[2];
+      const endmm = endDate[1];
+      const endyy = endDate[0];
+      const endhh = endTime[0];
+      const endmin = endTime[1];
+      const correctEndDate =
+        endyy + "-" + endmm + "-" + enddd + "T" + endhh + ":" + endmin;
+      setEnteredEndDateTime(correctEndDate);
+    };
+    setInputs();
+  }, []);
+
   const editEvent = async (e) => {
     e.preventDefault();
     const payload = {
@@ -35,14 +95,6 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
       );
       if (res.data.status === "success") {
         setMessageToShow("Success! Your event has been edited");
-        setEnteredTitle("");
-        setEnteredStartDateTime("");
-        setEnteredEndDateTime("");
-        setEnteredLocation("");
-        setEnteredOrganizerName("");
-        setEnteredContactEmail("");
-        setEnteredContactPhoneNumber("");
-        setEnteredDescription("");
       }
       if (res.data.status === "failure") {
         if (res.data.reason === "invalidInputFormat") {
@@ -69,6 +121,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
                 type="text"
                 name="enteredTitle"
                 id="enteredTitle"
+                value={enteredTitle || ""}
                 onChange={(e) => setEnteredTitle(e.target.value)}
                 required
               />
@@ -80,6 +133,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
               type="text"
               name="enteredLocation"
               id="enteredLocation"
+              value={enteredLocation || ""}
               onChange={(e) => setEnteredLocation(e.target.value)}
               required
             />
@@ -91,6 +145,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
                 type="datetime-local"
                 name="enteredStartDateTime"
                 id="enteredStartDateTime"
+                value={enteredStartDateTime || ""}
                 onChange={(e) => setEnteredStartDateTime(e.target.value)}
                 required
               />
@@ -102,6 +157,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
                 type="datetime-local"
                 name="enteredEndDateTime"
                 id="enteredEndDateTime"
+                value={enteredEndDateTime || ""}
                 onChange={(e) => setEnteredEndDateTime(e.target.value)}
                 required
               />
@@ -113,6 +169,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
               type="text"
               name="enteredOrganizerName"
               id="enteredOrganizerName"
+              value={enteredOrganizerName || ""}
               onChange={(e) => setEnteredOrganizerName(e.target.value)}
               required
             />
@@ -123,6 +180,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
               type="text"
               name="enteredContactEmail"
               id="enteredContactEmail"
+              value={enteredContactEmail || ""}
               onChange={(e) => setEnteredContactEmail(e.target.value)}
               required
             />
@@ -133,6 +191,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
               type="text"
               name="enteredContactPhoneNumber"
               id="enteredContactPhoneNumber"
+              value={enteredContactPhoneNumber || ""}
               onChange={(e) => setEnteredContactPhoneNumber(e.target.value)}
               required
             />
@@ -142,6 +201,7 @@ function EditEvent({ setIsEditEventShowing, eventID }) {
             <textarea
               name="enteredDescription"
               id="enteredDescription"
+              value={enteredDescription || ""}
               onChange={(e) => setEnteredDescription(e.target.value)}
               required
             />

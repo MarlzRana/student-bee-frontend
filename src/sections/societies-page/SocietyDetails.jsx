@@ -52,7 +52,6 @@ function SocietyDetails() {
     doesUserOwnSociety();
 
     const fetchSocietyDetails = async () => {
-      console.log(societyIDIn);
       const payload = {
         societyID: societyIDIn,
       };
@@ -107,8 +106,6 @@ function SocietyDetails() {
               window.confirm(res.data.reason);
             }
           } else if (res.data.status === "success") {
-            console.log("User participating: ");
-            console.log(res.data.reason.userIsPartOfSociety);
             if (res.data.reason.userIsPartOfSociety) {
               setJoinButtonMessage("Leave Society");
             } else {

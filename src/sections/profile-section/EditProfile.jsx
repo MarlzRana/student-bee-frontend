@@ -1,5 +1,5 @@
 import styles from "./EditProfile.module.css";
-import { Suspense, lazy, useState } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import Axios from "axios";
 
 const LeftPanel = lazy(() => import("./components/LeftPanel"));
@@ -23,6 +23,64 @@ function EditProfile() {
   const [enteredConfirmNewPassword, setEnteredConfirmNewPassword] =
     useState("");
 
+  useEffect(() => {
+    const setInputs = async () => {
+      Axios.defaults.withCredentials = true;
+      const res = await Axios.get(
+        process.env.REACT_APP_APIHOSTADDRESS + "/loginSystem/getCurrentUsername"
+      );
+      if (res.data.status === "failure") {
+        return;
+      }
+      setEnteredUsername(res.data.username);
+      const payload = {
+        username: res.data.username,
+      };
+      const res2 = await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS +
+          "/loginSystem/getPersonalInformation",
+        payload
+      );
+      if (res2.data.status === "failure") {
+        return;
+      }
+      setEnteredBio(res2.data.userInformation.bio);
+      setEnteredCourse(res2.data.userInformation.courseName);
+      setEnteredEmail(res2.data.userInformation.emailAddress);
+      setEnteredFirstName(res2.data.userInformation.firstName);
+      setEnteredLastName(res2.data.userInformation.lastName);
+      setEnteredUsername(res2.data.userInformation.username);
+
+      const dateIncorrectFormat = new Date(res2.data.userInformation.dob);
+      const year = dateIncorrectFormat.getFullYear();
+
+      if ((dateIncorrectFormat.getMonth() + 1).length < 2) {
+        const month = "" + (dateIncorrectFormat.getMonth() + 1);
+        if (dateIncorrectFormat.getDate().length < 2) {
+          const day = "" + dateIncorrectFormat.getDate();
+          const dateCorrectFormat = [year, month, day].join("-");
+          setEnteredDob(dateCorrectFormat);
+        } else {
+          const day = "0" + dateIncorrectFormat.getDate();
+          const dateCorrectFormat = [year, month, day].join("-");
+          setEnteredDob(dateCorrectFormat);
+        }
+      } else {
+        const month = "0" + (dateIncorrectFormat.getMonth() + 1);
+        if (dateIncorrectFormat.getDate().length < 2) {
+          const day = "" + dateIncorrectFormat.getDate();
+          const dateCorrectFormat = [year, month, day].join("-");
+          setEnteredDob(dateCorrectFormat);
+        } else {
+          const day = "0" + dateIncorrectFormat.getDate();
+          const dateCorrectFormat = [year, month, day].join("-");
+          setEnteredDob(dateCorrectFormat);
+        }
+      }
+    };
+    setInputs();
+  }, []);
+
   const updateProfile = async (e) => {
     e.preventDefault();
     const payload = {
@@ -44,7 +102,6 @@ function EditProfile() {
           payload
         );
         if (res.data.status == "failure") {
-          console.log(res);
           if (res.data.reason == "Invalid Input Format") {
             if (!res.data.validationCheckDetails.course) {
               setAlertMessage("Please specify your course");
@@ -94,6 +151,7 @@ function EditProfile() {
                   placeholder="150 characters limit"
                   name="enteredBio"
                   id="aboutMe"
+                  value={enteredBio || ""}
                   onChange={(e) => setEnteredBio(e.target.value)}
                 />
               </div>
@@ -104,6 +162,7 @@ function EditProfile() {
                   type="text"
                   name="enteredFirstName"
                   id="FirstName"
+                  value={enteredFirstName || ""}
                   onChange={(e) => setEnteredFirstName(e.target.value)}
                   required
                 />
@@ -115,6 +174,7 @@ function EditProfile() {
                   type="text"
                   name="enteredLastName"
                   id="LastName"
+                  defaultValue={enteredLastName || ""}
                   onChange={(e) => setEnteredLastName(e.target.value)}
                   required
                 />
@@ -125,6 +185,7 @@ function EditProfile() {
                   type="date"
                   name="enteredDob"
                   id="dob"
+                  value={enteredDob || ""}
                   onChange={(e) => setEnteredDob(e.target.value)}
                   required
                 />
@@ -151,6 +212,7 @@ function EditProfile() {
                   type="text"
                   name="enteredCourse"
                   id="course"
+                  value={enteredCourse || ""}
                   onChange={(e) => setEnteredCourse(e.target.value)}
                   required
                 />
@@ -164,6 +226,7 @@ function EditProfile() {
                   type="text"
                   name="enteredUsername"
                   id="username"
+                  value={enteredUsername || ""}
                   onChange={(e) => setEnteredUsername(e.target.value)}
                   required
                 />
@@ -175,6 +238,7 @@ function EditProfile() {
                   type="text"
                   name="enteredEmail"
                   id="email"
+                  value={enteredEmail || ""}
                   onChange={(e) => setEnteredEmail(e.target.value)}
                   required
                 />

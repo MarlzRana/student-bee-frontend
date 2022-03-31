@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import styles from "../styling/EditJob.module.css";
 import Axios from "axios";
 
@@ -13,6 +13,61 @@ function EditJob({ setIsEditJobShowing, jobID }) {
   const [enteredApplicationLink, setEnteredApplicationLink] = useState("");
   const [enteredJobDescription, setEnteredJobDescription] = useState("");
   const [messageToShow, setMessageToShow] = useState("");
+
+  useEffect(() => {
+    const setInputs = async () => {
+      Axios.defaults.withCredentials = true;
+      const payload = {
+        jobID: jobID,
+      };
+      const res = await Axios.post(
+        process.env.REACT_APP_APIHOSTADDRESS + "/jobsSystem/getJobDetails",
+        payload
+      );
+      if (res.data.status === "failure") {
+        return;
+      }
+      setEnteredApplicationLink(res.data.jobInformation.applicationLink);
+      setEnteredContactEmail(res.data.jobInformation.employerContactEmail);
+      setEnteredContactNumber(
+        res.data.jobInformation.employerContactPhoneNumber
+      );
+      setEnteredHours(res.data.jobInformation.workingHours);
+      setEnteredJobDescription(res.data.jobInformation.description);
+      setEnteredJobName(res.data.jobInformation.jobTitle);
+      setEnteredLocation(res.data.jobInformation.location);
+      setEnteredWage(res.data.jobInformation.wage);
+
+      const currentStartDate = res.data.jobInformation.startDate;
+      const currentStart = currentStartDate.split("/");
+      const startyy = currentStart[2];
+
+      if (currentStart[1].length < 2) {
+        const startmm = "0" + currentStart[1];
+        if (currentStart[0].length < 2) {
+          const startdd = "0" + currentStart[0];
+          const correctStartDate = startyy + "-" + startmm + "-" + startdd;
+          setEnteredDate(correctStartDate);
+        } else {
+          const startdd = currentStart[0];
+          const correctStartDate = startyy + "-" + startmm + "-" + startdd;
+          setEnteredDate(correctStartDate);
+        }
+      } else {
+        const startmm = currentStart[1];
+        if (currentStart[0].length < 2) {
+          const startdd = "0" + currentStart[0];
+          const correctStartDate = startyy + "-" + startmm + "-" + startdd;
+          setEnteredDate(correctStartDate);
+        } else {
+          const startdd = currentStart[0];
+          const correctStartDate = startyy + "-" + startmm + "-" + startdd;
+          setEnteredDate(correctStartDate);
+        }
+      }
+    };
+    setInputs();
+  }, []);
 
   const [messageToDisplay, setMessageToDisplay] = useState("");
   const editJob = async (e) => {
@@ -30,28 +85,15 @@ function EditJob({ setIsEditJobShowing, jobID }) {
       employerPhoneNumber: enteredContactNumber,
       link: enteredApplicationLink,
     };
-    console.log(payload);
     try {
       const res = await Axios.post(
         process.env.REACT_APP_APIHOSTADDRESS + "/jobsSystem/editJobDetails",
         payload
       );
       if (res.data.status === "success") {
-        setEnteredJobName("");
-        setEnteredWage("");
-        setEnteredHours("");
-        setEnteredDate("");
-        setEnteredContactNumber("");
-        setEnteredContactEmail("");
-        setEnteredApplicationLink("");
-        setEnteredJobDescription("");
-
-        console.log(res);
         setMessageToDisplay("Your job was successfully edited");
-        console.log("success");
       }
       if (res.data.status === "failure") {
-        console.log(res);
         if (res.data.reason === "invalidInputFormat") {
           if (!res.data.validationCheckDetails.societyLeaderNameIn) {
             setMessageToDisplay("Please provide a name for the society leader");
@@ -63,7 +105,6 @@ function EditJob({ setIsEditJobShowing, jobID }) {
             );
           }
         }
-        console.log("failure");
       }
     } catch (error) {
       window.confirm("Something went wrong. Please try again later.");
@@ -84,6 +125,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
                 type="text"
                 name="enteredJobName"
                 id="JobName"
+                value={enteredJobName || ""}
                 onChange={(e) => setEnteredJobName(e.target.value)}
               />
             </div>
@@ -94,6 +136,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="text"
               name="enteredWage"
               id="wage"
+              value={enteredWage || ""}
               onChange={(e) => setEnteredWage(e.target.value)}
             />
           </div>
@@ -103,6 +146,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="text"
               name="enteredHours"
               id="hoursPerWeek"
+              value={enteredHours || ""}
               onChange={(e) => setEnteredHours(e.target.value)}
             />
           </div>
@@ -112,6 +156,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="text"
               name="enteredLocation"
               id="location"
+              value={enteredLocation || ""}
               onChange={(e) => setEnteredLocation(e.target.value)}
             />
           </div>
@@ -121,6 +166,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="date"
               name="enteredDate"
               id="startDate"
+              value={enteredDate || ""}
               onChange={(e) => setEnteredDate(e.target.value)}
             />
           </div>
@@ -130,6 +176,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="text"
               name="enteredContactNumber"
               id="contactNo"
+              value={enteredContactNumber || ""}
               onChange={(e) => setEnteredContactNumber(e.target.value)}
             />
           </div>
@@ -139,6 +186,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="text"
               name="enteredContactEmail"
               id="contactEmail"
+              value={enteredContactEmail || ""}
               onChange={(e) => setEnteredContactEmail(e.target.value)}
             />
           </div>
@@ -148,6 +196,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
               type="text"
               name="enteredApplicationLink"
               id="appLink"
+              value={enteredApplicationLink || ""}
               onChange={(e) => setEnteredApplicationLink(e.target.value)}
             />
           </div>
@@ -156,6 +205,7 @@ function EditJob({ setIsEditJobShowing, jobID }) {
             <textarea
               name="enteredJobDescription"
               id="enteredDes"
+              value={enteredJobDescription || ""}
               onChange={(e) => setEnteredJobDescription(e.target.value)}
             />
           </div>
