@@ -116,6 +116,11 @@
   color: var(--medium-red);
 }
 
+.tos {
+  font-size: calc(1px + 2vmin);
+  width: 100%;
+}
+
 .submit {
   display: flex;
   flex-direction: column;
