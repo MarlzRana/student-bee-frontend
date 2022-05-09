@@ -44,7 +44,8 @@ function TweetUI() {
         payload
       );
       if (res.data.status === "success") {
-        setMostRecentlyAdded(payload);
+        // setMostRecentlyAdded(payload);
+        window.location.reload();
       }
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
@@ -63,7 +64,7 @@ function TweetUI() {
           onChange={(e) => setEnteredTweetContent(e.target.value)}
         />
         <button className={styles.tweetButton} onClick={(e) => addTweet(e)}>
-          Tweet
+          Buzz
         </button>
       </form>
       <div className={styles.feed}>
