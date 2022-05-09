@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styling/RegisterWidget.module.css';
+import tos from './TermsOfUse.pdf';
 import Axios from 'axios';
 
 function RegisterWidget() {
@@ -154,6 +155,9 @@ function RegisterWidget() {
         </div>
         <div className={styles.errorMessage}>
           <p>{messageToShow}</p>
+        </div>
+        <div className={styles.tos}>
+          Please read and agree to the <a href={tos} target="_blank">Terms and Conditions</a> before registering.
         </div>
         <div className={styles.submit}>
           <input
