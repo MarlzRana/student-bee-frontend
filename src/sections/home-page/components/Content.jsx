@@ -64,15 +64,6 @@ function HomePageContent() {
             </div>
             <div className={styles.feature}>
               <img
-                src={accomIcon}
-                className={styles.icon}
-                alt='accommodation icon'
-              />
-              <h2>Accommodation</h2>
-              <p>It is never too late to get a comfy home</p>
-            </div>
-            <div className={styles.feature}>
-              <img
                 src={feedbackIcon}
                 className={styles.icon}
                 alt='feedback icon'

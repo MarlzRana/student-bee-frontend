@@ -108,7 +108,7 @@
 
 .topLeft {
   font-size: calc(5px + 2vmin);
-  text-shadow: 2px 2px 5px white;
+  text-shadow: 1px 1px 4px white;
   position: absolute;
   top: 50%;
   left: 25%;
