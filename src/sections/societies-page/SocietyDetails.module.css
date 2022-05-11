@@ -85,8 +85,8 @@
 }
 
 .buttonGroup {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   padding-bottom: 10px;
 }
 
