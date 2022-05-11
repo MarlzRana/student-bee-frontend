@@ -21,6 +21,7 @@ function Events() {
       if (res.data.status === "failure") {
         window.confirm("Something went wrong. Please try again later.");
       }
+      console.log(res.data);
       setTop10MostRecentEvents(res.data.events);
     };
     fetchEvents();
@@ -30,7 +31,7 @@ function Events() {
       <div className={styles.topContent}>
         <h1 className={styles.title}>Events</h1>
         <div className={styles.widgetSpinner}>
-          <WidgetSpinner firstThreeEvents={top10MostRecentEvents.slice(3)} />
+          <WidgetSpinner firstThreeEvents={top10MostRecentEvents.slice(0, 3)} />
         </div>
       </div>
       <div className={styles.search}>
@@ -38,13 +39,17 @@ function Events() {
       </div>
       <div className={styles.lowerContent}>
         <div className={styles.eventsList}>
-          {top10MostRecentEvents.slice(4).map((event, index) => {
+          {top10MostRecentEvents.slice(0, 7).map((event, index) => {
             return (
               <YellowWidget
                 eventID={event.eventID}
                 eventTitle={event.title}
                 eventStartDateTime={event.startDateTime}
-                image={eventPicCollection[(Math.floor(Math.random() * eventPicCollection.length))]}
+                image={
+                  eventPicCollection[
+                    Math.floor(Math.random() * eventPicCollection.length)
+                  ]
+                }
                 key={index}
               />
             );
