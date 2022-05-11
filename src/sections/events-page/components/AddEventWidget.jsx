@@ -44,6 +44,9 @@ function AddEventWidget({ setIsAddEventWidgetShowing }) {
       }
       if (res.data.status === "failure") {
         if (res.data.reason === "invalidInputFormat") {
+          console.log(enteredStartDateTime);
+          console.log(enteredEndDateTime);
+          console.log(res.data);
           setMessageToShow("Invalid inputs");
         }
       }
